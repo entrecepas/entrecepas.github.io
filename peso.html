@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cuánto pesa este racimo? · Entre cepas</title>
+<meta name="description" content="¿Cuánto pesa este racimo? Un racimo, una foto y una pregunta: ¿cuántos gramos crees que pesa?">
+<meta name="author" content="Rubén Iñiguez Mangado">
+<meta name="theme-color" content="#54081F">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Entre cepas"><meta property="og:title" content="¿Cuánto pesa este racimo? · Entre cepas"><meta property="og:description" content="¿Cuánto pesa este racimo? Un racimo, una foto y una pregunta: ¿cuántos gramos crees que pesa?"><meta property="og:image" content="img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="¿Cuánto pesa este racimo? · Entre cepas"><meta name="twitter:description" content="¿Cuánto pesa este racimo? Un racimo, una foto y una pregunta: ¿cuántos gramos crees que pesa?"><meta name="twitter:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 14V4h10M34 4h10v10M44 34v10H34M14 44H4V34" fill="none" stroke="#54081F" stroke-width="4"/><g fill="#54081F"><circle cx="17" cy="16" r="4.5"/><circle cx="27" cy="16" r="4.5"/><circle cx="22" cy="23" r="4.5"/><circle cx="32" cy="23" r="4.5"/><circle cx="17" cy="30" r="4.5"/><circle cx="27" cy="30" r="4.5"/><circle cx="22" cy="37" r="4.5"/></g><path d="M22 12c0-4 2-6 5-7" fill="none" stroke="#5E6619" stroke-width="3" stroke-linecap="round"/></svg><span>Entre cepas</span></a>
+    <button type="button" class="btn secundario nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><button type="button" class="sub-toggle" id="sub-toggle" aria-expanded="false" aria-controls="sub-menu" data-activo="1">Juegos<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="sub-menu" hidden><li><a href="juegos.html">Ver todos los juegos</a></li><li><a href="racimos.html">¿Cuántos racimos hay?</a></li><li><a href="mildiu.html">¿Mildiu o no?</a></li><li><a href="peso.html" aria-current="page">¿Cuánto pesa este racimo? <span class="sr-only">(próximamente)</span></a></li><li><a href="enfermedades.html">¿Qué enfermedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="variedades.html">¿Qué variedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="fases.html">¿En qué fase está la vid?</a></li><li><a href="sed.html">¿Qué cepa tiene sed? <span class="sr-only">(próximamente)</span></a></li><li><a href="color.html">Colores que no vemos <span class="sr-only">(próximamente)</span></a></li></ul></li><li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu">Laboratorio<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="lab-menu" hidden><li><a href="laboratorio.html">Cómo funciona</a></li><li><a href="laboratorio-racimos.html">Contar racimos con IA</a></li><li><a href="laboratorio-mildiu.html">Detectar mildiu con IA</a></li></ul></li><li><a href="ciencia.html">La ciencia</a></li><li><a href="guia-didactica.html">Docentes</a></li><li><a href="creditos.html">Créditos</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="cabecera-pagina"><div class="wrap"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 40h32M24 10v30M12 16h24" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16l-6 12h12zM36 16l-6 12h12z" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><span class="chip">Estimar</span><h1>¿Cuánto pesa este racimo?</h1><p class="lead">Un racimo, una foto y una pregunta: ¿cuántos gramos crees que pesa?</p></div></div></div>
+<section class="bloque"><div class="wrap narrow capas">
+  <h2>El problema</h2><p>Contar racimos no basta para prever la cosecha: también importa cuánto pesa cada uno. Pesarlos a mano es lento y obliga a cortar el racimo.</p>
+  
+  <h2>Lo que dice la investigación</h2><p>Un estudio analizó imágenes de 359 racimos de Cabernet-Sauvignon con distintos riegos y extrajo 13 medidas de forma. Con un modelo de regresión por pasos, el área, el perímetro y la circularidad predijeron el peso (R² ajustado = 0,824), con desviaciones en los racimos más grandes (Poblete-Echeverría et al., 2025).</p>
+  <div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/peso_01_balanza_laboratorio.webp"><img src="img/fotos/peso_01_balanza_laboratorio.jpg" alt="Un racimo de uva tinta sobre una balanza de laboratorio, con el peso visible en la pantalla." width="1000" height="747" loading="lazy"></picture><figcaption>Pesar un racimo en el laboratorio: el dato que luego se intenta estimar solo con una foto. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/produccion_09_cinco_racimos_tamanos.webp"><img src="img/fotos/produccion_09_cinco_racimos_tamanos.jpg" alt="Cinco racimos de uva tinta de distintos tamaños, colocados en fila sobre un papel." width="750" height="1000" loading="lazy"></picture><figcaption>Cada racimo es distinto: tamaño, forma y peso. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+  <h2>De la foto al peso</h2>
+  <p>El método fotografía cada racimo sobre un fondo claro con una referencia de tamaño conocido, mide su silueta (área, perímetro, circularidad…) con un programa y la relaciona con el peso real del racimo en una balanza (Poblete-Echeverría et al., 2025).</p>
+  <figure class="foto-caja foto-ancha"><picture><source type="image/webp" srcset="img/contexto/fig_peso_ec.webp"><img src="img/contexto/fig_peso_ec.jpg" alt="Esquema de tres pasos: 1, pesar el racimo en una balanza; 2, fotografiarlo sobre un fondo claro con una referencia de tamaño de 5 centímetros; 3, medir la forma de su silueta (área, perímetro y circularidad) para estimar el peso." width="1400" height="520" loading="lazy"></picture><figcaption>El flujo de trabajo: pesar el racimo, fotografiarlo y medir su forma para estimar su peso. <span class="cred">Elaboración propia a partir de Poblete-Echeverría et al. (2025).</span></figcaption></figure>
+  <div class="caja discontinua"><h3>Así será el juego</h3><p>Verás un racimo, estimarás su peso y lo compararás con el real.</p></div>
+  <h2 style="margin-top:2rem">Para saber más</h2><ul class="refs"><li>Poblete-Echeverría, C., Berry, A., Venter, T., Velez, S., Gonzalez Pavez, M. I. e Íñiguez, R. (2025). Morphological image analysis for estimating grape bunch weight under different irrigation regimes in Cabernet-Sauvignon. <em>OENO One</em>, 59(2). <a href="https://doi.org/10.20870/oeno-one.2025.59.2.9309">doi:10.20870/oeno-one.2025.59.2.9309</a></li></ul>
+  <p class="vol"><a class="btn secundario" href="juegos.html">Ver todos los retos</a> <a class="btn" href="racimos.html">Jugar ahora a otro reto</a></p>
+</div></section><section class="bloque guia-barra" aria-label="Para docentes"><div class="wrap"><p>¿Eres docente? <a href="guias/guia_peso_del_racimo.pdf" download>Descarga la guía didáctica de este tema (PDF)</a> o <a href="guia-didactica.html">mira todas las guías</a>.</p></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div><p><strong>Entre cepas</strong> · Tú contra la IA en el viñedo</p>
+      <p>Divulgación basada en investigación de la <a href="https://www.unirioja.es/">Universidad de La Rioja</a> y del <a href="https://www.icvv.es/">Instituto de Ciencias de la Vid y del Vino (ICVV)</a>. Obra de Rubén Iñiguez Mangado.</p></div>
+    <div><p><strong>Licencia</strong></p>
+      <p>Contenidos bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>. Código bajo licencia MIT. Detalles en <a href="creditos.html">Créditos</a>.</p></div>
+    <div><p><strong>Más información</strong></p>
+      <ul><li><a href="ciencia.html">La ciencia detrás</a></li><li><a href="creditos.html">Créditos y licencias</a></li><li><a href="accesibilidad.html">Declaración de accesibilidad</a></li><li><a href="lenguaje-sencillo.html">En lenguaje sencillo</a></li><li><a href="guia-didactica.html">Guía didáctica para docentes</a></li></ul>
+      <p class="pie-compartir"><button type="button" class="btn secundario" data-compartir>Compartir esta web</button></p></div>
+  </div>
+</footer>
+</body>
+</html>

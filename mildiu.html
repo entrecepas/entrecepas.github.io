@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Mildiu o no? · Entre cepas</title>
+<meta name="description" content="Reto interactivo: decide si diez imágenes de viñedo tienen mildiu y aprende qué síntomas buscar, con imágenes reales de investigación.">
+<meta name="author" content="Rubén Iñiguez Mangado">
+<meta name="theme-color" content="#54081F">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Entre cepas"><meta property="og:title" content="¿Mildiu o no? · Entre cepas"><meta property="og:description" content="Reto interactivo: decide si diez imágenes de viñedo tienen mildiu y aprende qué síntomas buscar, con imágenes reales de investigación."><meta property="og:image" content="img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="¿Mildiu o no? · Entre cepas"><meta name="twitter:description" content="Reto interactivo: decide si diez imágenes de viñedo tienen mildiu y aprende qué síntomas buscar, con imágenes reales de investigación."><meta name="twitter:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script><script src="data/mildiu.js" defer></script><script src="data/comparativas_fotos.js" defer></script><script src="js/comparativas_iconos.js" defer></script><script src="js/comparativas.js" defer></script><script src="js/vs.js" defer></script><script src="js/mildiu.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 14V4h10M34 4h10v10M44 34v10H34M14 44H4V34" fill="none" stroke="#54081F" stroke-width="4"/><g fill="#54081F"><circle cx="17" cy="16" r="4.5"/><circle cx="27" cy="16" r="4.5"/><circle cx="22" cy="23" r="4.5"/><circle cx="32" cy="23" r="4.5"/><circle cx="17" cy="30" r="4.5"/><circle cx="27" cy="30" r="4.5"/><circle cx="22" cy="37" r="4.5"/></g><path d="M22 12c0-4 2-6 5-7" fill="none" stroke="#5E6619" stroke-width="3" stroke-linecap="round"/></svg><span>Entre cepas</span></a>
+    <button type="button" class="btn secundario nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><button type="button" class="sub-toggle" id="sub-toggle" aria-expanded="false" aria-controls="sub-menu" data-activo="1">Juegos<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="sub-menu" hidden><li><a href="juegos.html">Ver todos los juegos</a></li><li><a href="racimos.html">¿Cuántos racimos hay?</a></li><li><a href="mildiu.html" aria-current="page">¿Mildiu o no?</a></li><li><a href="peso.html">¿Cuánto pesa este racimo? <span class="sr-only">(próximamente)</span></a></li><li><a href="enfermedades.html">¿Qué enfermedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="variedades.html">¿Qué variedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="fases.html">¿En qué fase está la vid?</a></li><li><a href="sed.html">¿Qué cepa tiene sed? <span class="sr-only">(próximamente)</span></a></li><li><a href="color.html">Colores que no vemos <span class="sr-only">(próximamente)</span></a></li></ul></li><li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu">Laboratorio<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="lab-menu" hidden><li><a href="laboratorio.html">Cómo funciona</a></li><li><a href="laboratorio-racimos.html">Contar racimos con IA</a></li><li><a href="laboratorio-mildiu.html">Detectar mildiu con IA</a></li></ul></li><li><a href="ciencia.html">La ciencia</a></li><li><a href="guia-didactica.html">Docentes</a></li><li><a href="creditos.html">Créditos</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="cabecera-pagina"><div class="wrap"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6c8 4 15 4 18 9-1 8 1 12-4 17-3 5-8 8-14 12-6-4-11-7-14-12-5-5-3-9-4-17 3-5 10-5 18-9z" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="22" r="3.5" fill="#E07A10"/><circle cx="29" cy="28" r="2.5" fill="#E07A10"/><circle cx="22" cy="32" r="2" fill="#E07A10"/></svg></span><div><span class="chip"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6c8 4 15 4 18 9-1 8 1 12-4 17-3 5-8 8-14 12-6-4-11-7-14-12-5-5-3-9-4-17 3-5 10-5 18-9z" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="22" r="3.5" fill="#E07A10"/><circle cx="29" cy="28" r="2.5" fill="#E07A10"/><circle cx="22" cy="32" r="2" fill="#E07A10"/></svg>Detectar</span><h1>¿Mildiu o no?</h1><p class="lead">Diez imágenes de viñedo. Decide si hay mildiu, como lo haría una persona experta.</p></div></div></div>
+<section class="bloque" aria-labelledby="antes">
+  <div class="wrap capas">
+    <h2 id="antes">Antes de jugar: el problema</h2>
+    <p class="lead">El <button type="button" class="term" aria-expanded="false" aria-controls="g7">mildiu</button><span class="gloss" id="g7" hidden><strong>Mildiu:</strong> Enfermedad de la vid causada por un organismo parecido a un hongo (Plasmopara viticola). Se ve como manchas amarillentas, «de aceite», en el haz de las hojas.</span> (<em>Plasmopara viticola</em>) es una de las enfermedades más destructivas de la vid (Gessler et al., 2011; Poblete-Echeverría et al., 2025). Detectarlo a tiempo permite tratar justo cuando hace falta y evitar pérdidas.</p>
+    <details>
+      <summary>Qué es el mildiu</summary>
+      <div><div class="duo"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_05_cepa_completa_con_manchas.webp"><img src="img/fotos/mildiu_05_cepa_completa_con_manchas.jpg" alt="Cepa con hojas verdes y varias hojas amarillentas con manchas, en un viñedo." width="900" height="1200" loading="lazy"></picture><figcaption>Una cepa con mildiu: las manchas aparecen repartidas entre las hojas. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure>
+      <div><p>El mildiu lo causa <em>Plasmopara viticola</em>, un microorganismo parecido a un hongo (un oomiceto) que vive dentro de los tejidos verdes de la vid, y que se propaga con tiempo húmedo y templado (Gessler et al., 2011). Es una de las enfermedades más destructivas de las zonas vitivinícolas: reduce la cosecha y la calidad de la uva (Poblete-Echeverría et al., 2025).</p>
+      <p>Puede afectar a hojas, brotes y racimos.</p></div></div></div>
+    </details>
+    <details>
+      <summary>Qué es una mancha de aceite</summary>
+      <div><div class="duo"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_01_hoja_mancha_aceite_en_mano.webp"><img src="img/fotos/mildiu_01_hoja_mancha_aceite_en_mano.jpg" alt="Una mano sostiene una hoja de vid con zonas amarillentas y translúcidas." width="900" height="1200" loading="lazy"></picture><figcaption>Manchas de aceite en el haz de una hoja. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure>
+      <div><p>Es el síntoma más reconocible en el haz de la hoja: una zona amarillenta y como translúcida, parecida a una gota de aceite sobre papel. Con el tiempo, el tejido se oscurece y se seca (Gessler et al., 2011; Hernández et al., 2024).</p></div></div>
+      <div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_19_mancha_aceite_primer_plano.webp"><img src="img/fotos/mildiu_19_mancha_aceite_primer_plano.jpg" alt="Primer plano de una hoja de vid verde con una mancha amarillenta redonda, rodeada de otras hojas con gotas de agua." width="988" height="904" loading="lazy"></picture><figcaption>Una mancha de aceite en primer plano, en una hoja de la cepa. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_03_hojas_manchas_aceite_amarillas.webp"><img src="img/fotos/mildiu_03_hojas_manchas_aceite_amarillas.jpg" alt="Hojas de vid con manchas amarillas, algunas con el centro pardo." width="900" height="1200" loading="lazy"></picture><figcaption>Varias manchas en la misma cepa. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_15_hoja_necrosis_avanzada.webp"><img src="img/fotos/mildiu_15_hoja_necrosis_avanzada.jpg" alt="Hoja de vid con grandes zonas amarillas y pardas, con el tejido seco." width="900" height="1200" loading="lazy"></picture><figcaption>Mildiu avanzado: el tejido se seca y se rompe. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div></div>
+    </details>
+    <details>
+      <summary>La pelusilla blanca: esporulación</summary>
+      <div><div class="duo"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_17_hoja_enves_esporulacion_en_mano.webp"><img src="img/fotos/mildiu_17_hoja_enves_esporulacion_en_mano.jpg" alt="Una mano sostiene una hoja de vid dada la vuelta, con una película blanquecina en el envés." width="900" height="1200" loading="lazy"></picture><figcaption>El envés de una hoja con mildiu, con la película blanquecina. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure>
+      <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Gessler et al., 2011; Hernández et al., 2024).</p></div></div>
+      <figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/ia_mildiu_hoja_haz_enves.webp"><img src="img/fotos/ia_mildiu_hoja_haz_enves.jpg" alt="Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas." width="1000" height="671" loading="lazy"></picture><figcaption>Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha). <span class="cred">Imagen ilustrativa a partir de fotografías del archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+    </details>
+    <details>
+      <summary>El mildiu también ataca a los racimos</summary>
+      <div><div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_04_racimo_joven_afectado.webp"><img src="img/fotos/mildiu_04_racimo_joven_afectado.jpg" alt="Racimo joven con bayas verdes y partes marchitas de color oscuro." width="900" height="1200" loading="lazy"></picture><figcaption>Un racimo joven afectado. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/mildiu_06_racimo_afectado_en_cepa.webp"><img src="img/fotos/mildiu_06_racimo_afectado_en_cepa.jpg" alt="Racimo de bayas verdes con zonas secas y oscuras, colgando de la cepa." width="900" height="1200" loading="lazy"></picture><figcaption>En la cepa, algunas partes del racimo se secan. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+      <p>Además de las hojas, la enfermedad puede afectar a los racimos jóvenes (Gessler et al., 2011). Este reto se centra en las hojas: detectar sus síntomas es clave porque suelen ser la primera señal de la enfermedad (Hernández et al., 2024).</p></div>
+    </details>
+    <details>
+      <summary>Qué síntomas buscar</summary>
+      <div><div class="duo"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/mildiu/det_inicial.webp"><img src="img/mildiu/det_inicial.jpg" alt="Detalle de hojas de vid con manchas pequeñas, pálidas y amarillentas." width="570" height="514" loading="lazy"></picture><figcaption>Primeras manchas: pequeñas, pálidas y fáciles de confundir con otros cambios de color.</figcaption></figure>
+      <p>Al principio las manchas son muy pequeñas y muy pálidas, por eso cuesta tanto verlas entre tantas hojas (Hernández et al., 2024). Detectar los síntomas en las hojas es clave porque suelen ser la primera señal de la enfermedad. En el juego, al responder verás marcadas las zonas con mildiu.</p></div></div>
+    </details>
+    <details>
+      <summary>No confundir: el oídio</summary>
+      <div><div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/oidio_01_hoja_haz_en_mano.webp"><img src="img/fotos/oidio_01_hoja_haz_en_mano.jpg" alt="Una mano sostiene una hoja de vid con una capa blanquecina difusa en la superficie." width="900" height="1200" loading="lazy"></picture><figcaption>Oídio en una hoja. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/oidio_04_racimo_bayas_verdes.webp"><img src="img/fotos/oidio_04_racimo_bayas_verdes.jpg" alt="Racimo de bayas verdes con aspecto polvoriento, grisáceo." width="900" height="1200" loading="lazy"></picture><figcaption>Oídio en un racimo. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/oidio_06_bayas_detalle_polvo_a.webp"><img src="img/fotos/oidio_06_bayas_detalle_polvo_a.jpg" alt="Bayas verdes en detalle, cubiertas por un polvillo grisáceo." width="900" height="1200" loading="lazy"></picture><figcaption>Detalle del polvillo sobre las bayas. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+      <p>El oídio (<em>Erysiphe necator</em>) es otra enfermedad importante de la vid, causada por un hongo. Se reconoce por un polvillo ceniciento en hojas y racimos (Gadoury et al., 2012). No es lo mismo que el mildiu, y distinguirlas bien forma parte del trabajo de quien vigila el viñedo.</p></div>
+    </details>
+    <details>
+      <summary>Cómo se hacía</summary>
+      <div><p>Tradicionalmente, una persona experta recorre el viñedo y mira las hojas, o se hacen análisis en laboratorio. Es un método laborioso, subjetivo y que exige personal cualificado (Hernández et al., 2021; 2024).</p></div>
+    </details>
+    <details>
+      <summary>Cómo se hace ahora</summary>
+      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas (red U-Net con codificador MobileViT-S) alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
+    </details>
+    <details>
+      <summary>Los límites</summary>
+      <div><p>Los síntomas iniciales son diminutos, la luz cambia de una foto a otra y algunas hojas con colores raros se parecen al mildiu. Los propios artículos presentan estos resultados como prometedores, no como un problema resuelto, y hablan de validar en condiciones reales (Hernández et al., 2024; 2025).</p></div>
+    </details>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="juega">
+  <div class="wrap juego-mildiu">
+    <h2 id="juega">Ahora te toca a ti</h2>
+    <div id="juego-intro">
+      <ol class="tres">
+        <li><h3>Mira</h3><p>Verás 10 imágenes del viñedo: algunas sanas, otras con mildiu y otras que engañan.</p></li>
+        <li><h3>Decide</h3><p>Pulsa «Con mildiu» o «Sin mildiu».</p></li>
+        <li><h3>Aprende</h3><p>Después de cada imagen, te explicamos qué había y qué síntomas mirar.</p></li>
+      </ol>
+      <div class="modo"><input type="checkbox" id="modo-guia" aria-describedby="modo-guia-ayuda"><label for="modo-guia"><strong>Recorrido guiado sin imágenes</strong></label></div>
+      <p class="ayuda" id="modo-guia-ayuda">Para quien no puede ver las imágenes: en lugar de jugar, repasas 10 casos con una descripción en texto y su resultado. Las descripciones son generales para cada tipo de caso.</p>
+      <p><button type="button" class="btn grande" id="empezar">Empezar la ronda</button></p>
+      <p class="nota">Sin límite de tiempo, pero se cuenta cuánto tardas por imagen para compararte con la IA al final. No se guarda nada fuera de tu navegador.</p>
+    </div>
+
+    <div id="juego-juego" hidden>
+      <div class="juego-cab"><span class="progreso" id="progreso"></span><span class="reloj" aria-hidden="true">Tiempo: <span id="reloj">0:00</span></span><span class="progreso-barra" id="progreso-barra" aria-hidden="true"></span></div>
+      <h3 id="titulo-caso"></h3>
+      <p id="pregunta"></p>
+      <figure class="figura-juego" id="figura"><span class="lienzo-m" id="lienzo-m"><span id="img-caso"></span></span><figcaption class="sr-only" id="cap-manchas"></figcaption></figure>
+      <p class="ctl-manchas" id="ctl-manchas" hidden><button type="button" class="btn secundario" id="ver-manchas" aria-pressed="true">Ocultar manchas marcadas</button> <span class="nota" id="leyenda-manchas">Las zonas rodeadas con línea discontinua las marcaron a mano las personas que etiquetaron la imagen; no es una predicción de la IA.</span></p>
+      <div class="botones-resp" id="botones-resp">
+        <button type="button" class="btn btn-dash" id="resp-sin">Sin mildiu</button>
+        <button type="button" class="btn" id="resp-con">Con mildiu</button>
+      </div>
+      <div class="resultado-paso" id="feedback" hidden>
+        <p class="num" id="fb-titulo"></p><p id="fb-texto"></p><p id="fb-pista" class="nota"></p><p class="estado-ia" id="fb-ia" hidden></p>
+      </div>
+      <p><button type="button" class="btn grande" id="siguiente" hidden>Siguiente imagen</button></p>
+    </div>
+
+    <div id="juego-fin" hidden>
+      <h3 id="titulo-final">Resultado de la ronda</h3>
+      <div class="final-grid"><div class="dato"><span class="grande" id="f-aciertos"></span><span id="f-aciertos-txt"></span></div></div>
+      <p id="f-leve"></p>
+      <div class="tabla-wrap"><table class="tabla"><caption>Resultados por tipo de imagen</caption>
+        <thead><tr><th scope="col">Tipo</th><th scope="col">Imágenes</th><th scope="col">Aciertos</th></tr></thead><tbody id="tabla-cuerpo"></tbody></table></div>
+      <div id="bloque-vs"><h4 class="sub-res">¿Y la rapidez?</h4>
+      <ul class="tiempos" id="f-tiempos" aria-label="Comparación de tiempos"></ul>
+      <div class="vs" id="f-vs">
+        <div class="vs-txt" id="f-vs-txt"></div>
+        <figure class="vs-foto" id="f-vs-foto" hidden><div class="vs-ico" id="f-vs-ico" hidden></div><img id="f-vs-img" alt="" loading="lazy" width="600" height="400" hidden><figcaption id="f-vs-cap"></figcaption></figure>
+      </div>
+      <p class="aviso-ia" id="f-aviso"></p></div>
+      <p class="nota" id="f-mejor"></p>
+      <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
+      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="racimos.html">Ir al reto de los racimos</a></p>
+    </div>
+    <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="despues">
+  <div class="wrap">
+    <h2 id="despues">Después de jugar: qué hemos aprendido</h2>
+    <ol class="ideas">
+      <li><p><strong>Detectar pronto es lo difícil.</strong></p><p>Las manchas iniciales son diminutas y se pierden entre las hojas. Si te costaron, estás en buena compañía: es el reto de la investigación.</p></li>
+      <li><p><strong>No todo lo que cambia de color es mildiu.</strong></p><p>Una IA, como una persona, puede confundir síntomas parecidos; por eso se entrena con muchos ejemplos etiquetados por personas expertas.</p></li>
+      <li><p><strong>La IA ayuda a mirar, la persona decide.</strong></p><p>Localizar los síntomas en todo el viñedo permite tratar solo donde hace falta, pero hay que validar los resultados en campo.</p></li>
+    </ol>
+    <div class="caja" style="margin-top:2rem"><h3>Qué no hemos hecho aquí</h3>
+      <p>En este reto no se ejecuta ningún modelo de IA: las imágenes y su etiqueta proceden del trabajo de las personas que las recogieron y etiquetaron, y los porcentajes de acierto de arriba son los que publican los artículos con sus propios datos de prueba, no los de estas imágenes.</p></div>
+    <p style="margin-top:1.5rem"><a class="btn" href="juegos.html#proximos">Ver los próximos retos</a></p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="saber">
+  <div class="wrap capas">
+    <h2 id="saber">Para saber más</h2>
+    <p class="lead"><strong>Investigación y datos: Hernández et al.</strong></p>
+    <details><summary>¿Y cómo se estudia el mildiu en el laboratorio?</summary>
+      <div><p>Antes de salir al campo, las investigadoras de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> inocularon discos de hoja de vid con el patógeno y los fotografiaron día tras día. Así se puede ver cuándo aparecen los primeros síntomas y entrenar a la IA con ejemplos controlados (Hernández et al., 2024). Con ese aprendizaje, el modelo ya puede mirar una foto de campo:</p>
+      <figure class="foto-caja foto-ancha"><picture><source type="image/webp" srcset="img/contexto/fig_mapa_ec.webp"><img src="img/contexto/fig_mapa_ec.jpg" alt="Tres imágenes de la misma cepa con hojas: la foto, una máscara en la que las zonas que la IA da por enfermas aparecen en rosa sobre fondo oscuro, y la foto con esas zonas superpuestas, sobre todo en dos hojas con manchas." width="1400" height="480" loading="lazy"></picture><figcaption>La IA no responde «sano» o «enfermo» para toda la foto: dibuja, zona a zona, dónde cree que hay mildiu. <span class="cred">Elaboración propia a partir de Hernández et al. (2024), con una fotografía del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.</span></figcaption></figure>
+      <p>Fíjate en que marca las zonas con manchas, y en que al principio apenas hay nada que marcar: por eso detectar pronto es tan difícil (Hernández et al., 2024). Esta imagen puede haber formado parte del entrenamiento del modelo, así que sirve para ilustrar, no para medir su acierto.</p></div></details>
+    <details><summary>¿Y en el campo? Una persona experta frente a la IA</summary>
+      <div><p>En el viñedo, las manchas son mucho más pequeñas respecto a toda la cepa. En estas imágenes, la columna central es lo que marcó una persona experta y la de la derecha, lo que predijo el modelo. Se parecen, pero no son idénticas: la IA ayuda a mirar y la persona valida. Algunas de estas fotos pueden haber servido para entrenar el modelo, así que no son una prueba de su acierto.</p>
+      <figure class="foto-caja foto-ancha"><picture><source type="image/webp" srcset="img/contexto/fig_campo_ec.webp"><img src="img/contexto/fig_campo_ec.jpg" alt="Tres filas, una por foto de viñedo con hojas: a la izquierda la foto; en el centro, las zonas con síntomas marcadas a mano en amarillo; a la derecha, las zonas que predice la IA en rosa. Se parecen, pero no coinciden del todo." width="1400" height="1412" loading="lazy"></picture><figcaption>Cada fila es una foto: imagen (izquierda), síntomas marcados a mano por una persona (centro) y predicción de la IA (derecha). <span class="cred">Elaboración propia a partir de Hernández et al. (2025), con fotografías del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.</span></figcaption></figure>
+      
+      <p>También se ha probado con detectores tipo YOLO, que marcan con cajas las hojas con síntomas en cepas completas (Poblete-Echeverría et al., 2025).</p>
+      </div></details>
+    <details open><summary>Artículos de investigación en que se basa este reto</summary>
+      <div><ul class="refs"><li>Poblete-Echeverría, C., Hernández, I., Íñiguez, R., Gutiérrez, S., Barrio, I. y Tardáguila, J. (2025). Using artificial intelligence for automatic and fast detection of downy mildew symptoms in grapevine canopies. <em>European Journal of Agronomy</em>, 170, 127755. <a href="https://doi.org/10.1016/j.eja.2025.127755">doi:10.1016/j.eja.2025.127755</a></li><li>Hernández, I., Silva, R., Melo-Pinto, P., Gutiérrez, S. y Tardaguila, J. (2025). Early detection of downy mildew in vineyards using deep neural networks for semantic segmentation. <em>Biosystems Engineering</em>, 252, 15–31. <a href="https://doi.org/10.1016/j.biosystemseng.2025.02.007">doi:10.1016/j.biosystemseng.2025.02.007</a></li><li>Hernández, I., Gutiérrez, S., Barrio, I., Íñiguez, R. y Tardaguila, J. (2024). In-field disease symptom detection and localisation using explainable deep learning: use case for downy mildew in grapevine. <em>Computers and Electronics in Agriculture</em>, 226, 109478. <a href="https://doi.org/10.1016/j.compag.2024.109478">doi:10.1016/j.compag.2024.109478</a></li><li>Hernández, I., Gutiérrez, S. y Tardaguila, J. (2024). Image analysis with deep learning for early detection of downy mildew in grapevine. <em>Scientia Horticulturae</em>, 331, 113155. <a href="https://doi.org/10.1016/j.scienta.2024.113155">doi:10.1016/j.scienta.2024.113155</a></li><li>Hernández, I., Gutiérrez, S., Ceballos, S., Íñiguez, R., Barrio, I. y Tardaguila, J. (2021). Artificial intelligence and novel sensing technologies for assessing downy mildew in grapevine. <em>Horticulturae</em>, 7(5), 103. <a href="https://doi.org/10.3390/horticulturae7050103">doi:10.3390/horticulturae7050103</a></li><li>Gessler, C., Pertot, I. y Perazzolli, M. (2011). <em>Plasmopara viticola</em>: a review of knowledge on downy mildew of grapevine and effective disease management. <em>Phytopathologia Mediterranea</em>, 50(1), 3–44. <a href="https://doi.org/https://doi.org/10.14601/Phytopathol_Mediterr-9360">doi:https://doi.org/10.14601/Phytopathol_Mediterr-9360</a></li><li>Gadoury, D. M., Cadle-Davidson, L., Wilcox, W. F., Dry, I. B., Seem, R. C. y Milgroom, M. G. (2012). Grapevine powdery mildew (<em>Erysiphe necator</em>): a fascinating system for the study of the biology, ecology and epidemiology of an obligate biotroph. <em>Molecular Plant Pathology</em>, 13(1), 1–16. <a href="https://doi.org/10.1111/j.1364-3703.2011.00728.x">doi:10.1111/j.1364-3703.2011.00728.x</a></li></ul>
+      <p class="cita">Las imágenes son fotografías de viñedo de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> (Universidad de La Rioja, ICVV); los recortes se han preparado para este juego. Más en <a href="creditos.html">Créditos</a>.</p></div></details>
+  </div>
+</section><section class="bloque guia-barra" aria-label="Para docentes"><div class="wrap"><p>¿Eres docente? <a href="guias/guia_detectar_mildiu.pdf" download>Descarga la guía didáctica de este tema (PDF)</a> o <a href="guia-didactica.html">mira todas las guías</a>.</p></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div><p><strong>Entre cepas</strong> · Tú contra la IA en el viñedo</p>
+      <p>Divulgación basada en investigación de la <a href="https://www.unirioja.es/">Universidad de La Rioja</a> y del <a href="https://www.icvv.es/">Instituto de Ciencias de la Vid y del Vino (ICVV)</a>. Obra de Rubén Iñiguez Mangado.</p></div>
+    <div><p><strong>Licencia</strong></p>
+      <p>Contenidos bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>. Código bajo licencia MIT. Detalles en <a href="creditos.html">Créditos</a>.</p></div>
+    <div><p><strong>Más información</strong></p>
+      <ul><li><a href="ciencia.html">La ciencia detrás</a></li><li><a href="creditos.html">Créditos y licencias</a></li><li><a href="accesibilidad.html">Declaración de accesibilidad</a></li><li><a href="lenguaje-sencillo.html">En lenguaje sencillo</a></li><li><a href="guia-didactica.html">Guía didáctica para docentes</a></li></ul>
+      <p class="pie-compartir"><button type="button" class="btn secundario" data-compartir>Compartir esta web</button></p></div>
+  </div>
+</footer>
+</body>
+</html>

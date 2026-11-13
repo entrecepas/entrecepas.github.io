@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio · Entre cepas</title>
+<meta name="description" content="Sube una foto de viñedo y comprueba qué ve la inteligencia artificial.">
+<meta name="author" content="Rubén Iñiguez Mangado">
+<meta name="theme-color" content="#54081F">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Entre cepas"><meta property="og:title" content="Laboratorio · Entre cepas"><meta property="og:description" content="Sube una foto de viñedo y comprueba qué ve la inteligencia artificial."><meta property="og:image" content="img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Laboratorio · Entre cepas"><meta name="twitter:description" content="Sube una foto de viñedo y comprueba qué ve la inteligencia artificial."><meta name="twitter:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script><script src="data/lab_ejemplos.js" defer></script><script src="js/sube.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 14V4h10M34 4h10v10M44 34v10H34M14 44H4V34" fill="none" stroke="#54081F" stroke-width="4"/><g fill="#54081F"><circle cx="17" cy="16" r="4.5"/><circle cx="27" cy="16" r="4.5"/><circle cx="22" cy="23" r="4.5"/><circle cx="32" cy="23" r="4.5"/><circle cx="17" cy="30" r="4.5"/><circle cx="27" cy="30" r="4.5"/><circle cx="22" cy="37" r="4.5"/></g><path d="M22 12c0-4 2-6 5-7" fill="none" stroke="#5E6619" stroke-width="3" stroke-linecap="round"/></svg><span>Entre cepas</span></a>
+    <button type="button" class="btn secundario nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><button type="button" class="sub-toggle" id="sub-toggle" aria-expanded="false" aria-controls="sub-menu">Juegos<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="sub-menu" hidden><li><a href="juegos.html">Ver todos los juegos</a></li><li><a href="racimos.html">¿Cuántos racimos hay?</a></li><li><a href="mildiu.html">¿Mildiu o no?</a></li><li><a href="peso.html">¿Cuánto pesa este racimo? <span class="sr-only">(próximamente)</span></a></li><li><a href="enfermedades.html">¿Qué enfermedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="variedades.html">¿Qué variedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="fases.html">¿En qué fase está la vid?</a></li><li><a href="sed.html">¿Qué cepa tiene sed? <span class="sr-only">(próximamente)</span></a></li><li><a href="color.html">Colores que no vemos <span class="sr-only">(próximamente)</span></a></li></ul></li><li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu" data-activo="1">Laboratorio<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="lab-menu" hidden><li><a href="laboratorio.html" aria-current="page">Cómo funciona</a></li><li><a href="laboratorio-racimos.html">Contar racimos con IA</a></li><li><a href="laboratorio-mildiu.html">Detectar mildiu con IA</a></li></ul></li><li><a href="ciencia.html">La ciencia</a></li><li><a href="guia-didactica.html">Docentes</a></li><li><a href="creditos.html">Créditos</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="cabecera-pagina"><div class="wrap"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#54081F"><circle cx="16" cy="18" r="5"/><circle cx="27" cy="18" r="5"/><circle cx="21" cy="26" r="5"/><circle cx="32" cy="26" r="5"/><circle cx="16" cy="34" r="5"/><circle cx="27" cy="34" r="5"/><circle cx="22" cy="42" r="4"/></g><path d="M22 13c0-5 3-8 8-8" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#5E6619"/></svg></span><div><span class="chip">Laboratorio</span><h1>Prueba la IA con tu foto</h1><p class="lead">Sube una foto de tu viñedo y descubre qué es capaz de ver la inteligencia artificial, y qué no.</p></div></div></div>
+<section class="bloque"><div class="wrap">
+  <h2>Así funciona, en cuatro pasos</h2>
+  <ol class="pasos-lab"><li class="paso-lab"><span class="paso-num" aria-hidden="true">1</span><div class="paso-img"><picture><source type="image/webp" srcset="img/lab/paso1.webp"><img src="img/lab/paso1.jpg" alt="Una persona con una gorra hace una foto con el móvil a una cepa de vid en un viñedo." width="900" height="900" loading="lazy"></picture></div><h3>Haz una foto en el campo</h3><p>Con el móvil, a una cepa o a una hoja.</p></li><li class="paso-lab"><span class="paso-num" aria-hidden="true">2</span><div class="paso-img"><picture><source type="image/webp" srcset="img/lab/paso2.webp"><img src="img/lab/paso2.jpg" alt="Una mano sube la foto desde el móvil a una pantalla con el logotipo de la web." width="900" height="900" loading="lazy"></picture></div><h3>Súbela a la plataforma</h3><p>Eliges qué quieres analizar: racimos o mildiu.</p></li><li class="paso-lab"><span class="paso-num" aria-hidden="true">3</span><div class="paso-img"><picture><source type="image/webp" srcset="img/lab/paso3.webp"><img src="img/lab/paso3.jpg" alt="Una imagen de cepa con cuadrículas y destellos, como si una lupa digital la examinara." width="900" height="900" loading="lazy"></picture></div><h3>La web la analiza</h3><p>Un modelo de inteligencia artificial la examina en unos segundos, en tu propio dispositivo.</p></li><li class="paso-lab"><span class="paso-num" aria-hidden="true">4</span><div class="paso-img"><picture><source type="image/webp" srcset="img/lab/paso4.webp"><img src="img/lab/paso4.jpg" alt="Una foto de cepa con recuadros sobre los racimos y un número grande con el recuento." width="900" height="900" loading="lazy"></picture></div><h3>Recibe el resultado</h3><p>Cajas sobre la foto, un número y una explicación en lenguaje claro.</p></li></ol>
+  
+  <h2>Elige qué quieres probar</h2>
+  <div class="eleccion">
+    <a class="prox-card" href="laboratorio-racimos.html"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#54081F"><circle cx="16" cy="18" r="5"/><circle cx="27" cy="18" r="5"/><circle cx="21" cy="26" r="5"/><circle cx="32" cy="26" r="5"/><circle cx="16" cy="34" r="5"/><circle cx="27" cy="34" r="5"/><circle cx="22" cy="42" r="4"/></g><path d="M22 13c0-5 3-8 8-8" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#5E6619"/></svg></span><h3>Contar racimos</h3><p>La IA marca los racimos que ve en una foto de cepa y te dice cuántos son. Recuerda: solo cuenta los que se ven.</p><span class="mas">Probar</span></a>
+    <a class="prox-card" href="laboratorio-mildiu.html"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6c8 4 15 4 18 9-1 8 1 12-4 17-3 5-8 8-14 12-6-4-11-7-14-12-5-5-3-9-4-17 3-5 10-5 18-9z" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="22" r="3.5" fill="#E07A10"/><circle cx="29" cy="28" r="2.5" fill="#E07A10"/><circle cx="22" cy="32" r="2" fill="#E07A10"/></svg></span><h3>Detectar mildiu</h3><p>La IA señala las zonas de una hoja o de una cepa que podrían tener mildiu. La decisión final siempre es de una persona.</p><span class="mas">Probar</span></a>
+  </div>
+  <p class="ayuda">Tus fotos se quedan en tu navegador y no se envían a ningún sitio. El análisis se hace en tu propio dispositivo. Es un prototipo de investigación: puede equivocarse, sobre todo con fotos de móvil.</p>
+</div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div><p><strong>Entre cepas</strong> · Tú contra la IA en el viñedo</p>
+      <p>Divulgación basada en investigación de la <a href="https://www.unirioja.es/">Universidad de La Rioja</a> y del <a href="https://www.icvv.es/">Instituto de Ciencias de la Vid y del Vino (ICVV)</a>. Obra de Rubén Iñiguez Mangado.</p></div>
+    <div><p><strong>Licencia</strong></p>
+      <p>Contenidos bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>. Código bajo licencia MIT. Detalles en <a href="creditos.html">Créditos</a>.</p></div>
+    <div><p><strong>Más información</strong></p>
+      <ul><li><a href="ciencia.html">La ciencia detrás</a></li><li><a href="creditos.html">Créditos y licencias</a></li><li><a href="accesibilidad.html">Declaración de accesibilidad</a></li><li><a href="lenguaje-sencillo.html">En lenguaje sencillo</a></li><li><a href="guia-didactica.html">Guía didáctica para docentes</a></li></ul>
+      <p class="pie-compartir"><button type="button" class="btn secundario" data-compartir>Compartir esta web</button></p></div>
+  </div>
+</footer>
+</body>
+</html>

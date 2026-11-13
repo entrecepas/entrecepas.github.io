@@ -1,0 +1,1 @@
+window.COMPARATIVAS_FOTOS = {};

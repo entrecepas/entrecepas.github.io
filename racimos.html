@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cuántos racimos hay? · Entre cepas</title>
+<meta name="description" content="Reto interactivo: estima cuántos racimos hay en cinco cepas con hojas y descubre cuántos escondían las hojas, con imágenes reales de investigación.">
+<meta name="author" content="Rubén Iñiguez Mangado">
+<meta name="theme-color" content="#54081F">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Entre cepas"><meta property="og:title" content="¿Cuántos racimos hay? · Entre cepas"><meta property="og:description" content="Reto interactivo: estima cuántos racimos hay en cinco cepas con hojas y descubre cuántos escondían las hojas, con imágenes reales de investigación."><meta property="og:image" content="img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="¿Cuántos racimos hay? · Entre cepas"><meta name="twitter:description" content="Reto interactivo: estima cuántos racimos hay en cinco cepas con hojas y descubre cuántos escondían las hojas, con imágenes reales de investigación."><meta name="twitter:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script><script src="data/racimos.js" defer></script><script src="data/comparativas_fotos.js" defer></script><script src="js/comparativas_iconos.js" defer></script><script src="js/comparativas.js" defer></script><script src="js/racimos.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 14V4h10M34 4h10v10M44 34v10H34M14 44H4V34" fill="none" stroke="#54081F" stroke-width="4"/><g fill="#54081F"><circle cx="17" cy="16" r="4.5"/><circle cx="27" cy="16" r="4.5"/><circle cx="22" cy="23" r="4.5"/><circle cx="32" cy="23" r="4.5"/><circle cx="17" cy="30" r="4.5"/><circle cx="27" cy="30" r="4.5"/><circle cx="22" cy="37" r="4.5"/></g><path d="M22 12c0-4 2-6 5-7" fill="none" stroke="#5E6619" stroke-width="3" stroke-linecap="round"/></svg><span>Entre cepas</span></a>
+    <button type="button" class="btn secundario nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><button type="button" class="sub-toggle" id="sub-toggle" aria-expanded="false" aria-controls="sub-menu" data-activo="1">Juegos<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="sub-menu" hidden><li><a href="juegos.html">Ver todos los juegos</a></li><li><a href="racimos.html" aria-current="page">¿Cuántos racimos hay?</a></li><li><a href="mildiu.html">¿Mildiu o no?</a></li><li><a href="peso.html">¿Cuánto pesa este racimo? <span class="sr-only">(próximamente)</span></a></li><li><a href="enfermedades.html">¿Qué enfermedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="variedades.html">¿Qué variedad es? <span class="sr-only">(próximamente)</span></a></li><li><a href="fases.html">¿En qué fase está la vid?</a></li><li><a href="sed.html">¿Qué cepa tiene sed? <span class="sr-only">(próximamente)</span></a></li><li><a href="color.html">Colores que no vemos <span class="sr-only">(próximamente)</span></a></li></ul></li><li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu">Laboratorio<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><ul class="sub" id="lab-menu" hidden><li><a href="laboratorio.html">Cómo funciona</a></li><li><a href="laboratorio-racimos.html">Contar racimos con IA</a></li><li><a href="laboratorio-mildiu.html">Detectar mildiu con IA</a></li></ul></li><li><a href="ciencia.html">La ciencia</a></li><li><a href="guia-didactica.html">Docentes</a></li><li><a href="creditos.html">Créditos</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="cabecera-pagina"><div class="wrap"><span class="icono"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#54081F"><circle cx="16" cy="18" r="5"/><circle cx="27" cy="18" r="5"/><circle cx="21" cy="26" r="5"/><circle cx="32" cy="26" r="5"/><circle cx="16" cy="34" r="5"/><circle cx="27" cy="34" r="5"/><circle cx="22" cy="42" r="4"/></g><path d="M22 13c0-5 3-8 8-8" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#5E6619"/></svg></span><div><span class="chip"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#54081F"><circle cx="16" cy="18" r="5"/><circle cx="27" cy="18" r="5"/><circle cx="21" cy="26" r="5"/><circle cx="32" cy="26" r="5"/><circle cx="16" cy="34" r="5"/><circle cx="27" cy="34" r="5"/><circle cx="22" cy="42" r="4"/></g><path d="M22 13c0-5 3-8 8-8" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#5E6619"/></svg>Contar</span><h1>¿Cuántos racimos hay?</h1><p class="lead">Cinco cepas, cinco estimaciones. Después, quitamos las hojas y vemos cuántos racimos escondían.</p></div></div></div><section class="bloque" aria-labelledby="antes">
+  <div class="wrap capas">
+    <h2 id="antes">Antes de jugar: el problema</h2>
+    <p class="lead">Antes de la vendimia, bodegas y viticultores necesitan saber cuánta uva habrá. Y lo que más pesa en esa cuenta es el número de racimos por cepa.</p>
+    <details>
+      <summary>Por qué importa contar racimos</summary>
+      <div><p>El número de racimos por cepa suele ser el componente que más explica la variación de la cosecha: la regla clásica le atribuye en torno al 60 %, aunque esa proporción cambia según el viñedo y no debe darse por supuesta (Laurent et al., 2021). Además, tras la floración el número de racimos ya no cambia, así que puede contarse con antelación (Laurent et al., 2021). Esa estimación previa se llama <button type="button" class="term" aria-expanded="false" aria-controls="g1">aforo</button><span class="gloss" id="g1" hidden><strong>Aforo:</strong> Estimación de la cosecha que dará un viñedo antes de vendimiar, normalmente contando racimos.</span>.</p></div>
+    </details>
+    <details>
+      <summary>Para qué le sirve a la bodega y a quien cultiva</summary>
+      <div><p>Saber con tiempo cuánta uva habrá es una información esencial para todo el sector: orienta el manejo del viñedo, la elaboración, la venta, la contabilidad y la estrategia de la añada (Laurent et al., 2021). A quien cultiva le permite, por ejemplo, aclarar racimos para favorecer la maduración y evitar cargar demasiado o demasiado poco las cepas; a la bodega, calcular el espacio, la maquinaria y el personal que necesitará durante la vendimia (De la Fuente, 2014).</p>
+      <div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/produccion_04_fila_racimos_espaldera.webp"><img src="img/fotos/produccion_04_fila_racimos_espaldera.jpg" alt="Fila de cepas en espaldera con muchos racimos de uva tinta colgando." width="900" height="1200" loading="lazy"></picture><figcaption>Una fila de cepas cargada de racimos. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/produccion_05_fila_vinedo_con_bodega_al_fondo.webp"><img src="img/fotos/produccion_05_fila_vinedo_con_bodega_al_fondo.jpg" alt="Calle de césped entre dos filas de viñedo, con un edificio de bodega al fondo." width="900" height="1200" loading="lazy"></picture><figcaption>El viñedo y la bodega, cada uno con sus decisiones. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div></div>
+    </details>
+    <details>
+      <summary>Cómo se hacía</summary>
+      <div><p>El método tradicional consiste en cortar y contar racimos de unas pocas cepas y extrapolar al resto de la parcela. Es un muestreo destructivo, lento y caro, y la muestra no recoge toda la variabilidad del viñedo (Íñiguez et al., 2024).</p><div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/yo_01_fotografiando_racimos_2023.webp"><img src="img/fotos/yo_01_fotografiando_racimos_2023.jpg" alt="Una persona agachada junto a una cepa, muy cerca de sus racimos, como si los contara uno a uno." width="800" height="1200" loading="lazy"></picture><figcaption>Contar a mano los racimos de cada cepa es lento. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div></div>
+    </details>
+    <details>
+      <summary>Cómo se hace ahora</summary>
+      <div><p>Se fotografían las cepas con cámaras convencionales y un modelo de inteligencia artificial, entrenado con imágenes en las que personas han marcado cada racimo, aprende a localizarlos. En un estudio en viñedos comerciales, el modelo (YOLOv4) logró un error de 1,12 racimos, con un R² de 0,83 en validación (Íñiguez et al., 2024).</p><div class="galeria"><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/campo_04_camara_tripode_vinedo.webp"><img src="img/fotos/campo_04_camara_tripode_vinedo.jpg" alt="Una cámara réflex sobre un trípode, en el pasillo entre dos filas de viñedo con racimos." width="1024" height="1024" loading="lazy"></picture><figcaption>Una cámara convencional basta para fotografiar las cepas. <span class="cred">Imagen ilustrativa a partir de fotografías del archivo Televitis (Universidad de La Rioja).</span></figcaption></figure><figure class="foto-caja"><picture><source type="image/webp" srcset="img/fotos/campo_01_plataforma_camara_mastil.webp"><img src="img/fotos/campo_01_plataforma_camara_mastil.jpg" alt="Vehículo con un mástil y una cámara en lo alto, junto a una fila de viñedo." width="900" height="1600" loading="lazy"></picture><figcaption>Las cámaras también pueden ir montadas en un vehículo. <span class="cred">Foto: archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div></div>
+    </details>
+    <details>
+      <summary>¿Se pueden contar racimos antes de la floración?</summary>
+      <div><p>Cuanto antes se sepa cuánta uva habrá, más margen hay para actuar. Por eso se ha probado a detectar inflorescencias (los racimos todavía en flor) y racimos jóvenes. En un estudio con 436 imágenes de seis variedades, tomadas antes de la floración y tras el cuajado, de día y de noche con un foco LED, el mejor resultado para los racimos se obtuvo tras el cuajado y con luz de día (F1 = 0,77; R² = 0,97), mientras que para las inflorescencias fue mejor de noche con luz artificial (F1 = 0,71; R² = 0,76) (Íñiguez et al., 2025a).</p>
+      <figure class="foto-caja foto-ancha"><picture><source type="image/webp" srcset="img/contexto/fig_inf_ec.webp"><img src="img/contexto/fig_inf_ec.jpg" alt="Dos fotografías de cepas: a la izquierda, antes de la floración, brotes largos con pequeñas inflorescencias entre las hojas; a la derecha, tras el cuajado, un racimo de bayas verdes entre el follaje." width="1400" height="488" loading="lazy"></picture><figcaption>Lo que hay que detectar: inflorescencias antes de la floración (izquierda) y racimos jóvenes tras el cuajado (derecha), pequeños y medio escondidos entre las hojas. <span class="cred">Elaboración propia a partir de Íñiguez et al. (2025a), con fotografías del archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+    </details>
+    <details>
+      <summary>El obstáculo: las hojas</summary>
+      <div><p>Las hojas tapan racimos; a eso se le llama <button type="button" class="term" aria-expanded="false" aria-controls="g2">oclusión</button><span class="gloss" id="g2" hidden><strong>Oclusión:</strong> Cuando algo tapa lo que queremos ver; aquí, las hojas tapando los racimos.</span>. En un estudio con cinco viñedos de Tempranillo, al aumentar la oclusión la relación entre los píxeles de racimo en la foto y la cosecha bajó de un R² de 0,77 a uno de 0,63 (Íñiguez et al., 2021). Quitar hojas (<button type="button" class="term" aria-expanded="false" aria-controls="g3">defoliación</button><span class="gloss" id="g3" hidden><strong>Defoliación:</strong> Quitar hojas de la cepa. Aquí sirve para ver los racimos que las hojas tapaban.</span>) es una práctica habitual en el viñedo, y aquí la usamos para ver qué escondían.</p>
+      <figure class="foto-caja foto-ancha"><picture><source type="image/webp" srcset="img/contexto/fig_oclusion_ec.webp"><img src="img/contexto/fig_oclusion_ec.jpg" alt="Dos cepas, cada una fotografiada con hojas (izquierda) y sin ellas (derecha), con cajas amarillas sobre los racimos que detecta un modelo: con hojas detecta 1 y 0 racimos; sin hojas, 6 en cada una." width="1400" height="693" loading="lazy"></picture><figcaption>La misma cepa con y sin hojas, con los racimos que detecta un modelo de Televitis: las hojas esconden la mayoría. <span class="cred">Elaboración propia a partir de Íñiguez et al. (2021), con fotografías del archivo Televitis (Universidad de La Rioja).</span></figcaption></figure></div>
+    </details>
+    <p class="cita">Más detalle y referencias completas en «Para saber más», al final de la página.</p>
+  </div>
+</section>
+<section class="bloque" aria-labelledby="juega">
+  <div class="wrap">
+    <h2 id="juega">Ahora te toca a ti</h2>
+    <div id="juego-intro">
+      <ol class="tres">
+        <li><h3>1. Cuenta</h3><p>Verás una cepa con hojas. Cuenta los racimos que veas y escribe tu cifra.</p></li>
+        <li><h3>2. Comprueba</h3><p>Pulsa «Comprobar»: aparecen con línea continua los racimos que ve una cámara.</p></li>
+        <li><h3>3. Quita las hojas</h3><p>Pulsa «Quitar las hojas» o arrastra el deslizador: con línea discontinua salen los que estaban escondidos.</p></li>
+        <li><h3>4. Compárate</h3><p>Son cinco cepas. Al final verás cuántos racimos escondían las hojas y cuánto tardas tú frente a la IA.</p></li>
+      </ol>
+      <p class="ayuda">La pregunta tiene truco: ni tú ni la cámara podéis ver lo que tapan las hojas. Por eso se compara tu cifra con lo que ve la cámara y después con lo que había de verdad.</p>
+      <div class="modo"><input type="checkbox" id="modo-desc" aria-describedby="modo-desc-ayuda"><label for="modo-desc"><strong>Modo descripción</strong>: sustituye las imágenes por descripciones en texto.</label></div>
+      <p class="ayuda" id="modo-desc-ayuda">Pensado para quien no puede ver las imágenes. Con él, la pregunta cambia: calcula cuántos racimos hay en total, incluidos los que tapan las hojas.</p>
+      <p><button type="button" class="btn grande" id="empezar">Empezar la ronda</button></p>
+      <p class="nota">Sin límite de tiempo, pero se cuenta cuánto tardas por imagen para compararte con la IA al final. No se guarda nada fuera de tu navegador.</p>
+    </div>
+
+    <div id="juego-juego" hidden>
+      <div class="juego-cab"><span class="progreso" id="progreso"></span><span class="reloj" aria-hidden="true">Tiempo: <span id="reloj">0:00</span></span><span class="progreso-barra" id="progreso-barra" aria-hidden="true"></span></div>
+      <h3 id="titulo-cepa"></h3>
+      <p id="pregunta"></p>
+      <div class="escena" id="escena">
+        <p class="escena-aviso" aria-hidden="true">En pantallas pequeñas, desliza la imagen hacia los lados para verla entera.</p>
+        <div class="escena-scroll" id="escena-scroll" tabindex="0" role="group" aria-label="Imagen de la cepa, desplazable">
+          <div class="lienzo" id="lienzo">
+            <div class="capa" id="capa-a"><span id="img-a"></span><svg class="cajas" id="cajas-a" viewBox="0 0 1200 521" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+            <div class="capa capa-b" id="capa-b"><span id="img-b"></span><svg class="cajas" id="cajas-b" viewBox="0 0 1200 521" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+            <span class="divisor" aria-hidden="true"></span>
+          </div>
+        </div>
+        <p class="escena-pie" id="escena-pie"></p>
+      </div>
+      <div class="descripcion" id="descripcion-cepa" hidden></div>
+
+      <form class="respuesta" id="form-respuesta" novalidate>
+        <label class="grande" for="respuesta" id="etiqueta-resp">¿Cuántos racimos hay en esta cepa?</label>
+        <div class="stepper"><button type="button" id="menos" aria-label="Un racimo menos">−</button>
+          <input id="respuesta" type="number" inputmode="numeric" min="0" max="99" step="1" aria-describedby="ayuda-resp"><button type="button" id="mas" aria-label="Un racimo más">+</button></div>
+        <p class="ayuda" id="ayuda-resp">Escribe un número del 0 al 99. Tu mejor estimación vale.</p>
+        <p class="ayuda" id="error-resp" role="alert" hidden>Escribe un número para poder comprobarlo.</p>
+        <div class="acciones"><button type="submit" class="btn grande" id="comprobar">Comprobar</button></div>
+      </form>
+
+      <div id="revelacion" hidden>
+        <p class="tu-respuesta" id="tu-respuesta"></p>
+        <ul class="leyenda" id="leyenda">
+          <li><svg viewBox="0 0 44 22" aria-hidden="true"><rect x="2" y="2" width="40" height="18" rx="2" fill="none" stroke="#fff" stroke-width="6"/><rect x="2" y="2" width="40" height="18" rx="2" fill="none" stroke="#54081F" stroke-width="3"/></svg>Línea continua: racimo que una cámara ve con hojas.</li>
+          <li><svg viewBox="0 0 44 22" aria-hidden="true"><rect x="2" y="2" width="40" height="18" rx="2" fill="none" stroke="#E07A10" stroke-width="3" stroke-dasharray="7 5"/></svg>Línea discontinua: racimo que estaba escondido por las hojas.</li>
+        </ul>
+        <div class="comparador" id="comparador">
+          <div class="botones">
+            <button type="button" class="btn" id="quitar-hojas">Quitar las hojas</button>
+            <button type="button" class="btn secundario" id="ver-con">Ver con hojas</button>
+            <button type="button" class="btn secundario" id="ver-sin">Ver sin hojas</button>
+          </div>
+          <label for="rango"><span class="sr-only">Comparador: </span>Arrastra o usa las flechas del teclado para quitar las hojas poco a poco</label>
+          <input type="range" id="rango" min="0" max="100" step="5" value="0" aria-valuetext="Imagen con hojas">
+        </div>
+        <div class="resultado-paso" id="paso-a" hidden><p class="num" id="paso-a-txt"></p></div>
+        <div class="resultado-paso oculto" id="paso-b" hidden><p class="num" id="paso-b-txt"></p></div>
+        <div class="resultado-paso" id="paso-c" hidden><p id="paso-c-txt"></p></div>
+        <p><button type="button" class="btn grande" id="siguiente" hidden>Siguiente cepa</button></p>
+      </div>
+    </div>
+
+    <div id="juego-fin" hidden>
+      <h3 id="titulo-final">Resultado de la ronda</h3>
+      <div class="final-grid">
+        <div class="dato"><span class="grande" id="f-cerca"></span><span id="f-cerca-txt"></span></div>
+        <div class="dato destacado"><span class="grande" id="f-pct"></span><span id="f-pct-txt"></span></div>
+      </div>
+      <h4 class="sub-res">Tus números</h4>
+      <ul class="tres" id="f-resumen" aria-label="Resumen de la ronda"></ul>
+      <h4 class="sub-res">¿Y la rapidez?</h4>
+      <ul class="tiempos" id="f-tiempos" aria-label="Comparación de tiempos"></ul>
+      <div class="vs" id="f-vs">
+        <div class="vs-txt" id="f-vs-txt"></div>
+        <figure class="vs-foto" id="f-vs-foto" hidden><div class="vs-ico" id="f-vs-ico" hidden></div><img id="f-vs-img" alt="" loading="lazy" width="600" height="400" hidden><figcaption id="f-vs-cap"></figcaption></figure>
+      </div>
+      <p class="aviso-ia" id="f-aviso"></p>
+      <div class="tabla-wrap"><table class="tabla"><caption>Tus respuestas y los datos de cada cepa</caption>
+        <thead><tr><th scope="col">Cepa</th><th scope="col">Tu respuesta</th><th scope="col">Racimos que ve una cámara</th><th scope="col">Racimos que aparecen al deshojar</th><th scope="col">Racimos en total sin hojas</th></tr></thead>
+        <tbody id="tabla-cuerpo"></tbody></table></div>
+      <p class="nota" id="f-mejor"></p>
+      <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
+      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="mildiu.html">Pasar al reto del mildiu</a></p>
+    </div>
+    <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="despues">
+  <div class="wrap">
+    <h2 id="despues">Después de jugar: qué hemos aprendido</h2>
+    <ol class="ideas">
+      <li><p><strong>Las hojas esconden racimos.</strong></p><p>Por eso la IA se usa pronto en la temporada, antes de que crezca la vegetación y tape los racimos (Íñiguez et al., 2025a). En ese estudio, el mejor resultado para bayas pequeñas llegó con luz de día, y para inflorescencias, con iluminación artificial nocturna: cuándo y cómo se mira importa.</p></li>
+      <li><p><strong>Contar racimos no es saber los kilos.</strong></p><p>El peso se estima aparte, por ejemplo midiendo la forma y el tamaño del racimo en la foto (Poblete-Echeverría et al., 2025).</p></li>
+      <li><p><strong>La IA no sustituye a quien conoce el viñedo.</strong></p><p>Le da datos antes y de todas las cepas; la decisión sigue siendo de una persona.</p></li>
+    </ol>
+    <div class="caja" style="margin-top:2rem">
+      <h3>Un dato de esta muestra</h3>
+      <p class="lead">En las 20 cepas de este reto, las hojas escondían <strong>36 de 126 racimos (28,6 %)</strong>.</p>
+      <p class="nota">Ojo: son 20 cepas elegidas para mostrar casos fáciles y difíciles, no una muestra representativa de un viñedo. Los «racimos en total sin hojas» son los etiquetados en la imagen sin hojas; no son un recuento de campo. «Racimos que aparecen al deshojar» son los que se ven sin hojas y no con ellas.</p>
+    </div>
+    <p style="margin-top:1.5rem"><a class="btn" href="juegos.html#proximos">Ver los próximos retos</a></p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="saber">
+  <div class="wrap capas">
+    <h2 id="saber">Para saber más</h2>
+    <details><summary>Artículos de investigación en que se basa este reto</summary>
+      <div><ul class="refs"><li>Laurent, C., Oger, B., Taylor, J. A., Scholasch, T., Metay, A. y Tisseyre, B. (2021). A review of the issues, methods and perspectives for yield estimation, prediction and forecasting in viticulture. <em>European Journal of Agronomy</em>, 130, 126339. <a href="https://doi.org/10.1016/j.eja.2021.126339">doi:10.1016/j.eja.2021.126339</a></li><li>Jaramillo, J., Vanden Heuvel, J. y Petersen, K. H. (2021). Low-cost, computer vision-based, prebloom cluster count prediction in vineyards. <em>Frontiers in Agronomy</em>, 3, 648080. <a href="https://doi.org/10.3389/fagro.2021.648080">doi:10.3389/fagro.2021.648080</a></li><li>Jocher, G., Qiu, J., Liu, M., Lyu, S., Akyon, F. C. y Kalfaoglu, M. E. (2026). Ultralytics YOLO26: Unified real-time end-to-end vision models. <em>arXiv</em>:2606.03748. <a href="https://doi.org/10.48550/arXiv.2606.03748">doi:10.48550/arXiv.2606.03748</a></li><li>De la Fuente, M. (2014). The relevance of the yield prediction methods in vineyard management. <em>Bulletin de l’OIV</em>, 87(1001-1002-1003), 387–394.</li><li>Íñiguez, R., Gutiérrez, S., Poblete-Echeverría, C., Hernández, I., Barrio, I. y Tardáguila, J. (2024). Deep learning modelling for non-invasive grape bunch detection under diverse occlusion conditions. <em>Computers and Electronics in Agriculture</em>, 226, 109421. <a href="https://doi.org/10.1016/j.compag.2024.109421">doi:10.1016/j.compag.2024.109421</a></li><li>Íñiguez, R., Palacios, F., Barrio, I., Hernández, I., Gutiérrez, S. y Tardaguila, J. (2021). Impact of leaf occlusions on yield assessment by computer vision in commercial vineyards. <em>Agronomy</em>, 11, 1003. <a href="https://doi.org/10.3390/agronomy11051003">doi:10.3390/agronomy11051003</a></li><li>Íñiguez, R., Poblete-Echeverría, C., Barrio, I., Hernández, I., Gutiérrez, S., Martínez-Cámara, E. y Tardáguila, J. (2025). Impact of phenological and lighting conditions on early detection of grapevine inflorescences and bunches using deep learning. <em>Agriculture</em>, 15, 1495. <a href="https://doi.org/10.3390/agriculture15141495">doi:10.3390/agriculture15141495</a></li><li>Poblete-Echeverría, C., Berry, A., Venter, T., Velez, S., Gonzalez Pavez, M. I. e Íñiguez, R. (2025). Morphological image analysis for estimating grape bunch weight under different irrigation regimes in Cabernet-Sauvignon. <em>OENO One</em>, 59(2). <a href="https://doi.org/10.20870/oeno-one.2025.59.2.9309">doi:10.20870/oeno-one.2025.59.2.9309</a></li></ul>
+      <p class="cita">Imágenes y etiquetas del reto: Íñiguez et al. (2024). Todas las clases de racimo del etiquetado original se agrupan aquí como «racimo». Más en <a href="ciencia.html">La ciencia detrás</a> y <a href="creditos.html">Créditos</a>.</p></div></details>
+  </div>
+</section><section class="bloque guia-barra" aria-label="Para docentes"><div class="wrap"><p>¿Eres docente? <a href="guias/guia_contar_racimos.pdf" download>Descarga la guía didáctica de este tema (PDF)</a> o <a href="guia-didactica.html">mira todas las guías</a>.</p></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div><p><strong>Entre cepas</strong> · Tú contra la IA en el viñedo</p>
+      <p>Divulgación basada en investigación de la <a href="https://www.unirioja.es/">Universidad de La Rioja</a> y del <a href="https://www.icvv.es/">Instituto de Ciencias de la Vid y del Vino (ICVV)</a>. Obra de Rubén Iñiguez Mangado.</p></div>
+    <div><p><strong>Licencia</strong></p>
+      <p>Contenidos bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">CC BY 4.0</a>. Código bajo licencia MIT. Detalles en <a href="creditos.html">Créditos</a>.</p></div>
+    <div><p><strong>Más información</strong></p>
+      <ul><li><a href="ciencia.html">La ciencia detrás</a></li><li><a href="creditos.html">Créditos y licencias</a></li><li><a href="accesibilidad.html">Declaración de accesibilidad</a></li><li><a href="lenguaje-sencillo.html">En lenguaje sencillo</a></li><li><a href="guia-didactica.html">Guía didáctica para docentes</a></li></ul>
+      <p class="pie-compartir"><button type="button" class="btn secundario" data-compartir>Compartir esta web</button></p></div>
+  </div>
+</footer>
+</body>
+</html>
