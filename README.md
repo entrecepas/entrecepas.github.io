@@ -1,8 +1,8 @@
 # Entre cepas · Tú contra la IA en el viñedo
 
-> **Versión de demostración en línea.** No incluye modelos de IA (carpeta `models/`). En el Laboratorio se muestran resultados calculados de antemano sobre las fotos de ejemplo, y quien tenga su propio modelo en ONNX puede cargarlo para analizar sus fotos en el navegador.
+> **Versión de demostración en línea.** Los modelos de IA (carpeta `models/`) siguen en fase de pruebas y se publicarán aquí cuando estén listos. En el Laboratorio se muestran resultados calculados de antemano sobre las fotos de ejemplo, y quien tenga su propio modelo en ONNX puede cargarlo para analizar sus fotos en el navegador.
 
-Web de divulgación científica sobre viticultura de precisión e inteligencia artificial, basada en la investigación del grupo Televitis (Universidad de La Rioja – ICVV). Autor: Rubén Íñiguez Mangado.
+Web de divulgación científica sobre viticultura de precisión e inteligencia artificial, basada en la investigación del grupo Televitis (Universidad de La Rioja – ICVV). Autor: Rubén Iñiguez Mangado.
 
 Tiene tres retos para jugar (contar racimos, detectar mildiu y reconocer la fase de la vid), seis retos próximos con su base científica, un Laboratorio que analiza fotos con modelos de IA y guías didácticas descargables para docentes.
 
@@ -57,4 +57,4 @@ Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativo
 
 ## Contacto
 
-Rubén Íñiguez Mangado · Televitis, Universidad de La Rioja · ruben.iniguez@unirioja.es
+Rubén Iñiguez Mangado · Televitis, Universidad de La Rioja · ruben.iniguez@unirioja.es

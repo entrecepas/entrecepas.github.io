@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://entrecepas.github.io/sitemap.xml

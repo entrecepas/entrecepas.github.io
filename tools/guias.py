@@ -130,7 +130,7 @@ def doc(g, ref, titulo_web, url_base):
 <h2>Cómo evaluar</h2>{li(g['evaluar'])}
 <h2>Para ampliar</h2>{li(g['ampl'])}
 <h2>Referencias</h2>{refs}
-<p class="pie">Material de {titulo_web}, de Rubén Íñiguez Mangado (Universidad de La Rioja / Instituto de Ciencias de la Vid y del Vino, ICVV). Licencia CC BY 4.0. Los datos y cifras proceden de las investigaciones citadas; si la actividad usa el reto en línea, el enlace es {url_base}{g['web']}. Las cifras de los artículos son resultados de investigación en condiciones concretas y no deben generalizarse.</p>
+<p class="pie">Material de {titulo_web}, de Rubén Iñiguez Mangado (Universidad de La Rioja / Instituto de Ciencias de la Vid y del Vino, ICVV). Licencia CC BY 4.0. Los datos y cifras proceden de las investigaciones citadas; si la actividad usa el reto en línea, el enlace es {url_base}{g['web']}. Las cifras de los artículos son resultados de investigación en condiciones concretas y no deben generalizarse.</p>
 </body></html>'''
 
 def generar(ref, root, titulo_web, site_url=''):
