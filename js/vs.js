@@ -11,7 +11,7 @@
     pinta: function (o) {
       var C = window.COMPARATIVAS, d = C.datos(o.tmed, 0, o.ia.s);
       var ul = $('f-tiempos'); limpia(ul);
-      chip(ul, 'c-tu', 'Tú', d.ts + ' s', o.unidad + ', de media');
+      chip(ul, 'c-tu', 'Tú', (o.tmed < 10 ? C.num(o.tmed, 1) : String(Math.round(o.tmed))) + ' s', o.unidad + ', de media');
       chip(ul, 'c-ia', 'Una IA con GPU', o.ia.txt, o.ia.nota);
       chip(ul, 'c-campo', 'La misma IA sin GPU', o.cpu.txt, o.cpu.nota);
       var v = $('f-vs-txt'); limpia(v);

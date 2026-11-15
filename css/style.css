@@ -1,3 +1,5 @@
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/source-serif-4-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/source-serif-4-latin-700-normal.woff2) format("woff2")}
 /* Tú contra la IA en el viñedo · estilos · CC BY 4.0 (contenidos) / MIT (código) */
 :root {
   --granate: #54081F;
@@ -15,7 +17,7 @@
   --error: #8C1D18;
   --radio: 14px;
   --sombra: 0 1px 2px rgba(30,20,23,.12), 0 8px 24px rgba(84,8,31,.10);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -584,3 +586,37 @@ figure.con-fuente { position: relative; }
 .guia-barra p{max-width:none}
 .guia-barra .wrap p{max-width:none;margin-inline:auto;text-align:center}
 .pill-prox{font-weight:400;opacity:.8;font-size:.9em}
+/* Portada: reto con la cepa real */
+.hero-reto .wrap{display:grid;gap:1.5rem;align-items:center}
+@media (min-width:56rem){.hero-reto .wrap{grid-template-columns:1fr 1.15fr}}
+.hero-cepa{margin:0}
+.hc-lienzo{position:relative;border-radius:14px;overflow:hidden;border:3px solid var(--granate);box-shadow:var(--sombra);line-height:0}
+.hc-lienzo img{width:100%;height:auto;display:block}
+.hc-capa{position:relative}
+.hc-b{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.hc-cajas{position:absolute;inset:0;width:100%;height:100%}
+.hc-linea{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:#fff;box-shadow:0 0 0 1px var(--granate)}
+.hc-control{display:flex;align-items:center;gap:.8rem;margin:.7rem 0 .3rem;font-weight:700;color:var(--granate)}
+.hc-control input{flex:1;accent-color:var(--granate);min-height:44px}
+.hero-cepa figcaption{font-size:.95rem;min-height:3em}
+/* Cifras */
+.cifras{background:var(--granate);color:#fff;padding:1.2rem 0}
+.cifras ul{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.cifras li{display:flex;flex-direction:column;gap:.2rem}
+.cifras .cifra{font-family:var(--serif);font-size:2.4rem;font-weight:700;line-height:1;color:#F3D27A}
+.cifras li span:last-child{font-size:.95rem;opacity:.95}
+/* Ruta + vídeo */
+.ruta-video{display:grid;gap:1.5rem;align-items:start;margin-bottom:1.5rem}
+@media (min-width:56rem){.ruta-video{grid-template-columns:1fr 1fr}}
+/* Botón de voz más discreto */
+.voz{justify-content:flex-end;padding-top:.4rem}
+.voz .btn{font-size:.85rem;padding:.35rem .8rem}
+/* Laboratorio */
+#sube-res .ctl{margin:.5rem 0}
+/* portada: viticultura de precisión arriba, cepa interactiva debajo */
+.hero-vdp .pregunta{font-family:var(--serif);font-weight:700;font-size:clamp(1.35rem,2.4vw,1.75rem);color:var(--granate);margin:1rem 0 .4rem;line-height:1.2}
+.hero-vdp .video-vp{margin:0}
+.hero-vdp .video-vp video{width:100%;height:auto;border-radius:14px;border:3px solid var(--granate);box-shadow:var(--sombra);display:block;background:#000}
+.hero-reto-grid{display:grid;gap:1.5rem;align-items:center}
+@media (min-width:56rem){.hero-reto-grid{grid-template-columns:1fr 1.15fr}}
+.prueba h2{margin-top:0}

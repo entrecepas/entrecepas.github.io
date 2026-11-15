@@ -66,7 +66,7 @@
     </details>
     <details>
       <summary>Cómo se hace ahora</summary>
-      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas (red U-Net con codificador MobileViT-S) alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
+      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
     </details>
     <details>
       <summary>Los límites</summary>
@@ -92,7 +92,7 @@
 
     <div id="juego-juego" hidden>
       <div class="juego-cab"><span class="progreso" id="progreso"></span><span class="reloj" aria-hidden="true">Tiempo: <span id="reloj">0:00</span></span><span class="progreso-barra" id="progreso-barra" aria-hidden="true"></span></div>
-      <h3 id="titulo-caso"></h3>
+      <h3 id="titulo-caso" class="sr-only"></h3>
       <p id="pregunta"></p>
       <figure class="figura-juego" id="figura"><span class="lienzo-m" id="lienzo-m"><span id="img-caso"></span></span><figcaption class="sr-only" id="cap-manchas"></figcaption></figure>
       <p class="ctl-manchas" id="ctl-manchas" hidden><button type="button" class="btn secundario" id="ver-manchas" aria-pressed="true">Ocultar manchas marcadas</button> <span class="nota" id="leyenda-manchas">Las zonas rodeadas con línea discontinua las marcaron a mano las personas que etiquetaron la imagen; no es una predicción de la IA.</span></p>

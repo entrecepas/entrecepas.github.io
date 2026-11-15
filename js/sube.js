@@ -8,6 +8,16 @@
   var url = null, ortP = null, sesiones = {};
   var MEAN = [0.485, 0.456, 0.406], STD = [0.229, 0.224, 0.225];
 
+  var origen = null, marcado = null, verMarcas = true;
+  var tog = document.createElement('button'); tog.type = 'button'; tog.className = 'btn secundario'; tog.id = 'sube-toggle'; tog.hidden = true;
+  tog.setAttribute('aria-pressed', 'true'); tog.textContent = 'Ocultar las marcas de la IA';
+  if (res) res.appendChild(tog);
+  function guardaMarcado() { try { marcado = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height); verMarcas = true; tog.hidden = !origen; tog.setAttribute('aria-pressed', 'true'); tog.textContent = 'Ocultar las marcas de la IA'; } catch (e) { tog.hidden = true; } }
+  tog.addEventListener('click', function () {
+    var c = cv.getContext('2d'); verMarcas = !verMarcas;
+    if (verMarcas && marcado) c.putImageData(marcado, 0, 0); else if (origen) c.drawImage(origen, 0, 0, cv.width, cv.height);
+    tog.setAttribute('aria-pressed', String(verMarcas)); tog.textContent = verMarcas ? 'Ocultar las marcas de la IA' : 'Ver las marcas de la IA';
+  });
   function aviso(t) { msg.hidden = false; msg.textContent = t; }
   function cargaOrt() {
     if (ortP) return ortP;
@@ -93,7 +103,7 @@
           else { var fuera = false; for (var z2 = 0; z2 < N; z2 += 997) if (pr[z2] < 0 || pr[z2] > 1) { fuera = true; break; } if (fuera) { var q1 = new Float32Array(N); for (var z3 = 0; z3 < N; z3++) q1[z3] = 1 / (1 + Math.exp(-pr[z3])); pr = q1; } }
           for (var yy = 0; yy < h; yy++) for (var xx = 0; xx < w; xx++) {
             var q = pr[Math.min(223, Math.floor(yy * 224 / h)) * 224 + Math.min(223, Math.floor(xx * 224 / w))];
-            if (q > th) { var o = ((y0 + yy) * W + x0 + xx) * 4; out.data[o] = out.data[o] * .35 + 255 * .65; out.data[o + 1] = out.data[o + 1] * .35; out.data[o + 2] = out.data[o + 2] * .35 + 200 * .65; marcados++; }
+            if (q > th) { var o = ((y0 + yy) * W + x0 + xx) * 4; out.data[o] = out.data[o] * .55 + 255 * .45; out.data[o + 1] = out.data[o + 1] * .55; out.data[o + 2] = out.data[o + 2] * .55 + 200 * .45; marcados++; }
           }
         }).then(pausa).then(paso);
       }
@@ -140,13 +150,13 @@
         });
         cajas = keep;
       }
-      c.lineWidth = Math.max(3, cv.width / 300); c.strokeStyle = '#E8B100'; c.font = 'bold ' + Math.max(14, cv.width / 60) + 'px Inter,sans-serif'; c.fillStyle = '#E8B100';
+      c.lineWidth = Math.max(5, cv.width / 180); c.strokeStyle = '#FFD21F'; c.font = 'bold ' + Math.max(20, cv.width / 40) + 'px Inter,sans-serif'; c.fillStyle = '#FFD21F';
       cajas.forEach(function (b, n) {
         var x1 = (b[0] - px) / r * K, y1 = (b[1] - py) / r * K, x2 = (b[2] - px) / r * K, y2 = (b[3] - py) / r * K;
         c.strokeRect(x1, y1, x2 - x1, y2 - y1); c.fillText(String(n + 1), x1 + 4, y1 + Math.max(16, cv.width / 55));
       });
       var ms = Math.round(performance.now() - t0);
-      txt.textContent = 'La IA ha contado ' + cajas.length + (cajas.length === 1 ? ' racimo' : ' racimos') + ' visibles en tu foto (' + ms + ' ms). Los racimos tapados por las hojas no se pueden contar desde una foto, así que el recuento real puede ser mayor.';
+      txt.textContent = 'La IA ha contado ' + cajas.length + (cajas.length === 1 ? ' racimo' : ' racimos') + ' visibles en tu foto (' + (ms / 1000).toFixed(1).replace('.', ',') + ' s). Los racimos tapados por las hojas no se pueden contar desde una foto, así que el recuento real puede ser mayor.';
       cv.setAttribute('aria-label', 'Tu foto con ' + cajas.length + ' racimos marcados con cajas amarillas');
     });
   }
@@ -161,10 +171,10 @@
       if (!ok) {
         var E = ejemplo && window.LAB_EJEMPLOS && window.LAB_EJEMPLOS[url];
         if (!E) { aviso('En esta versión en línea, el análisis de fotos propias no está disponible: los modelos de IA no se publican. Prueba con las fotos de ejemplo de arriba para ver el resultado.'); return; }
-        return new Promise(function (ok2, ko2) { var im = new Image(); im.onload = function () { cv.width = im.naturalWidth; cv.height = im.naturalHeight; cv.getContext('2d').drawImage(im, 0, 0); cv.setAttribute('aria-label', E.aria); txt.textContent = E.txt; msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); ok2(); }; im.onerror = ko2; im.src = E.img; });
+        return new Promise(function (ok2, ko2) { var im = new Image(); im.onload = function () { cv.width = im.naturalWidth; cv.height = im.naturalHeight; cv.getContext('2d').drawImage(im, 0, 0); var o = new Image(); o.onload = function () { origen = o; guardaMarcado(); }; o.src = url; cv.setAttribute('aria-label', E.aria); txt.textContent = E.txt; msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); ok2(); }; im.onerror = ko2; im.src = E.img; });
       }
       aviso('Cargando el modelo de IA (la primera vez tarda unos segundos)…');
-      return leerImagen().then(tarea === 'racimos' ? racimos : mildiu).then(function () { msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); });
+      return leerImagen().then(function (im) { origen = im; return (tarea === 'racimos' ? racimos : mildiu)(im); }).then(function () { guardaMarcado(); msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); });
     }).catch(function () { aviso('No he podido analizar la foto en este dispositivo. Prueba con otra foto o con otro navegador.'); })
       .then(function () { btn.disabled = false; });
   });

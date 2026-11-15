@@ -53,7 +53,7 @@ Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativo
 - Textos, fotografías y figuras propias: CC BY 4.0, salvo que se indique otra cosa en `creditos.html`.
 - Código de la web: MIT.
 - Modelos de IA: grupo de investigación Televitis (Universidad de La Rioja). Prototipos de investigación.
-- Librerías de terceros incluidas: ONNX Runtime Web 1.20.1 (MIT, Microsoft) y qrcode-generator 1.4.4 (MIT, Kazuhiko Arase).
+- Librerías y recursos de terceros incluidos: ONNX Runtime Web 1.20.1 (MIT, Microsoft), qrcode-generator 1.4.4 (MIT, Kazuhiko Arase) y la tipografía Source Serif 4 (SIL Open Font License, Adobe).
 
 ## Contacto
 

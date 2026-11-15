@@ -162,7 +162,7 @@
     var tu = $('tu-respuesta'); tu.textContent = 'Tu respuesta: ' + plural(v, 'racimo', 'racimos') + '.';
     if (estado.modoTexto) {
       el.comparador.hidden = true; el.leyenda.hidden = true;
-      el.pasoA.hidden = false; $('paso-a-txt').textContent = 'Lo que puede ver una cámara: ' + plural(c.visibles, 'racimo', 'racimos') + '.';
+      el.pasoA.hidden = false; $('paso-a-txt').textContent = 'Lo que puede ver una cámara: ' + plural(c.visibles, 'racimo', 'racimos') + '.' + (nIA(c) === null ? '' : ' La IA de Televitis contó ' + plural(nIA(c), 'racimo', 'racimos') + ' en esta foto.');
       revelaB(c);
       el.siguiente.focus({ preventScroll: true });
     } else {
@@ -170,10 +170,10 @@
       c.con.forEach(function (b) { rect(el.svgA, b, 'caja-v'); });
       el.capaB.appendChild(pic(c.id, 'deshojada', 'La misma cepa sin hojas: los racimos quedan a la vista.', c.w, c.h));
       c.des.forEach(function (o) { rect(el.svgB, o.b, o.oculto ? 'caja-h' : 'caja-v'); });
-      el.pasoA.hidden = false; $('paso-a-txt').textContent = 'Esto es lo que puede ver una cámara: ' + plural(c.visibles, 'racimo', 'racimos') + '.';
+      el.pasoA.hidden = false; $('paso-a-txt').textContent = 'Esto es lo que puede ver una cámara: ' + plural(c.visibles, 'racimo', 'racimos') + '.' + (nIA(c) === null ? '' : ' La IA de Televitis contó ' + plural(nIA(c), 'racimo', 'racimos') + '.');
       el.pie.textContent = 'Con hojas. Cajas continuas: racimos visibles para una cámara.';
       el.quitar.hidden = false; el.siguiente.hidden = true;
-      anuncia('Tu respuesta: ' + v + '. Esto es lo que puede ver una cámara: ' + plural(c.visibles, 'racimo', 'racimos') + '. Pulsa «Quitar las hojas» para ver qué escondían.');
+      anuncia('Tu respuesta: ' + v + '. ' + $('paso-a-txt').textContent + ' Pulsa «Quitar las hojas» para ver qué escondían.');
       el.quitar.focus({ preventScroll: true });
     }
   }
@@ -233,16 +233,18 @@
   function chip(ul, cls, etiqueta, valor, nota) {
     var li = h('li', cls); li.appendChild(h('span', 'c-et', etiqueta)); li.appendChild(h('span', 'c-num', valor)); if (nota) li.appendChild(h('span', 'c-nota', nota)); ul.appendChild(li);
   }
-  function pintaResumen(resp, vis, des) {
+  function nIA(c) { var I = window.RACIMOS_IA && window.RACIMOS_IA[c.id]; return I ? I.n : null; }
+  function pintaResumen(resp, vis, des, ia) {
     var ul = $('f-resumen'); limpia(ul);
     chip(ul, 'c-tu', 'Tú contaste', String(resp), 'racimos en total');
-    chip(ul, 'c-cam', 'Una cámara veía', String(vis), 'racimos');
+    if (ia !== null) chip(ul, 'c-ia', 'La IA contó', String(ia), 'racimos (modelo de Televitis)');
+    chip(ul, 'c-cam', 'Una persona experta veía', String(vis), 'racimos en las fotos con hojas');
     chip(ul, 'c-real', 'Había de verdad', String(des), 'al quitar las hojas');
   }
   function pintaTiempos(tmed, media) {
     var C = window.COMPARATIVAS, d = C.datos(tmed, media);
     var ul = $('f-tiempos'); limpia(ul);
-    chip(ul, 'c-tu', 'Tú', d.ts + (d.ts === 1 ? ' s' : ' s'), 'por cepa, de media');
+    chip(ul, 'c-tu', 'Tú', (tmed < 10 ? C.num(tmed, 1) : String(Math.round(tmed))) + ' s', 'por cepa, de media');
     chip(ul, 'c-ia', 'Una IA', '2,5 ms', 'por imagen (Jocher et al., 2026)');
     chip(ul, 'c-campo', 'Una persona en el campo', '≈ 4 min', 'por cepa: 15 min por cada 4 cepas (Jaramillo et al., 2021)');
     var v = $('f-vs-txt'); limpia(v);
@@ -291,7 +293,8 @@
       : 'cepas en las que tu respuesta quedó a ±1 racimo de lo que ve una cámara.';
     $('f-pct').textContent = pct + ' %';
     $('f-pct-txt').textContent = 'de los racimos de estas cinco cepas (' + sumOc + ' de ' + sumDes + ') estaban escondidos por las hojas.';
-    pintaResumen(sumResp, sumVis, sumDes);
+    var sumIA = 0, hayIA = true; r.forEach(function (c) { var k = nIA(c); if (k === null) hayIA = false; else sumIA += k; });
+    pintaResumen(sumResp, sumVis, sumDes, hayIA ? sumIA : null);
     $('f-compartir').setAttribute('data-texto', 'En «Entre cepas» he contado racimos en ' + n + ' cepas y mi respuesta quedó a ±1 racimo en ' + primario + ' de ' + n + '. Detrás de las hojas se escondía un ' + pct + ' % de los racimos. ¿Puedes hacerlo mejor?');
     // mejor ronda (solo en este navegador)
     var mejor = null; try { mejor = parseInt(window.localStorage.getItem(KEY), 10); } catch (e) { mejor = null; }

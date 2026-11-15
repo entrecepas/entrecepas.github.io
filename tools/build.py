@@ -226,6 +226,21 @@ def ff_ctx(base, w, h, alt, cap, cred, cls='foto-caja foto-ancha'):
 def galeria(items):
     return '<div class="galeria">' + ''.join(ff(*i) for i in items) + '</div>'
 
+def hero_cepa():
+    w, h = C37['w'], C37['h']
+    vis = rects(C37['con'], 'caja-v'); oc = rects([o['b'] for o in C37['des'] if o['oculto']], 'caja-h'); vd = rects([o['b'] for o in C37['des'] if not o['oculto']], 'caja-v')
+    return f'''<figure class="hero-cepa" id="hero-cepa" data-vis="{C37['visibles']}" data-oc="{C37['ocultos']}" data-tot="{C37['deshojada']}">
+  <div class="hc-lienzo" style="--pos:0%">
+    <div class="hc-capa"><picture><source type="image/webp" srcset="img/racimos/C_37_con_hojas.webp"><img src="img/racimos/C_37_con_hojas.jpg" alt="Cepa de vid con hojas: entre ellas se ven pocos racimos de uva tinta." width="{w}" height="{h}" loading="lazy"></picture>
+      <svg class="cajas hc-cajas" viewBox="0 0 {w} {h}" preserveAspectRatio="none" aria-hidden="true">{vis}</svg></div>
+    <div class="hc-capa hc-b" aria-hidden="true"><picture><source type="image/webp" srcset="img/racimos/C_37_deshojada.webp"><img src="img/racimos/C_37_deshojada.jpg" alt="" width="{w}" height="{h}"></picture>
+      <svg class="cajas hc-cajas" viewBox="0 0 {w} {h}" preserveAspectRatio="none" aria-hidden="true">{vd}{oc}</svg></div>
+    <span class="hc-linea" aria-hidden="true"></span>
+  </div>
+  <p class="hc-control"><label for="hc-rango">Quita las hojas</label><input type="range" id="hc-rango" min="0" max="100" step="5" value="0" aria-valuetext="Cepa con hojas"></p>
+  <figcaption id="hc-txt" aria-live="polite">Con hojas, una persona experta ve {C37['visibles']} racimos. ¿Cuántos esconden las hojas? Desliza para descubrirlo.</figcaption>
+</figure>'''
+
 def hero_img():
     w, h = C37['w'], C37['h']
     vis = rects(C37['con'], 'caja-v'); oc = rects([o['b'] for o in C37['des'] if o['oculto']], 'caja-h'); vd = rects([o['b'] for o in C37['des'] if not o['oculto']], 'caja-v')
@@ -300,15 +315,15 @@ def index():
     pills = ''.join(f'<li><a class="pill" href="{a}">{icono(i, True)}<span>{q} <span class="pill-prox">(próximamente)</span></span></a></li>' for a, i, v, q, g in PROX if a not in JUGABLES)
     pasos = [('1', 'Haz una foto'), ('2', 'Súbela'), ('3', 'La web la analiza'), ('4', 'Mira el resultado')]
     lab = ''.join(f'<li><span class="paso-num" aria-hidden="true">{n}</span><span>{t}</span></li>' for n, t in pasos)
-    cuerpo = f"""<section class="hero hero-simple">
+    cuerpo = f"""<section class="hero hero-simple hero-reto hero-vdp">
   <div class="wrap">
     <div>
-      <p class="kicker">Ciencia de la vid · Divulgación</p>
+      <p class="kicker">Ciencia de la vid · Divulgación · ICVV</p>
       <h1>{TITULO}</h1>
       <p class="lema">{LEMA}</p>
-      <p class="lead"><strong>¿Cuántos racimos tiene una cepa?</strong> Una IA los cuenta en segundos, pero se le escapan los mismos que a ti: los que tapan las hojas. Compruébalo con fotos reales de viñedos de La Rioja.</p>
-      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La {term('viticultura de precisión')} mide esas diferencias para actuar solo donde hace falta, con sensores, drones e inteligencia artificial, y aquí puedes comprobar si tu ojo compite con ellos.</p>
-      <p class="acciones"><a class="btn grande" href="racimos.html">Jugar ahora</a> <a class="enlace-suave" href="ciencia.html">Cómo funciona la inteligencia artificial</a></p>
+      <p class="pregunta">¿Qué ve una máquina en un viñedo?</p>
+      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La {term('viticultura de precisión')} usa cámaras, sensores e inteligencia artificial para medir esas diferencias y actuar solo donde hace falta. Una IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos, pero no lo ve todo. <strong>Compruébalo tú.</strong></p>
+      <p class="acciones"><a class="btn grande" href="juegos.html">Jugar (5 min)</a> <a class="enlace-suave" href="#obj-h">Qué es la viticultura de precisión</a></p>
     </div>
     <figure class="video-vp">
       <video id="vp" controls muted playsinline preload="metadata" width="1280" height="720" poster="video/entre_cepas_vp.jpg" aria-describedby="vp-trans">
@@ -328,14 +343,33 @@ def index():
   </div>
 </section>
 
+<section class="bloque prueba" aria-labelledby="prueba-h">
+  <div class="wrap hero-reto-grid">
+    <div>
+      <h2 id="prueba-h">Pruébalo ahora: ¿cuántos racimos esconden las hojas?</h2>
+      <p>Esta es una cepa real de La Rioja. Con hojas, una persona experta ve unos pocos racimos y la IA de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> no encuentra ninguno. Desliza para quitar las hojas y mira lo que había.</p>
+      <p class="acciones"><a class="btn" href="racimos.html">Jugar al reto de los racimos</a></p>
+    </div>
+    {hero_cepa()}
+  </div>
+</section>
+
+<section class="cifras" aria-label="Tres datos de la investigación">
+  <div class="wrap"><ul>
+    <li><span class="cifra">28,6 %</span><span>de los racimos de las 20 cepas del reto estaban escondidos por las hojas</span></li>
+    <li><span class="cifra">86 %</span><span>de acierto de la IA al localizar zonas con mildiu en el campo (Hernández et al., 2025)</span></li>
+    <li><span class="cifra">95,6 %</span><span>de acierto de la IA al reconocer la fase de la vid en fotos nuevas (Íñiguez et al., 2025b)</span></li>
+  </ul></div>
+</section>
+
 <section aria-labelledby="retos-h" id="retos" class="bloque">
   <div class="wrap">
     <h2 id="retos-h">Empieza aquí: una ruta de 15 minutos</h2>
-    <ol class="ruta">
-      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> (37 s) y entiende el problema.</span></li>
+    <ol class="ruta ruta-h">
+      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> de arriba (37 s): qué es la viticultura de precisión.</span></li>
       <li><span class="paso-num" aria-hidden="true">2</span><span><strong>Juega los retos</strong> (≈ 5 min cada uno) y compara tu ojo con la IA.</span></li>
       <li><span class="paso-num" aria-hidden="true">3</span><span><strong>Explora los cinco objetivos</strong> del viñedo de precisión.</span></li>
-      <li><span class="paso-num" aria-hidden="true">4</span><span><strong>Prueba el Laboratorio</strong> con tu propia foto.</span></li>
+      <li><span class="paso-num" aria-hidden="true">4</span><span><strong>Prueba el Laboratorio</strong> y mira la IA analizando fotos reales.</span></li>
     </ol>
     {retos_grandes()}
   </div>
@@ -377,7 +411,7 @@ def index():
     <ul><li><a href="ciencia.html">La ciencia</a></li><li><a href="creditos.html">Créditos</a></li><li><a href="accesibilidad.html">Accesibilidad</a></li><li><button type="button" class="enlace-btn" data-compartir>Compartir</button></li></ul>
   </div>
 </section>"""
-    pagina('index.html', 'Inicio', DESC_SITIO, cuerpo, scripts=('js/portada.js', 'js/video.js'))
+    pagina('index.html', 'Inicio', DESC_SITIO, cuerpo, scripts=('js/portada.js', 'js/video.js', 'js/hero.js'))
 
 def _fig_variabilidad():
     return f"""      <figure class="ctx-fig">
@@ -490,9 +524,9 @@ def racimos():
         <li><h3>1. Cuenta</h3><p>Verás una cepa con hojas. Cuenta los racimos que veas y escribe tu cifra.</p></li>
         <li><h3>2. Comprueba</h3><p>Pulsa «Comprobar»: aparecen con línea continua los racimos que ve una cámara.</p></li>
         <li><h3>3. Quita las hojas</h3><p>Pulsa «Quitar las hojas» o arrastra el deslizador: con línea discontinua salen los que estaban escondidos.</p></li>
-        <li><h3>4. Compárate</h3><p>Son cinco cepas. Al final verás cuántos racimos escondían las hojas y cuánto tardas tú frente a la IA.</p></li>
+        <li><h3>4. Compárate</h3><p>Son cinco cepas. Al final, el marcador: lo que contaste tú, lo que contó la IA y lo que había de verdad, y cuánto tardas frente a ella.</p></li>
       </ol>
-      <p class="ayuda">La pregunta tiene truco: ni tú ni la cámara podéis ver lo que tapan las hojas. Por eso se compara tu cifra con lo que ve la cámara y después con lo que había de verdad. Las cajas de «lo que ve una cámara» las marcaron personas sobre la foto con hojas: son lo máximo que puede ver un modelo desde ese punto. Si quieres ver un modelo real contando racimos, pruébalo en el <a href="laboratorio-racimos.html">Laboratorio</a>.</p>
+      <p class="ayuda">La pregunta tiene truco: ni tú ni la cámara podéis ver lo que tapan las hojas. Por eso se compara tu cifra con lo que ve la cámara y después con lo que había de verdad. Las cajas de «lo que ve una cámara» las marcaron personas expertas sobre la foto con hojas. Además, en cada cepa verás cuántos racimos contó la IA de Televitis en esa misma foto: tú, la IA y lo que había de verdad.</p>
       <div class="modo"><input type="checkbox" id="modo-desc" aria-describedby="modo-desc-ayuda"><label for="modo-desc"><strong>Modo descripción</strong>: sustituye las imágenes por descripciones en texto.</label></div>
       <p class="ayuda" id="modo-desc-ayuda">Pensado para quien no puede ver las imágenes. Con él, la pregunta cambia: calcula cuántos racimos hay en total, incluidos los que tapan las hojas.</p>
       <p><button type="button" class="btn grande" id="empezar">Empezar la ronda</button></p>
@@ -593,12 +627,20 @@ def racimos():
 <section class="bloque" aria-labelledby="saber">
   <div class="wrap capas">
     <h2 id="saber">Para saber más</h2>
+    <p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025), sobre cómo estimar la cosecha del viñedo con inteligencia artificial y visión por computador, y de sus artículos: el efecto de las hojas (Íñiguez et al., 2021), el recuento de racimos con IA (Íñiguez et al., 2024) y su detección antes de la floración (Íñiguez et al., 2025a).</p>
+    <details><summary>La misma cepa, tres miradas: la IA, una persona y la realidad</summary>
+      <div><p>Esta es una de las cepas del reto. Con hojas, el modelo de detección de racimos de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> encuentra 2 racimos y una persona experta marca 4. Al quitar las hojas aparecen 9. La IA no falla por «no saber» qué es un racimo: falla, como la persona, porque no puede ver lo que está tapado.</p>
+      {ff_ctx('fig_tres_miradas_ec',1400,702,'Tres fotos de la misma cepa. Arriba a la izquierda, con hojas, la IA marca 2 racimos con cajas amarillas. Arriba a la derecha, la misma foto con 4 racimos marcados por una persona experta en blanco. Abajo, la cepa sin hojas con 9 racimos: los que estaban tapados, con línea discontinua amarilla. Al lado, las cifras 2, 4 y 9.','La IA y la persona experta miran la foto con hojas; la tercera imagen muestra lo que había.','Elaboración propia a partir de Íñiguez et al. (2024), con fotografías del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}</div></details>
+    <details><summary>Las 20 cepas del reto, una a una</summary>
+      <div><p>Si se suman las 20 cepas, el modelo encuentra 56 racimos en las fotos con hojas, una persona experta marca 90 y, sin hojas, había 126. En 16 de las 20 cepas la persona ve más racimos que la IA, y en ninguna la IA ve más que la persona. Y cuando la cepa tiene muchos racimos, los dos se quedan lejos de lo que había. Por eso la investigación no se queda en contar lo que se ve: busca cómo corregir lo que las hojas esconden (Íñiguez et al., 2021).</p>
+      {ff_ctx('fig_20_cepas_ec',1400,560,'Gráfico de barras con las 20 cepas del reto ordenadas de menos a más racimos. Para cada cepa, una barra clara con los racimos que había sin hojas (de 2 a 11), una barra granate con los que veía una persona experta con hojas y una barra amarilla con los que encontró la IA con hojas. Totales: 126 reales, 90 de la persona experta y 56 de la IA. La IA no encontró ninguno en tres cepas.','Racimos por cepa: lo que había (barra clara), lo que vio una persona experta (granate) y lo que encontró la IA de Televitis (amarillo), siempre en la foto con hojas.','Elaboración propia con las imágenes y etiquetas del reto (Íñiguez et al., 2024) y un modelo de Televitis.')}
+      <p>Estas fotos pueden haber servido para entrenar el modelo, así que sirven para ilustrar el problema de las hojas, no para medir su acierto.</p></div></details>
     <details><summary>Artículos de investigación en que se basa este reto</summary>
       <div>{refs_ul(['lau2021', 'jar2021', 'joc2026', 'del2014', 'ini2024', 'ini2021', 'ini2025a', 'pob2025'])}
       <p class="cita">Imágenes y etiquetas del reto: Íñiguez et al. (2024). Todas las clases de racimo del etiquetado original se agrupan aquí como «racimo». Más en <a href="ciencia.html">La ciencia detrás</a> y <a href="creditos.html">Créditos</a>.</p></div></details>
   </div>
 </section>'''
-    pagina('racimos.html', '¿Cuántos racimos hay?', 'Reto interactivo: estima cuántos racimos hay en cinco cepas con hojas y descubre cuántos escondían las hojas, con imágenes reales de investigación.', cuerpo, ('data/racimos.js', 'data/comparativas_fotos.js', 'js/comparativas_iconos.js', 'js/comparativas.js', 'js/racimos.js'))
+    pagina('racimos.html', '¿Cuántos racimos hay?', 'Reto interactivo: estima cuántos racimos hay en cinco cepas con hojas y descubre cuántos escondían las hojas, con imágenes reales de investigación.', cuerpo, ('data/racimos.js', 'data/racimos_ia.js', 'data/comparativas_fotos.js', 'js/comparativas_iconos.js', 'js/comparativas.js', 'js/racimos.js'))
 
 def bloque_vs():
     return """<div id="bloque-vs"><h4 class="sub-res">¿Y la rapidez?</h4>
@@ -654,7 +696,7 @@ def mildiu():
     </details>
     <details>
       <summary>Cómo se hace ahora</summary>
-      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas (red U-Net con codificador MobileViT-S) alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
+      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
     </details>
     <details>
       <summary>Los límites</summary>
@@ -680,7 +722,7 @@ def mildiu():
 
     <div id="juego-juego" hidden>
       <div class="juego-cab"><span class="progreso" id="progreso"></span><span class="reloj" aria-hidden="true">Tiempo: <span id="reloj">0:00</span></span><span class="progreso-barra" id="progreso-barra" aria-hidden="true"></span></div>
-      <h3 id="titulo-caso"></h3>
+      <h3 id="titulo-caso" class="sr-only"></h3>
       <p id="pregunta"></p>
       <figure class="figura-juego" id="figura"><span class="lienzo-m" id="lienzo-m"><span id="img-caso"></span></span><figcaption class="sr-only" id="cap-manchas"></figcaption></figure>
       <p class="ctl-manchas" id="ctl-manchas" hidden><button type="button" class="btn secundario" id="ver-manchas" aria-pressed="true">Ocultar manchas marcadas</button> <span class="nota" id="leyenda-manchas">Las zonas rodeadas con línea discontinua las marcaron a mano las personas que etiquetaron la imagen; no es una predicción de la IA.</span></p>
@@ -748,10 +790,11 @@ def mildiu():
 PROX_INFO = {
  'fases.html': dict(
    que='<p>Saber en qué fase está la vid ayuda a decidir cuándo podar, tratar, regar o vendimiar. Hasta ahora lo hacen personas expertas observando la planta. Un estudio las agrupó en cuatro etapas, según la escala de Eichhorn y Lorenz (E-L) (Coombe, 1995): desarrollo de brotes e inflorescencias (E-L 12–18), floración (E-L 19–26), formación de bayas (E-L 27–33) y maduración (E-L 35–38) (Íñiguez et al., 2025b).</p>',
-   cien='<p>En ese estudio se entrenaron tres modelos de IA (ResNet-34, YOLOv11-Clasificación y Vision Transformer) para clasificar fotografías del viñedo en esas cuatro etapas, con 4.381 imágenes. ResNet-34 llegó a un 97,4 % de acierto en validación y un 95,6 % en test. La etapa más difícil fue la floración, que se confundía con las vecinas por su parecido visual (Íñiguez et al., 2025b).</p>',
+   cien='<p>En ese estudio se entrenaron tres modelos de IA (ResNet-34, YOLOv11-Clasificación y Vision Transformer) para clasificar fotografías del viñedo en esas cuatro etapas, con 4.381 imágenes. ResNet-34 llegó a un 97,4 % de acierto en validación y un 95,6 % en test. La etapa más difícil fue la floración, que se confundía con las vecinas por su parecido visual (Íñiguez et al., 2025b).</p>' + ff_ctx('fig_fases_etapas_ec', 1400, 520, 'Cuatro fotos de cepas del ICVV ordenadas de abril a septiembre sobre una línea del tiempo: brotes e inflorescencias (E-L 12–18), floración (E-L 19–26, destacada en amarillo como la etapa que más confundía la IA), formación de bayas con racimos verdes (E-L 27–33) y maduración con uva tinta (E-L 35–38).', 'Las cuatro etapas del estudio. La floración, entre los brotes y las primeras bayas, fue la que más confundía la IA.', 'Elaboración propia a partir de Íñiguez et al. (2025b), con fotografías del archivo Televitis (Universidad de La Rioja).'),
+   tesis='<p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025), sobre cómo estimar la cosecha del viñedo con inteligencia artificial y visión por computador. Saber en qué fase está la vid es el primer paso: dice qué se puede contar en cada momento, de las inflorescencias a los racimos maduros (Íñiguez et al., 2025b).</p>',
    idea='Te enseñaremos una foto y tendrás que decir en cuál de las cuatro etapas está la vid.', refs=['ini2025b', 'coo1995', 'bag1952', 'pal2020', 'icvv2020'],
    extra_html=f'''<h2>Las cuatro etapas, en imágenes</h2>
-  <p>Estas fotografías siguen a varias cepas de la colección de variedades del Instituto de Ciencias de la Vid y del Vino (ICVV), en la Finca Institucional de La Grajera (Logroño), con más de 500 variedades (ICVV, 2020), a lo largo de la campaña. Cada una lleva su estado fenológico según la escala clásica de Baggiolini (1952). Fíjate en cómo cambia la planta de una etapa a la siguiente: a veces el cambio es evidente y a veces es muy sutil.</p>
+  <p>Estas fotografías siguen a varias cepas de la colección de variedades del Instituto de Ciencias de la Vid y del Vino (ICVV), en la Finca Institucional de La Grajera (Logroño), con más de 500 variedades (ICVV, 2020), a lo largo de la campaña. Cada una lleva el nombre de su estado. Fíjate en cómo cambia la planta de una etapa a la siguiente: a veces el cambio es evidente y a veces es muy sutil.</p>
   <h3>1. Desarrollo de brotes e inflorescencias (E-L 12–18)</h3>
   {galeria([('seg_10_R03', 'Cepa con brotes jóvenes de hojas pequeñas y un tronco rugoso.', 'Racimos visibles.'), ('seg_12_G02', 'Cepa con brotes largos de hojas verde claro.', 'Inflorescencias separadas.'), ('seg_14_T03', 'Cepa con brotes largos y hojas abiertas, con zarcillos.', 'Inflorescencias separadas.'), ('seg_16_S09', 'Cepa con muchas hojas verdes y brotes que ya llegan al alambre.', 'Botones florales separados.')])}
   <h3>2. Floración (E-L 19–26)</h3>
@@ -846,7 +889,7 @@ def fases_juego():
   </div>
   <div id="juego-juego" hidden>
     <div class="juego-cab"><span class="progreso" id="progreso"></span><span class="reloj" aria-hidden="true">Tiempo: <span id="reloj">0:00</span></span><span class="progreso-barra" id="progreso-barra" aria-hidden="true"></span></div>
-    <h3 id="titulo-caso"></h3>
+    <h3 id="titulo-caso" class="sr-only"></h3>
     <figure class="figura-juego" id="figura"><span id="img-caso"></span></figure>
     <fieldset class="linea-tiempo" id="linea"><legend>Elige el estado fenológico (escala E-L)</legend>
       <div class="carril" id="carril">{nodos}</div>
@@ -895,7 +938,7 @@ def proximos():
   {galeria_prox(info)}
   {info.get('extra_html', '')}
   {'' if a == 'fases.html' else '<div class="caja discontinua"><h3>Así será el juego</h3><p>' + info['idea'] + '</p></div>'}
-  <h2 style="margin-top:2rem">Para saber más</h2>{refs_ul(info['refs'])}
+  <h2 style="margin-top:2rem">Para saber más</h2>{info.get('tesis', '')}{refs_ul(info['refs'])}
   <p class="vol"><a class="btn secundario" href="juegos.html">Ver todos los retos</a> <a class="btn" href="racimos.html">Jugar ahora a otro reto</a></p>
 </div></section>'''
         pagina(a, q, f'{q} {g}', cuerpo, scripts=(('data/comparativas_fotos.js', 'js/comparativas_iconos.js', 'js/comparativas.js', 'js/vs.js', 'js/fases.js') if a == 'fases.html' else ()))

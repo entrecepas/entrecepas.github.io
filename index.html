@@ -10,7 +10,7 @@
 <meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="Entre cepas"><meta property="og:title" content="Entre cepas · Tú contra la IA en el viñedo"><meta property="og:description" content="Retos interactivos para poner a prueba tu ojo contra la inteligencia artificial en el viñedo, con imágenes y datos reales de investigación del ICVV y la Universidad de La Rioja."><meta property="og:image" content="https://entrecepas.github.io/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Entre cepas · Tú contra la IA en el viñedo"><meta name="twitter:description" content="Retos interactivos para poner a prueba tu ojo contra la inteligencia artificial en el viñedo, con imágenes y datos reales de investigación del ICVV y la Universidad de La Rioja."><meta name="twitter:image" content="https://entrecepas.github.io/img/og.jpg"><link rel="canonical" href="https://entrecepas.github.io/"><meta property="og:url" content="https://entrecepas.github.io/">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
-<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script><script src="js/portada.js" defer></script><script src="js/video.js" defer></script>
+<script src="js/common.js" defer></script><script src="js/voz.js" defer></script><script src="js/compartir.js" defer></script><script src="js/portada.js" defer></script><script src="js/video.js" defer></script><script src="js/hero.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -22,15 +22,15 @@
   </div>
 </header>
 <main id="contenido">
-<section class="hero hero-simple">
+<section class="hero hero-simple hero-reto hero-vdp">
   <div class="wrap">
     <div>
-      <p class="kicker">Ciencia de la vid · Divulgación</p>
+      <p class="kicker">Ciencia de la vid · Divulgación · ICVV</p>
       <h1>Entre cepas</h1>
       <p class="lema">Tú contra la IA en el viñedo</p>
-      <p class="lead"><strong>¿Cuántos racimos tiene una cepa?</strong> Una IA los cuenta en segundos, pero se le escapan los mismos que a ti: los que tapan las hojas. Compruébalo con fotos reales de viñedos de La Rioja.</p>
-      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La <button type="button" class="term" aria-expanded="false" aria-controls="g4">viticultura de precisión</button><span class="gloss" id="g4" hidden><strong>Viticultura de precisión:</strong> Según la OIV, un enfoque de gestión cíclico de las operaciones de campo, basado en herramientas de información y tecnología, que utiliza múltiples fuentes de datos relacionados con el viñedo para respaldar la toma de decisiones específicas para cada lugar, con el objetivo de optimizar los procesos de producción (OIV, 2019).</span> mide esas diferencias para actuar solo donde hace falta, con sensores, drones e inteligencia artificial, y aquí puedes comprobar si tu ojo compite con ellos.</p>
-      <p class="acciones"><a class="btn grande" href="racimos.html">Jugar ahora</a> <a class="enlace-suave" href="ciencia.html">Cómo funciona la inteligencia artificial</a></p>
+      <p class="pregunta">¿Qué ve una máquina en un viñedo?</p>
+      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La <button type="button" class="term" aria-expanded="false" aria-controls="g4">viticultura de precisión</button><span class="gloss" id="g4" hidden><strong>Viticultura de precisión:</strong> Según la OIV, un enfoque de gestión cíclico de las operaciones de campo, basado en herramientas de información y tecnología, que utiliza múltiples fuentes de datos relacionados con el viñedo para respaldar la toma de decisiones específicas para cada lugar, con el objetivo de optimizar los procesos de producción (OIV, 2019).</span> usa cámaras, sensores e inteligencia artificial para medir esas diferencias y actuar solo donde hace falta. Una IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos, pero no lo ve todo. <strong>Compruébalo tú.</strong></p>
+      <p class="acciones"><a class="btn grande" href="juegos.html">Jugar (5 min)</a> <a class="enlace-suave" href="#obj-h">Qué es la viticultura de precisión</a></p>
     </div>
     <figure class="video-vp">
       <video id="vp" controls muted playsinline preload="metadata" width="1280" height="720" poster="video/entre_cepas_vp.jpg" aria-describedby="vp-trans">
@@ -50,14 +50,43 @@
   </div>
 </section>
 
+<section class="bloque prueba" aria-labelledby="prueba-h">
+  <div class="wrap hero-reto-grid">
+    <div>
+      <h2 id="prueba-h">Pruébalo ahora: ¿cuántos racimos esconden las hojas?</h2>
+      <p>Esta es una cepa real de La Rioja. Con hojas, una persona experta ve unos pocos racimos y la IA de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> no encuentra ninguno. Desliza para quitar las hojas y mira lo que había.</p>
+      <p class="acciones"><a class="btn" href="racimos.html">Jugar al reto de los racimos</a></p>
+    </div>
+    <figure class="hero-cepa" id="hero-cepa" data-vis="3" data-oc="8" data-tot="11">
+  <div class="hc-lienzo" style="--pos:0%">
+    <div class="hc-capa"><picture><source type="image/webp" srcset="img/racimos/C_37_con_hojas.webp"><img src="img/racimos/C_37_con_hojas.jpg" alt="Cepa de vid con hojas: entre ellas se ven pocos racimos de uva tinta." width="1200" height="521" loading="lazy"></picture>
+      <svg class="cajas hc-cajas" viewBox="0 0 1200 521" preserveAspectRatio="none" aria-hidden="true"><rect class="halo" x="602" y="372" width="47" height="85" rx="3"/><rect class="caja-v" x="602" y="372" width="47" height="85" rx="3"/><rect class="halo" x="687" y="353" width="63" height="93" rx="3"/><rect class="caja-v" x="687" y="353" width="63" height="93" rx="3"/><rect class="halo" x="697" y="55" width="142" height="119" rx="3"/><rect class="caja-v" x="697" y="55" width="142" height="119" rx="3"/></svg></div>
+    <div class="hc-capa hc-b" aria-hidden="true"><picture><source type="image/webp" srcset="img/racimos/C_37_deshojada.webp"><img src="img/racimos/C_37_deshojada.jpg" alt="" width="1200" height="521"></picture>
+      <svg class="cajas hc-cajas" viewBox="0 0 1200 521" preserveAspectRatio="none" aria-hidden="true"><rect class="halo" x="552" y="279" width="116" height="168" rx="3"/><rect class="caja-v" x="552" y="279" width="116" height="168" rx="3"/><rect class="halo" x="686" y="312" width="99" height="163" rx="3"/><rect class="caja-v" x="686" y="312" width="99" height="163" rx="3"/><rect class="halo" x="639" y="24" width="227" height="131" rx="3"/><rect class="caja-v" x="639" y="24" width="227" height="131" rx="3"/><rect class="halo" x="73" y="16" width="178" height="170" rx="3"/><rect class="caja-h" x="73" y="16" width="178" height="170" rx="3"/><rect class="halo" x="231" y="252" width="110" height="120" rx="3"/><rect class="caja-h" x="231" y="252" width="110" height="120" rx="3"/><rect class="halo" x="315" y="269" width="91" height="152" rx="3"/><rect class="caja-h" x="315" y="269" width="91" height="152" rx="3"/><rect class="halo" x="448" y="220" width="111" height="170" rx="3"/><rect class="caja-h" x="448" y="220" width="111" height="170" rx="3"/><rect class="halo" x="563" y="121" width="108" height="175" rx="3"/><rect class="caja-h" x="563" y="121" width="108" height="175" rx="3"/><rect class="halo" x="803" y="227" width="134" height="183" rx="3"/><rect class="caja-h" x="803" y="227" width="134" height="183" rx="3"/><rect class="halo" x="894" y="60" width="180" height="187" rx="3"/><rect class="caja-h" x="894" y="60" width="180" height="187" rx="3"/><rect class="halo" x="977" y="161" width="212" height="173" rx="3"/><rect class="caja-h" x="977" y="161" width="212" height="173" rx="3"/></svg></div>
+    <span class="hc-linea" aria-hidden="true"></span>
+  </div>
+  <p class="hc-control"><label for="hc-rango">Quita las hojas</label><input type="range" id="hc-rango" min="0" max="100" step="5" value="0" aria-valuetext="Cepa con hojas"></p>
+  <figcaption id="hc-txt" aria-live="polite">Con hojas, una persona experta ve 3 racimos. ¿Cuántos esconden las hojas? Desliza para descubrirlo.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="cifras" aria-label="Tres datos de la investigación">
+  <div class="wrap"><ul>
+    <li><span class="cifra">28,6 %</span><span>de los racimos de las 20 cepas del reto estaban escondidos por las hojas</span></li>
+    <li><span class="cifra">86 %</span><span>de acierto de la IA al localizar zonas con mildiu en el campo (Hernández et al., 2025)</span></li>
+    <li><span class="cifra">95,6 %</span><span>de acierto de la IA al reconocer la fase de la vid en fotos nuevas (Íñiguez et al., 2025b)</span></li>
+  </ul></div>
+</section>
+
 <section aria-labelledby="retos-h" id="retos" class="bloque">
   <div class="wrap">
     <h2 id="retos-h">Empieza aquí: una ruta de 15 minutos</h2>
-    <ol class="ruta">
-      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> (37 s) y entiende el problema.</span></li>
+    <ol class="ruta ruta-h">
+      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> de arriba (37 s): qué es la viticultura de precisión.</span></li>
       <li><span class="paso-num" aria-hidden="true">2</span><span><strong>Juega los retos</strong> (≈ 5 min cada uno) y compara tu ojo con la IA.</span></li>
       <li><span class="paso-num" aria-hidden="true">3</span><span><strong>Explora los cinco objetivos</strong> del viñedo de precisión.</span></li>
-      <li><span class="paso-num" aria-hidden="true">4</span><span><strong>Prueba el Laboratorio</strong> con tu propia foto.</span></li>
+      <li><span class="paso-num" aria-hidden="true">4</span><span><strong>Prueba el Laboratorio</strong> y mira la IA analizando fotos reales.</span></li>
     </ol>
     <ul class="retos-grandes"><li class="reto-grande"><div class="foto"><picture><source type="image/webp" srcset="img/racimos/B_33_deshojada.webp"><img src="img/racimos/B_33_deshojada.jpg" alt="Una cepa sin hojas, con todos sus racimos a la vista." width="1200" height="572" loading="lazy"></picture></div>
         <div class="cuerpo"><span class="chip"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="#54081F"><circle cx="16" cy="18" r="5"/><circle cx="27" cy="18" r="5"/><circle cx="21" cy="26" r="5"/><circle cx="32" cy="26" r="5"/><circle cx="16" cy="34" r="5"/><circle cx="27" cy="34" r="5"/><circle cx="22" cy="42" r="4"/></g><path d="M22 13c0-5 3-8 8-8" fill="none" stroke="#54081F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#5E6619"/></svg>Contar</span><h3>¿Cuántos racimos hay?</h3><p>Calcula cuántos racimos hay en cinco cepas y comprueba cuántos escondían las hojas.</p>
