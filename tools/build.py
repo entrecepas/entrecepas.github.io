@@ -12,7 +12,7 @@ TITULO = 'Entre cepas'
 LEMA = 'Tú contra la IA en el viñedo'
 AUTOR = 'Rubén Iñiguez Mangado'
 SITE_URL = os.environ.get('SITE_URL', '').rstrip('/')  # p. ej. SITE_URL=https://usuario.github.io/entre-cepas python3 tools/build.py
-DESC_SITIO = 'Retos interactivos para poner a prueba tu ojo contra la inteligencia artificial en el viñedo, con imágenes y datos reales de investigación de la Universidad de La Rioja.'
+DESC_SITIO = 'Retos interactivos para poner a prueba tu ojo contra la inteligencia artificial en el viñedo, con imágenes y datos reales de investigación del ICVV y la Universidad de La Rioja.'
 
 # ---------------- referencias (una sola vez, se reutilizan) ----------------
 def doi(d): return f'<a href="https://doi.org/{d}">doi:{d}</a>'
@@ -212,9 +212,13 @@ def _dim(base):
 def pf(base, alt, extra='', lazy=True):
     w, h = _dim(base)
     return f'<picture><source type="image/webp" srcset="img/fotos/{base}.webp"><img src="img/fotos/{base}.jpg" alt="{alt}" width="{w}" height="{h}"{" loading=\"lazy\"" if lazy else ""}{extra}></picture>'
-CRED = 'Foto: archivo Televitis (Universidad de La Rioja).'
+CRED = 'Foto: archivo Televitis (UR-ICVV).'
+# Contacto: la dirección de correo se pasa por la variable de entorno CONTACTO_EMAIL; sin ella, se enlaza la ficha del autor en la UR.
+_mail = os.environ.get('CONTACTO_EMAIL', '').strip()
+CONTACTO = (f'<a href="mailto:{_mail}">{_mail}</a>' if _mail else
+            '<a href="https://investigacion.unirioja.es/investigadores/148703/detalle">ficha del autor en el portal de investigación de la Universidad de La Rioja</a> (datos de contacto)')
 CRH = 'Figura: equipo HyperGrape (Universidad de La Rioja).'
-CRED_IA = 'Imagen ilustrativa a partir de fotografías del archivo Televitis (Universidad de La Rioja).'
+CRED_IA = 'Imagen generada con IA a partir de fotografías del archivo Televitis (UR-ICVV).'
 def ff(base, alt, cap, cred=CRED, cls='foto-caja'):
     return f'<figure class="{cls}">{pf(base, alt)}<figcaption>{cap} <span class="cred">{cred}</span></figcaption></figure>'
 def ff_ctx(base, w, h, alt, cap, cred, cls='foto-caja foto-ancha'):
@@ -293,7 +297,7 @@ def selector_objetivos():
     return f'<div class="selector"><div class="tabs" role="tablist" aria-label="Los cinco objetivos del viñedo de precisión">{tabs}</div><div class="paneles">{pans}</div></div>'
 
 def index():
-    pills = ''.join(f'<li><a class="pill" href="{a}">{icono(i, True)}<span>{q}</span></a></li>' for a, i, v, q, g in PROX)
+    pills = ''.join(f'<li><a class="pill" href="{a}">{icono(i, True)}<span>{q} <span class="pill-prox">(próximamente)</span></span></a></li>' for a, i, v, q, g in PROX if a not in JUGABLES)
     pasos = [('1', 'Haz una foto'), ('2', 'Súbela'), ('3', 'La web la analiza'), ('4', 'Mira el resultado')]
     lab = ''.join(f'<li><span class="paso-num" aria-hidden="true">{n}</span><span>{t}</span></li>' for n, t in pasos)
     cuerpo = f"""<section class="hero hero-simple">
@@ -302,9 +306,9 @@ def index():
       <p class="kicker">Ciencia de la vid · Divulgación</p>
       <h1>{TITULO}</h1>
       <p class="lema">{LEMA}</p>
-      <p class="lead">Un viñedo no es igual en todas partes: dentro de una misma parcela el suelo y las cepas cambian mucho (Bramley, 2010). Gestionarlo con la misma práctica para todas las cepas no es lo más eficaz.</p>
-      <p class="lead">La {term('viticultura de precisión')} nace para medir esas diferencias y actuar donde hace falta. Hoy, sensores, drones e inteligencia artificial ayudan a mirar el viñedo cepa a cepa… y tú puedes comprobar si tu ojo compite con ellos.</p>
-      <p class="enlace-suave"><a href="ciencia.html">Cómo funciona la inteligencia artificial</a></p>
+      <p class="lead"><strong>¿Cuántos racimos tiene una cepa?</strong> Una IA los cuenta en segundos, pero se le escapan los mismos que a ti: los que tapan las hojas. Compruébalo con fotos reales de viñedos de La Rioja.</p>
+      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La {term('viticultura de precisión')} mide esas diferencias para actuar solo donde hace falta, con sensores, drones e inteligencia artificial, y aquí puedes comprobar si tu ojo compite con ellos.</p>
+      <p class="acciones"><a class="btn grande" href="racimos.html">Jugar ahora</a> <a class="enlace-suave" href="ciencia.html">Cómo funciona la inteligencia artificial</a></p>
     </div>
     <figure class="video-vp">
       <video id="vp" controls muted playsinline preload="metadata" width="1280" height="720" poster="video/entre_cepas_vp.jpg" aria-describedby="vp-trans">
@@ -312,6 +316,7 @@ def index():
         Tu navegador no puede reproducir el vídeo; abajo tienes su transcripción.
       </video>
       <details id="vp-trans" class="transcripcion"><summary>Transcripción del vídeo (37 s)</summary>
+        <p>El vídeo no tiene locución, solo sonido ambiente; el texto de cada escena aparece en la propia imagen.</p>
         <ol>
           <li><strong>Un viñedo no es igual en todas partes.</strong> Vista desde arriba de una parcela: las cepas de la izquierda son pequeñas y amarillentas, y las de la derecha, grandes y de un verde intenso. Dentro de una misma parcela, las cepas crecen de forma distinta.</li>
           <li><strong>Recoger datos.</strong> Un dron sobrevuela las filas y un vehículo con cámaras y sensores recorre las calles. Ondas de luz van de cada equipo a las cepas: recogen datos de cada zona del viñedo.</li>
@@ -358,7 +363,8 @@ def index():
 
 <section aria-labelledby="mas" class="bloque">
   <div class="wrap">
-    <h2 id="mas">Y hay más por descubrir</h2>
+    <h2 id="mas">Próximos retos</h2>
+    <p>Todavía no se pueden jugar, pero ya puedes ver en qué consistirán y en qué investigación se apoyan.</p>
     <ul class="pills">{pills}</ul>
     <p class="mas-juegos"><a class="btn secundario" href="juegos.html">Ver todos los juegos</a></p>
   </div>
@@ -486,7 +492,7 @@ def racimos():
         <li><h3>3. Quita las hojas</h3><p>Pulsa «Quitar las hojas» o arrastra el deslizador: con línea discontinua salen los que estaban escondidos.</p></li>
         <li><h3>4. Compárate</h3><p>Son cinco cepas. Al final verás cuántos racimos escondían las hojas y cuánto tardas tú frente a la IA.</p></li>
       </ol>
-      <p class="ayuda">La pregunta tiene truco: ni tú ni la cámara podéis ver lo que tapan las hojas. Por eso se compara tu cifra con lo que ve la cámara y después con lo que había de verdad.</p>
+      <p class="ayuda">La pregunta tiene truco: ni tú ni la cámara podéis ver lo que tapan las hojas. Por eso se compara tu cifra con lo que ve la cámara y después con lo que había de verdad. Las cajas de «lo que ve una cámara» las marcaron personas sobre la foto con hojas: son lo máximo que puede ver un modelo desde ese punto. Si quieres ver un modelo real contando racimos, pruébalo en el <a href="laboratorio-racimos.html">Laboratorio</a>.</p>
       <div class="modo"><input type="checkbox" id="modo-desc" aria-describedby="modo-desc-ayuda"><label for="modo-desc"><strong>Modo descripción</strong>: sustituye las imágenes por descripciones en texto.</label></div>
       <p class="ayuda" id="modo-desc-ayuda">Pensado para quien no puede ver las imágenes. Con él, la pregunta cambia: calcula cuántos racimos hay en total, incluidos los que tapan las hojas.</p>
       <p><button type="button" class="btn grande" id="empezar">Empezar la ronda</button></p>
@@ -625,7 +631,7 @@ def mildiu():
       <summary>La pelusilla blanca: esporulación</summary>
       <div><div class="duo">{ff('mildiu_17_hoja_enves_esporulacion_en_mano', 'Una mano sostiene una hoja de vid dada la vuelta, con una película blanquecina en el envés.', 'El envés de una hoja con mildiu, con la película blanquecina.')}
       <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Gessler et al., 2011; Hernández et al., 2024).</p></div></div>
-      {ff('ia_mildiu_hoja_haz_enves', 'Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).', CRED_IA)}</div>
+      {ff('mildiu_20_hoja_haz_enves', 'Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).')}</div>
     </details>
     <details>
       <summary>El mildiu también ataca a los racimos</summary>
@@ -720,7 +726,7 @@ def mildiu():
 <section class="bloque" aria-labelledby="saber">
   <div class="wrap capas">
     <h2 id="saber">Para saber más</h2>
-    <p class="lead"><strong>Investigación y datos: Hernández et al.</strong></p>
+    <p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/681cec665afe3d4f3517e8d6">tesis doctoral de Inés Hernández</a> (Universidad de La Rioja – ICVV, 2025) y de sus artículos.</p>
     <details><summary>¿Y cómo se estudia el mildiu en el laboratorio?</summary>
       <div><p>Antes de salir al campo, las investigadoras de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> inocularon discos de hoja de vid con el patógeno y los fotografiaron día tras día. Así se puede ver cuándo aparecen los primeros síntomas y entrenar a la IA con ejemplos controlados (Hernández et al., 2024). Con ese aprendizaje, el modelo ya puede mirar una foto de campo:</p>
       {ff_ctx('fig_mapa_ec',1400,480,'Tres imágenes de la misma cepa con hojas: la foto, una máscara en la que las zonas que la IA da por enfermas aparecen en rosa sobre fondo oscuro, y la foto con esas zonas superpuestas, sobre todo en dos hojas con manchas.','La IA no responde «sano» o «enfermo» para toda la foto: dibuja, zona a zona, dónde cree que hay mildiu.','Elaboración propia a partir de Hernández et al. (2024), con una fotografía del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}
@@ -830,10 +836,11 @@ def fases_juego():
     <ol class="tres">
       <li><h3>Mira</h3><p>Verás 8 fotos de cepas hechas a lo largo de la campaña.</p></li>
       <li><h3>Sitúa</h3><p>Elige el estado fenológico en la línea del tiempo, de la brotación a la maduración.</p></li>
-      <li><h3>Aprende</h3><p>Te decimos en qué fase estaba y qué rasgos mirar. Acertar a una fase de distancia ya tiene mérito.</p></li>
+      <li><h3>Aprende</h3><p>Te decimos en qué estado estaba y qué rasgos mirar. Acertar a un estado de distancia ya tiene mérito.</p></li>
     </ol>
+    <p class="ayuda">El juego usa nueve estados de la escala E-L, de la brotación (E-L 4) a la maduración (E-L 38); el estudio de referencia los agrupa en cuatro grandes etapas (Íñiguez et al., 2025b). En este reto no se ejecuta ningún modelo: tu respuesta se compara con el estado anotado por personas expertas, y tu tiempo, con una estimación del tiempo de un modelo de IA.</p>
     <div class="modo"><input type="checkbox" id="modo-guia" aria-describedby="modo-guia-ayuda"><label for="modo-guia"><strong>Recorrido guiado sin imágenes</strong></label></div>
-    <p class="ayuda" id="modo-guia-ayuda">Para quien no puede ver las imágenes: repasas las nueve etapas con una descripción en texto, en orden.</p>
+    <p class="ayuda" id="modo-guia-ayuda">Para quien no puede ver las imágenes: repasas los nueve estados con una descripción en texto, en orden.</p>
     <p><button type="button" class="btn grande" id="empezar">Empezar la ronda</button></p>
     <p class="nota">Sin límite de tiempo, pero se cuenta cuánto tardas por foto para compararte con la IA al final. No se guarda nada fuera de tu navegador. Las fotos son del archivo de Televitis, de varias cepas y fechas.</p>
   </div>
@@ -859,6 +866,12 @@ def fases_juego():
   </div>
   <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
   <script>window.FASES = {data};</script>
+  <h2 style="margin-top:2rem">Después de jugar: qué hemos aprendido</h2>
+  <ol class="ideas">
+    <li><p><strong>Los estados vecinos se parecen.</strong></p><p>El ciclo de la vid es continuo y la escala E-L le pone marcas. Por eso confundir dos estados seguidos es normal, también para una IA: en el estudio, la floración fue la etapa que más se confundía con sus vecinas (Íñiguez et al., 2025b).</p></li>
+    <li><p><strong>La foto importa.</strong></p><p>De lejos y con hojas, las flores y las bayas pequeñas apenas se ven. Qué se fotografía, desde dónde y cuándo cambia lo que pueden reconocer una persona y una máquina.</p></li>
+    <li><p><strong>Saber la fase ayuda a decidir.</strong></p><p>Tratamientos, riego, deshojado o vendimia dependen del momento del ciclo. Una IA que reconozca la fase en fotos permitiría seguirla en todo el viñedo, y no solo en unas pocas cepas.</p></li>
+  </ol>
 </div>"""
 
 def galeria_prox(info):
@@ -916,7 +929,7 @@ def ciencia():
   {_extra_ciencia()}
   <h2>Glosario</h2>
   <dl class="glosario">{''.join(f'<dt>{k.capitalize()}</dt><dd>{v}</dd>' for k, v in GLOSARIO.items())}
-    <dt>Precisión (acierto)</dt><dd>Porcentaje de casos que el modelo clasifica bien.</dd>
+    <dt>Exactitud (acierto)</dt><dd>Porcentaje de casos que el modelo clasifica bien.</dd>
     <dt>F1</dt><dd>Número entre 0 y 1 que resume si el modelo acierta y no se deja casos sin detectar. Cuanto más cerca de 1, mejor.</dd>
     <dt>R²</dt><dd>Cuánto de lo que varía lo explica el modelo. 1 sería perfecto; 0 sería como no saber nada.</dd>
     <dt>Etiquetar</dt><dd>Marcar en una imagen lo que queremos que el modelo aprenda a reconocer.</dd>
@@ -952,15 +965,21 @@ def creditos():
   <h2>Imágenes</h2>
   <p>El vídeo de la portada se ha hecho con cuatro clips generados con Gemini (Google) a partir de descripciones escritas por el autor; el montaje, los fundidos y el texto los ha preparado el autor con ayuda de herramientas de IA. No muestra datos reales.</p>
   <p>En cada imagen, el icono ⓘ muestra su fuente al pasar el cursor, al enfocarlo con el teclado o al tocarlo; las figuras de artículos publicados llevan su cita a la vista.</p>
-  <p>Todas las fotografías son de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> (grupo de investigación de la Universidad de La Rioja, ICVV): unas las ha tomado el autor de la web con su móvil en el viñedo y otras proceden de la base de datos del grupo. Las figuras de artículos científicos se reproducen con permiso de sus autoras y autores (Tardáguila, Palacios, Poblete-Echeverría, Diago e Íñiguez), con la cita de cada artículo. Gracias al grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> por los datos, las imágenes y las conversaciones que hay detrás de esta web. No hay personas identificables en ninguna imagen.</p>
+  <p>Todas las fotografías reales son de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> (grupo de investigación de la Universidad de La Rioja y del ICVV): unas las ha tomado el autor de la web en el viñedo y otras proceden de la base de datos del grupo. Las imágenes generadas con IA se listan más abajo. Las figuras «Elaboración propia» se han hecho para esta web con fotografías y modelos de Televitis, a partir de los artículos que citan. Gracias al grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> por los datos, las imágenes y las conversaciones que hay detrás de esta web. La única persona identificable en las imágenes es el autor, que ha firmado la autorización de uso de su imagen.</p>
   <p>Las manchas de mildiu marcadas en el juego proceden de las máscaras de segmentación de las personas que etiquetaron las imágenes.</p>
   <p>Las imágenes de dron (visible y térmica, julio de 2024), las fotografías de campo, de plataformas y de enfermedades son del archivo de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> (Universidad de La Rioja). Las imágenes de cámaras hiperespectrales y de la mesa de selección proceden del proyecto <a class="enl-hg" href="https://hypergrape.unirioja.es/">HyperGrape</a> (grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>, Universidad de La Rioja – ICVV; financiado por el Ministerio de Ciencia, Innovación y Universidades, AEI y FEDER-UE).</p>
   <h2>Imágenes generadas con inteligencia artificial</h2>
-  <p>Tres ilustraciones se han generado con Gemini (Google) a partir de fotografías del archivo de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>: la hoja de mildiu vista por haz y envés, la cámara de presión y la plataforma con colores que simulan una imagen térmica. Ninguna se usa como dato ni en los juegos, y la recoloreada indica en su pie que es solo una ilustración. Las fotografías reales de las enfermedades están en el resto de la web.</p>
+  <p>Estas son todas las imágenes generadas con IA de la web:</p>
+  <ul class="lista-simple">
+    <li>Con Gemini (Google), a partir de fotografías reales del archivo de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>: la cámara de presión, la plataforma con colores que simulan una imagen térmica y la cámara sobre un trípode en el viñedo (en La ciencia aparece también recortada).</li>
+    <li>Con ChatGPT (OpenAI), a partir de descripciones del autor: las cuatro ilustraciones de «Así funciona» del Laboratorio.</li>
+    <li>Con Gemini (Google), a partir de descripciones del autor: los cuatro clips del vídeo de la portada.</li>
+  </ul>
+  <p>Ninguna se usa como dato ni en los juegos: todas las imágenes de los retos y de las enfermedades son fotografías reales.</p>
   <h2>Licencias</h2>
   <p>Los textos, el diseño y el resto de contenidos de esta web se publican bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>; el código, bajo licencia MIT. Los artículos científicos citados mantienen sus propias licencias; consulta cada uno en su enlace.</p>
   <h2>Cómo se hizo</h2>
-  <p>Ilustraciones: las cuatro imágenes de «Así funciona» del laboratorio se generaron con ChatGPT a partir de descripciones escritas por el autor; los pictogramas de las comparativas de los retos son de elaboración propia (CC BY 4.0). La imagen de la cámara sobre un trípode en el viñedo se generó con IA a partir de una fotografía real del archivo Televitis.</p>
+  <p>Los pictogramas de las comparativas de los retos y las figuras «Elaboración propia» se han hecho para esta web (CC BY 4.0).</p>
   <p>La idea, la selección de datos y la revisión científica son de {AUTOR}, que asume la autoría y la responsabilidad final del contenido. Para redactar textos y desarrollar el código se usaron herramientas de inteligencia artificial generativa (Claude, de Anthropic) como apoyo. Ninguna cifra, referencia o resultado ha sido inventado: salen de los artículos y datos citados. La accesibilidad se ha comprobado con herramientas automáticas y pruebas manuales; los detalles están en la <a href="accesibilidad.html">declaración de accesibilidad</a>.</p>
 </div></section>'''
     pagina('creditos.html', 'Créditos', 'Autoría, investigación, datos, licencias (CC BY 4.0) y transparencia sobre cómo se ha hecho Entre cepas.', cuerpo)
@@ -1108,7 +1127,7 @@ def accesibilidad():
   <h2>Limitaciones conocidas</h2>
   <p>Las pruebas automáticas no detectan todos los problemas, y todavía no se ha probado con lectores de pantalla reales. Si encuentras una barrera, cuéntanoslo.</p>
   <h2>Contacto</h2>
-  <p>Rubén Iñiguez Mangado, <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>, Universidad de La Rioja e Instituto de Ciencias de la Vid y del Vino (ICVV): <a href="mailto:ruben.iniguez@unirioja.es">ruben.iniguez@unirioja.es</a>.</p>
+  <p>Rubén Iñiguez Mangado, <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>, Universidad de La Rioja e Instituto de Ciencias de la Vid y del Vino (ICVV): {CONTACTO}.</p>
 </div></section>'''
     pagina('accesibilidad.html', 'Declaración de accesibilidad', 'Declaración de accesibilidad de Entre cepas: qué se ha hecho para cumplir WCAG 2.1 AA, cómo se ha comprobado y cómo comunicar una incidencia.', cuerpo)
 

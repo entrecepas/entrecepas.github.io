@@ -583,3 +583,4 @@ figure.con-fuente { position: relative; }
 .personas-mini p{font-size:.95rem}
 .guia-barra p{max-width:none}
 .guia-barra .wrap p{max-width:none;margin-inline:auto;text-align:center}
+.pill-prox{font-weight:400;opacity:.8;font-size:.9em}

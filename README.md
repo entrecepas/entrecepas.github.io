@@ -57,4 +57,4 @@ Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativo
 
 ## Contacto
 
-Rubén Iñiguez Mangado · Televitis, Universidad de La Rioja · ruben.iniguez@unirioja.es
+Rubén Iñiguez Mangado · Televitis, Universidad de La Rioja – ICVV · https://investigacion.unirioja.es/investigadores/148703/detalle
