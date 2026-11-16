@@ -11,7 +11,7 @@
     if (estado !== ultimo) {
       ultimo = estado;
       t.textContent = estado === 'fin'
-        ? 'Sin hojas aparecen ' + oc + ' racimos más: había ' + tot + '. Con hojas, una persona experta veía ' + vis + ' y la IA de Televitis no vio ninguno. Eso es lo que la cámara no ve.'
+        ? 'Sin hojas aparecen ' + oc + ' racimos más: había ' + tot + '. Con hojas, una persona experta veía ' + vis + '. Por eso, además de contar lo que se ve, la investigación estima los racimos que tapan las hojas.'
         : 'Con hojas, una persona experta ve ' + vis + ' racimos. ¿Cuántos esconden las hojas? Desliza para descubrirlo.';
     }
   }

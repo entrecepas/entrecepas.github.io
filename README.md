@@ -20,7 +20,7 @@ Si abres `index.html` con doble clic, los juegos y las páginas funcionan, pero 
 
 | Carpeta o archivo | Contenido |
 |---|---|
-| `*.html` | Las 19 páginas de la web (generadas, no se editan a mano) |
+| `*.html` | Las 20 páginas de la web (generadas, no se editan a mano) |
 | `css/`, `js/` | Estilos y comportamiento. `js/vendor/` tiene las librerías de terceros |
 | `data/` | Datos de los retos (cepas, imágenes de mildiu, créditos de comparativas) |
 | `img/` | Fotografías (archivo Televitis), figuras de elaboración propia e iconos |
@@ -33,7 +33,7 @@ Si abres `index.html` con doble clic, los juegos y las páginas funcionan, pero 
 ## Cómo regenerar las páginas
 
 ```
-python3 tools/build.py            # genera las 19 páginas
+python3 tools/build.py            # genera las 20 páginas
 python3 tools/build.py --final    # igual, pero falla si queda texto provisional
 SITE_URL=https://ejemplo.org python3 tools/build.py   # añade enlaces canónicos, sitemap.xml y robots.txt
 ```
@@ -46,7 +46,7 @@ No hay cookies, analítica ni servidor propio. Las fotos que se suben al Laborat
 
 ## Accesibilidad
 
-Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativos, resultados anunciados a lectores de pantalla, recorridos guiados en texto para quien no ve las imágenes, sin límites de tiempo y respeto a la preferencia de reducir movimiento. Comprobada con axe-core en las 19 páginas, a 1280 y 390 px de ancho, y recorrida con el lector de pantalla NVDA (Edge, Windows). Detalles en `accesibilidad.html`.
+Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativos, resultados anunciados a lectores de pantalla, recorridos guiados en texto para quien no ve las imágenes, sin límites de tiempo y respeto a la preferencia de reducir movimiento. Comprobada con axe-core en las 20 páginas, a 1280 y 390 px de ancho, y recorrida con el lector de pantalla NVDA (Edge, Windows). Detalles en `accesibilidad.html`.
 
 ## Licencias
 

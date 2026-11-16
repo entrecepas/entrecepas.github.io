@@ -53,7 +53,7 @@
       f.disabled = false; st.textContent = 'Modelo «' + a.name + '» cargado en tu navegador. Ya puedes elegir una foto propia y analizarla.';
     }).catch(function () { propio = null; delete sesiones._propio; st.textContent = 'No he podido abrir ese archivo como modelo ONNX. Revisa el formato.'; });
   });
-  if (location.protocol !== 'file:') existe('models/' + (tarea === 'racimos' ? 'racimos' : 'mildiu') + '.onnx').then(function (ok) {
+  if (location.protocol !== 'file:') existe('models/' + tarea + '.onnx').then(function (ok) {
     var n = document.getElementById('sube-nota-modelo'); if (!ok && n) { n.hidden = false; f.disabled = true; }
   });
   Array.prototype.forEach.call(document.querySelectorAll('[data-ejemplo]'), function (b) {
@@ -159,8 +159,39 @@
         c.strokeRect(x1, y1, x2 - x1, y2 - y1); c.fillText(String(n + 1), x1 + 4, y1 + Math.max(16, cv.width / 55));
       });
       var ms = Math.round(performance.now() - t0);
-      txt.textContent = 'La IA ha contado ' + cajas.length + (cajas.length === 1 ? ' racimo' : ' racimos') + ' visibles en tu foto (' + (ms / 1000).toFixed(1).replace('.', ',') + ' s). Los racimos tapados por las hojas no se pueden contar desde una foto, así que el recuento real puede ser mayor.';
+      txt.textContent = 'La IA ha contado ' + cajas.length + (cajas.length === 1 ? ' racimo' : ' racimos') + ' en tu foto (' + (ms / 1000).toFixed(1).replace('.', ',') + ' s). Los que tapan las hojas se pueden estimar aparte, a partir de este recuento.';
       cv.setAttribute('aria-label', 'Tu foto con ' + cajas.length + ' racimos marcados con cajas amarillas');
+    });
+  }
+
+  /* ---------- Fases: clasificación de la imagen completa (p. ej. ResNet-34) ---------- */
+  var CONF_FASES = { tam: 768, clases: ['Desarrollo de brotes e inflorescencias (E-L 12–18)', 'Floración (E-L 19–26)', 'Formación de bayas (E-L 27–33)', 'Maduración (E-L 35–38)'] };
+  function confFases() {
+    if (propio) return Promise.resolve({ tam: 224, clases: CONF_FASES.clases });
+    return fetch('models/fases.json').then(function (r) { return r.ok ? r.json() : {}; }, function () { return {}; })
+      .then(function (j) { return { tam: j.tam || CONF_FASES.tam, clases: j.clases || CONF_FASES.clases }; });
+  }
+  function fases(im) {
+    var t0 = performance.now(), cfg;
+    return confFases().then(function (c0) { cfg = c0; return sesion('fases'); }).then(function (s) {
+      var S = cfg.tam, tc = document.createElement('canvas'); tc.width = tc.height = S; var tx = tc.getContext('2d', { willReadFrequently: true });
+      tx.drawImage(im, 0, 0, S, S);
+      var d = tx.getImageData(0, 0, S, S).data, a = new Float32Array(3 * S * S);
+      for (var p = 0; p < S * S; p++) for (var ch = 0; ch < 3; ch++) a[ch * S * S + p] = (d[p * 4 + ch] / 255 - MEAN[ch]) / STD[ch];
+      var fe = {}; fe[s.inputNames[0]] = new ort.Tensor('float32', a, [1, 3, S, S]);
+      return s.run(fe);
+    }).then(function (o) {
+      var v = Array.prototype.slice.call(o[Object.keys(o)[0]].data), m = Math.max.apply(null, v), e = v.map(function (x) { return Math.exp(x - m); }), z = e.reduce(function (u, w) { return u + w; }, 0), pr = e.map(function (x) { return x / z; });
+      var k = 0; pr.forEach(function (q, i) { if (q > pr[k]) k = i; });
+      var nom = function (i) { return cfg.clases[i] || ('Clase ' + (i + 1)); };
+      var K = Math.min(1, 1280 / Math.max(im.naturalWidth, im.naturalHeight)); cv.width = Math.round(im.naturalWidth * K); cv.height = Math.round(im.naturalHeight * K);
+      var c = cv.getContext('2d'); c.drawImage(im, 0, 0, cv.width, cv.height);
+      var fs = Math.max(22, cv.width / 36), et = nom(k); c.font = 'bold ' + fs + 'px Inter,sans-serif';
+      var w = c.measureText(et).width + fs; c.fillStyle = 'rgba(84,8,31,.88)'; c.fillRect(0, 0, Math.min(cv.width, w), fs * 1.8); c.fillStyle = '#FFD21F'; c.fillText(et, fs / 2, fs * 1.25);
+      var ms = Math.round(performance.now() - t0);
+      var otros = pr.map(function (q, i) { return [q, i]; }).sort(function (u, w2) { return w2[0] - u[0]; }).slice(1, 3).map(function (x) { return nom(x[1]) + ' (' + Math.round(x[0] * 100) + ' %)'; }).join(' y ');
+      txt.textContent = 'La IA cree que la vid está en: ' + et + ' (' + Math.round(pr[k] * 100) + ' % de confianza). Después piensa en ' + otros + '. Ha tardado ' + (ms / 1000).toFixed(1).replace('.', ',') + ' s en tu dispositivo.';
+      cv.setAttribute('aria-label', 'Tu foto con la etapa que propone la IA: ' + et);
     });
   }
 
@@ -169,15 +200,15 @@
     if (!url) { aviso('Primero elige una foto o prueba con una de ejemplo.'); return; }
     btn.disabled = true; res.hidden = true;
     if (location.protocol === 'file:') { aviso('Para analizar fotos, la web tiene que abrirse desde su dirección de internet o con el archivo ABRIR_WEB.bat (el navegador no deja cargar los modelos desde un archivo abierto directamente).'); btn.disabled = false; return; }
-    var modelo = tarea === 'racimos' ? 'racimos' : 'mildiu';
+    var modelo = tarea;
     (propio ? Promise.resolve(true) : existe('models/' + modelo + '.onnx')).then(function (ok) {
       if (!ok) {
         var E = ejemplo && window.LAB_EJEMPLOS && window.LAB_EJEMPLOS[url];
-        if (!E) { aviso('En esta versión en línea, el análisis de fotos propias no está disponible: los modelos de IA no se publican. Prueba con las fotos de ejemplo de arriba para ver el resultado.'); return; }
+        if (!E) { aviso(tarea === 'fases' ? 'El modelo de fases de Televitis todavía no está disponible aquí. Prueba con las fotos de ejemplo de arriba.' : 'En esta versión en línea, el análisis de fotos propias no está disponible: los modelos de IA no se publican. Prueba con las fotos de ejemplo de arriba para ver el resultado.'); return; }
         return new Promise(function (ok2, ko2) { var im = new Image(); im.onload = function () { cv.width = im.naturalWidth; cv.height = im.naturalHeight; cv.getContext('2d').drawImage(im, 0, 0); var o = new Image(); o.onload = function () { origen = o; guardaMarcado(); }; o.src = url; cv.setAttribute('aria-label', E.aria); txt.textContent = E.txt; msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); ok2(); }; im.onerror = ko2; im.src = E.img; });
       }
       aviso('Cargando el modelo de IA (la primera vez tarda unos segundos)…');
-      return leerImagen().then(function (im) { origen = im; return (tarea === 'racimos' ? racimos : mildiu)(im); }).then(function () { guardaMarcado(); msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); });
+      return leerImagen().then(function (im) { origen = im; return (tarea === 'racimos' ? racimos : tarea === 'fases' ? fases : mildiu)(im); }).then(function () { guardaMarcado(); msg.hidden = true; res.hidden = false; res.scrollIntoView({ block: 'nearest' }); });
     }).catch(function () { aviso('No he podido analizar la foto en este dispositivo. Prueba con otra foto o con otro navegador.'); })
       .then(function () { btn.disabled = false; });
   });

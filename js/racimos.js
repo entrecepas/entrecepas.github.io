@@ -266,7 +266,7 @@
       $('f-vs-ico').innerHTML = IC; $('f-vs-ico').hidden = false; cap.textContent = '';
       fig.hidden = false; $('f-vs').classList.add('con-foto');
     } else { fig.hidden = true; $('f-vs').classList.remove('con-foto'); }
-    $('f-aviso').textContent = 'Eso sí: la IA solo cuenta lo que se ve. Detrás de las hojas hay racimos que solo una persona (o quitar las hojas) puede descubrir.';
+    $('f-aviso').textContent = 'La IA cuenta en segundos los racimos que se ven, y los que tapan las hojas se pueden estimar a partir de ese recuento, teniendo en cuenta cuántos suelen quedar ocultos (Íñiguez et al., 2021). Un deshojado también ayuda a contarlos casi todos.';
   }
 
   function final() {

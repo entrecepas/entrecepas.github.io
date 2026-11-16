@@ -99,9 +99,9 @@ PROX = [  # archivo, icono, verbo, pregunta, gancho
  ('color.html', 'color', 'Descubrir', 'Colores que no vemos', 'La luz que no percibimos esconde información sobre la uva antes de probarla.'),
 ]
 JUGABLES = {'fases.html'}
-LAB_PAGS = ['laboratorio.html', 'laboratorio-racimos.html', 'laboratorio-mildiu.html']
+LAB_PAGS = ['laboratorio.html', 'laboratorio-racimos.html', 'laboratorio-mildiu.html', 'laboratorio-fases.html']
 NAV = [('index.html', 'Inicio'), ('SUB', 'Juegos'), ('LAB', 'Laboratorio'), ('ciencia.html', 'La ciencia'), ('guia-didactica.html', 'Docentes'), ('creditos.html', 'Créditos')]
-TODAS = ['index.html', 'juegos.html', 'racimos.html', 'mildiu.html'] + [p[0] for p in PROX] + ['laboratorio.html', 'laboratorio-racimos.html', 'laboratorio-mildiu.html', 'sube.html', 'ciencia.html', 'creditos.html', 'accesibilidad.html', 'guia-didactica.html', 'lenguaje-sencillo.html']
+TODAS = ['index.html', 'juegos.html', 'racimos.html', 'mildiu.html'] + [p[0] for p in PROX] + ['laboratorio.html', 'laboratorio-racimos.html', 'laboratorio-mildiu.html', 'laboratorio-fases.html', 'sube.html', 'ciencia.html', 'creditos.html', 'accesibilidad.html', 'guia-didactica.html', 'lenguaje-sencillo.html']
 
 def cabecera(actual):
     li = ''
@@ -118,7 +118,7 @@ def cabecera(actual):
         elif h == 'LAB':
             activo = actual in LAB_PAGS
             cur = lambda a: ' aria-current="page"' if a == actual else ''
-            sub = ''.join(f'<li><a href="{a}"{cur(a)}>{t}</a></li>' for a, t in [('laboratorio.html', 'Cómo funciona'), ('laboratorio-racimos.html', 'Contar racimos con IA'), ('laboratorio-mildiu.html', 'Detectar mildiu con IA')])
+            sub = ''.join(f'<li><a href="{a}"{cur(a)}>{t}</a></li>' for a, t in [('laboratorio.html', 'Cómo funciona'), ('laboratorio-racimos.html', 'Contar racimos con IA'), ('laboratorio-mildiu.html', 'Detectar mildiu con IA'), ('laboratorio-fases.html', 'Reconocer la fase con IA')])
             li += (f'<li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu"{" data-activo=\"1\"" if activo else ""}>{n}'
                    '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>'
                    f'<ul class="sub" id="lab-menu" hidden>{sub}</ul></li>')
@@ -354,7 +354,7 @@ def index():
       <p class="kicker">Ciencia de la vid · Divulgación · ICVV</p>
       <h1>{TITULO}</h1>
       <p class="lema">{LEMA}</p>
-      <p class="lead"><strong>¿Qué ve una máquina en un viñedo?</strong> La {term('viticultura de precisión')} usa cámaras, sensores e inteligencia artificial para medir las diferencias entre cepas y actuar solo donde hace falta. La IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos, pero no lo ve todo. <strong>Compruébalo tú.</strong></p>
+      <p class="lead"><strong>¿Qué ve una máquina en un viñedo?</strong> La {term('viticultura de precisión')} usa cámaras, sensores e inteligencia artificial para medir las diferencias entre cepas y actuar solo donde hace falta. La IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos. ¿Lo haces tú mejor? <strong>Compruébalo.</strong></p>
       <p class="acciones"><a class="btn grande" href="juegos.html">Jugar (5 min)</a> <a class="enlace-suave" href="#obj-h">Qué es la viticultura de precisión</a></p>
     </div>
     <figure class="video-vp">
@@ -379,7 +379,7 @@ def index():
   <div class="wrap hero-reto-grid">
     <div>
       <h2 id="prueba-h">Pruébalo ahora: ¿cuántos racimos esconden las hojas?</h2>
-      <p>Esta es una cepa real de La Rioja. Con hojas, una persona experta ve unos pocos racimos y la IA de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> no encuentra ninguno. Desliza para quitar las hojas y mira lo que había.</p>
+      <p>Esta es una cepa real de La Rioja. Con hojas, a simple vista se ven unos pocos racimos. Desliza para quitar las hojas y mira cuántos había.</p>
       <p class="acciones"><a class="btn" href="racimos.html">Jugar al reto de los racimos</a></p>
     </div>
     {hero_cepa()}
@@ -408,7 +408,7 @@ def index():
 </section>
 
 <section class="band band-fina" aria-label="Mensaje principal">
-  <div class="narrow"><p class="lead">La inteligencia artificial puede ayudar mucho en el viñedo, pero ve lo que ve la cámara, depende de cuándo y cómo se mira, y siempre necesita la mirada de una persona.</p></div>
+  <div class="narrow"><p class="lead">La inteligencia artificial ya ayuda a mirar todo el viñedo, cepa a cepa. Funciona mejor cuando se elige bien cuándo y cómo mirar, y siempre junto a la mirada de una persona.</p></div>
 </section>
 
 <section aria-labelledby="obj-h" class="bloque">
@@ -621,7 +621,7 @@ def racimos():
       </div>
       <h4 class="sub-res">Tus números</h4>
       <ul class="tres" id="f-resumen" aria-label="Resumen de la ronda"></ul>
-      <div class="caja sirve"><h4>Si la IA ve menos, ¿para qué sirve?</h4><p>En estas fotos, la IA de Televitis encuentra menos racimos que una persona experta. Pero una persona necesita minutos por cepa y la IA, segundos: puede revisar todas las cepas de un viñedo, y no solo unas pocas. Por eso la investigación busca cuándo y cómo mirar para que las hojas tapen menos: contar antes de que crezcan, o después de deshojar (Íñiguez et al., 2021; Íñiguez et al., 2025a). La IA no sustituye a la persona: le da datos de todo el viñedo.</p></div>
+      <div class="caja sirve"><h4>¿Y para qué sirve la IA?</h4><p>Una persona necesita minutos por cepa; la IA, segundos. Así puede revisar todas las cepas de un viñedo, y no solo unas pocas, y anticipar la cosecha. Con hojas, nadie ve todos los racimos en una foto, ni la IA ni una persona, pero los que faltan se pueden estimar: la investigación calcula cuántos suelen tapar las hojas y elige el mejor momento para mirar (Íñiguez et al., 2021, 2025a).</p></div>
       <h4 class="sub-res">¿Y la rapidez?</h4>
       <ul class="tiempos" id="f-tiempos" aria-label="Comparación de tiempos"></ul>
       <div class="vs" id="f-vs">
@@ -634,7 +634,7 @@ def racimos():
         <tbody id="tabla-cuerpo"></tbody></table></div>
       <p class="nota" id="f-mejor"></p>
       <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
-      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="mildiu.html">Pasar al reto del mildiu</a></p>
+      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="mildiu.html">Reto del mildiu</a><a class="btn grande secundario" href="fases.html">Reto de las fases</a></p>
     </div>
     <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
   </div>
@@ -662,10 +662,10 @@ def racimos():
     <h2 id="saber">Para saber más</h2>
     <p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025), sobre cómo estimar la cosecha del viñedo con inteligencia artificial y visión por computador, y de sus artículos: el efecto de las hojas (Íñiguez et al., 2021), el recuento de racimos con IA (Íñiguez et al., 2024) y su detección antes de la floración (Íñiguez et al., 2025a).</p>
     <details><summary>La misma cepa, tres miradas: la IA, una persona y la realidad</summary>
-      <div><p>Esta es una de las cepas del reto. Con hojas, el modelo de detección de racimos de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> encuentra 2 racimos y una persona experta marca 4. Al quitar las hojas aparecen 9. La IA no falla por «no saber» qué es un racimo: falla, como la persona, porque no puede ver lo que está tapado.</p>
+      <div><p>Esta es una de las cepas del reto. Con hojas, el modelo de detección de racimos de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> encuentra 2 racimos y una persona experta marca 4. Al quitar las hojas aparecen 9. Lo que está tapado no aparece en la foto, ni para la IA ni para la persona: por eso la investigación lo estima.</p>
       {ff_ctx('fig_tres_miradas_ec',1400,702,'Tres fotos de la misma cepa. Arriba a la izquierda, con hojas, la IA marca 2 racimos con cajas amarillas. Arriba a la derecha, la misma foto con 4 racimos marcados por una persona experta en blanco. Abajo, la cepa sin hojas con 9 racimos: los que estaban tapados, con línea discontinua amarilla. Al lado, las cifras 2, 4 y 9.','La IA y la persona experta miran la foto con hojas; la tercera imagen muestra lo que había.','Elaboración propia a partir de Íñiguez et al. (2024), con fotografías del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}</div></details>
     <details><summary>Las 20 cepas del reto, una a una</summary>
-      <div><p>Si se suman las 20 cepas, el modelo encuentra 56 racimos en las fotos con hojas, una persona experta marca 90 y, sin hojas, había 126. En 16 de las 20 cepas la persona ve más racimos que la IA, y en ninguna la IA ve más que la persona. Y cuando la cepa tiene muchos racimos, los dos se quedan lejos de lo que había. Por eso la investigación no se queda en contar lo que se ve: busca cómo corregir lo que las hojas esconden (Íñiguez et al., 2021).</p>
+      <div><p>Si se suman las 20 cepas, el modelo encuentra 56 racimos en las fotos con hojas, una persona experta marca 90 y, sin hojas, había 126. Las hojas tapan racimos a todos por igual. Por eso la investigación elige el mejor momento para fotografiar y estima los racimos que quedan ocultos (Íñiguez et al., 2021, 2025a).</p>
       {ff_ctx('fig_20_cepas_ec',1400,560,'Gráfico de barras con las 20 cepas del reto ordenadas de menos a más racimos. Para cada cepa, una barra clara con los racimos que había sin hojas (de 2 a 11), una barra granate con los que veía una persona experta con hojas y una barra amarilla con los que encontró la IA con hojas. Totales: 126 reales, 90 de la persona experta y 56 de la IA. La IA no encontró ninguno en tres cepas.','Racimos por cepa: lo que había (barra clara), lo que vio una persona experta (granate) y lo que encontró la IA de Televitis (amarillo), siempre en la foto con hojas.','Elaboración propia con las imágenes y etiquetas del reto (Íñiguez et al., 2024) y un modelo de Televitis.')}
       <p>Estas fotos pueden haber servido para entrenar el modelo, así que sirven para ilustrar el problema de las hojas, no para medir su acierto.</p></div></details>
     <details><summary>Artículos de investigación en que se basa este reto</summary>
@@ -779,7 +779,7 @@ def mildiu():
       {bloque_vs()}
       <p class="nota" id="f-mejor"></p>
       <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
-      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="racimos.html">Ir al reto de los racimos</a></p>
+      <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="racimos.html">Reto de los racimos</a><a class="btn grande secundario" href="fases.html">Reto de las fases</a></p>
     </div>
     <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
   </div>
@@ -793,8 +793,8 @@ def mildiu():
       <li><p><strong>No todo lo que cambia de color es mildiu.</strong></p><p>Una IA, como una persona, puede confundir síntomas parecidos; por eso se entrena con muchos ejemplos etiquetados por personas expertas.</p></li>
       <li><p><strong>La IA ayuda a mirar, la persona decide.</strong></p><p>Localizar los síntomas en todo el viñedo permite tratar solo donde hace falta, pero hay que validar los resultados en campo.</p></li>
     </ol>
-    <div class="caja" style="margin-top:2rem"><h3>Qué no hemos hecho aquí</h3>
-      <p>La IA no se ejecuta en directo: sus respuestas se calcularon de antemano con el modelo de Televitis. La etiqueta de cada imagen procede del trabajo de las personas que las recogieron y etiquetaron, y los porcentajes de acierto de arriba son los que publican los artículos con sus propios datos de prueba, no los de estas imágenes.</p></div>
+    <div class="caja" style="margin-top:2rem"><h3>Cómo se ha hecho este reto</h3>
+      <p>Las imágenes y sus etiquetas son el trabajo de personas expertas de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>. Las respuestas de la IA son las del modelo de detección de mildiu de Televitis sobre estas mismas imágenes, y los porcentajes de acierto de arriba son los publicados en los artículos.</p></div>
     <p style="margin-top:1.5rem"><a class="btn" href="juegos.html#proximos">Ver los próximos retos</a></p>
   </div>
 </section>
@@ -939,7 +939,7 @@ def fases_juego():
     {bloque_vs()}
     <p class="nota" id="f-mejor"></p>
     <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
-    <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="juegos.html">Ver todos los retos</a></p>
+    <p class="acciones"><button type="button" class="btn grande" id="otra">Jugar otra ronda</button><a class="btn grande secundario" href="racimos.html">Reto de los racimos</a><a class="btn grande secundario" href="mildiu.html">Reto del mildiu</a></p>
   </div>
   <p class="sr-only" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
   <script>window.FASES = {data};</script>
@@ -1094,8 +1094,9 @@ def laboratorio():
   {nota_ia}
   <h2>Elige qué quieres probar</h2>
   <div class="eleccion">
-    <a class="prox-card" href="laboratorio-racimos.html">{icono('racimo')}<h3>Contar racimos</h3><p>La IA marca los racimos que ve en una foto de cepa y te dice cuántos son. Recuerda: solo cuenta los que se ven.</p><span class="mas">Probar</span></a>
+    <a class="prox-card" href="laboratorio-racimos.html">{icono('racimo')}<h3>Contar racimos</h3><p>La IA marca los racimos de una foto de cepa y te dice cuántos son, en segundos.</p><span class="mas">Probar</span></a>
     <a class="prox-card" href="laboratorio-mildiu.html">{icono('hoja')}<h3>Detectar mildiu</h3><p>La IA señala las zonas de una hoja o de una cepa que podrían tener mildiu. La decisión final siempre es de una persona.</p><span class="mas">Probar</span></a>
+    <a class="prox-card" href="laboratorio-fases.html">{icono('fase')}<h3>Reconocer la fase</h3><p>La IA mira la foto de una cepa y propone en qué etapa del ciclo está: brotes, floración, bayas o maduración.</p><span class="mas">Probar</span></a>
   </div>
   <p class="ayuda">Tus fotos se quedan en tu navegador y no se envían a ningún sitio. El análisis se hace en tu propio dispositivo. Es un prototipo de investigación: puede equivocarse, sobre todo con fotos de móvil.</p>
 </div></section>'''
@@ -1103,17 +1104,23 @@ def laboratorio():
 
 def _lab_tarea(archivo, tarea, chip_t, h1, lead, previsto, consejos, icon):
     EJ = {'racimos': [('img/racimos/B_33_deshojada.jpg', 'Cepa sin hojas'), ('img/racimos/C_37_con_hojas.jpg', 'Cepa con hojas'), ('img/racimos/F_09_deshojada.jpg', 'Otra cepa sin hojas')],
-          'mildiu': [('img/mildiu/rm_02.jpg', 'Mildiu avanzado'), ('img/mildiu/rm_10.jpg', 'Mildiu inicial'), ('img/mildiu/rm_19.jpg', 'Hojas sanas')]}
+          'mildiu': [('img/mildiu/rm_02.jpg', 'Mildiu avanzado'), ('img/mildiu/rm_10.jpg', 'Mildiu inicial'), ('img/mildiu/rm_19.jpg', 'Hojas sanas')],
+          'fases': [('img/fases/el12_1.jpg', 'Brotes'), ('img/fases/el23_1.jpg', 'Floración'), ('img/fases/el27_3.jpg', 'Bayas verdes'), ('img/fases/el38_1.jpg', 'Uva madura')]}
+    NOTA = ('<p>El modelo de Televitis que reconoce la fase de la vid (Íñiguez et al., 2025b) se incorporará al Laboratorio cuando esté listo. Mientras tanto, prueba con las fotos de ejemplo: verás en qué etapa las sitúa una persona experta.</p>' if tarea == 'fases' else
+            '<p>Esta es la versión de demostración en línea. Los modelos de IA de Televitis siguen en fase de pruebas y se publicarán aquí cuando estén listos, para que cualquiera pueda analizar sus propias fotos. Mientras tanto, puedes ver el resultado real de los modelos sobre las fotos de ejemplo.</p>')
+    QUE = {'racimos': '<p>Un detector tipo YOLO (Ultralytics) exportado a ONNX, con entrada de 640 × 640 píxeles en RGB y valores de 0 a 1. Se aceptan las dos salidas habituales: [1, 4 + clases, N] o [1, N, 6] con la supresión de duplicados ya incluida.</p>',
+           'mildiu': '<p>Un modelo de segmentación exportado a ONNX, con entrada de 224 × 224 píxeles en RGB normalizada como ImageNet. La salida puede ser un canal de probabilidad de mildiu o dos canales (fondo y mildiu). La foto se analiza por trozos y se marcan las zonas con probabilidad mayor de 0,95.</p>',
+           'fases': '<p>Un clasificador de imagen (por ejemplo, ResNet-34) exportado a ONNX, con entrada de 224 × 224 píxeles en RGB normalizada como ImageNet y una salida con una puntuación por etapa, en este orden: brotes e inflorescencias, floración, formación de bayas y maduración.</p>'}[tarea]
     ejemplos = ' '.join(f'<button type="button" class="btn secundario" data-ejemplo="{src}">{t}</button>' for src, t in EJ[tarea])
     cuerpo = cab_pagina('Laboratorio', icon, h1, lead) + f'''
 <section class="bloque"><div class="narrow">
   <form id="sube-form" data-tarea="{tarea}" novalidate>
     <div class="resultado-paso" id="sube-nota-modelo" hidden>
-      <p>Esta es la versión de demostración en línea. Los modelos de IA de Televitis siguen en fase de pruebas y se publicarán aquí cuando estén listos, para que cualquiera pueda analizar sus propias fotos. Mientras tanto, puedes ver el resultado real de los modelos sobre las fotos de ejemplo.</p>
+      {NOTA}
       <details class="dev"><summary>Para desarrolladores: cargar un modelo propio</summary><div>
       <p><label for="sube-modelo">Si tienes tu propio modelo en formato ONNX, cárgalo y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
       <p class="ayuda" id="sube-modelo-estado" role="status" aria-live="polite"></p>
-      <details><summary>Qué modelo sirve</summary><div>{'<p>Un detector tipo YOLO (Ultralytics) exportado a ONNX, con entrada de 640 × 640 píxeles en RGB y valores de 0 a 1. Se aceptan las dos salidas habituales: [1, 4 + clases, N] o [1, N, 6] con la supresión de duplicados ya incluida.</p>' if tarea == 'racimos' else '<p>Un modelo de segmentación exportado a ONNX, con entrada de 224 × 224 píxeles en RGB normalizada como ImageNet. La salida puede ser un canal de probabilidad de mildiu o dos canales (fondo y mildiu). La foto se analiza por trozos y se marcan las zonas con probabilidad mayor de 0,95.</p>'}</div></details>
+      <details><summary>Qué modelo sirve</summary><div>{QUE}</div></details>
       </div></details>
     </div>
     <p class="ejemplos" id="sube-ejemplos"><strong>¿No tienes una foto a mano?</strong> Prueba con una del archivo de Televitis:<br>{ejemplos}</p>
@@ -1127,18 +1134,21 @@ def _lab_tarea(archivo, tarea, chip_t, h1, lead, previsto, consejos, icon):
   {previsto}
   <h2>Cómo hacer una buena foto</h2>
   {consejos}
-  <p class="ayuda">Tu foto se queda en tu navegador: el análisis se hace en tu propio dispositivo y no se envía a ningún sitio. Es un prototipo de investigación: puede equivocarse, sobre todo con fotos distintas a las de entrenamiento ({'cepas fotografiadas de frente, con cámara fija' if tarea == 'racimos' else 'fotos de campo de alta resolución'}).</p>
+  <p class="ayuda">Tu foto se queda en tu navegador: el análisis se hace en tu propio dispositivo y no se envía a ningún sitio. Es un prototipo de investigación: puede equivocarse, sobre todo con fotos distintas a las de entrenamiento ({'cepas fotografiadas de frente, con cámara fija' if tarea == 'racimos' else 'cepas fotografiadas de frente, a lo largo de toda la campaña' if tarea == 'fases' else 'fotos de campo de alta resolución'}).</p>
   <p style="margin-top:1.5rem"><a class="btn secundario" href="laboratorio.html">Volver al laboratorio</a></p>
 </div></section>'''
-    pagina(archivo, chip_t, f'{h1}: sube una foto y mira qué ve la inteligencia artificial.', cuerpo, scripts=('data/lab_ejemplos.js', 'js/sube.js'))
+    pagina(archivo, chip_t, f'{h1}: sube una foto y mira qué ve la inteligencia artificial.', cuerpo, scripts=('data/lab_ejemplos.js', 'data/lab_fases.js', 'js/sube.js'))
 
 def lab_tareas():
     _lab_tarea('laboratorio-racimos.html', 'racimos', 'Contar racimos con IA', 'Contar racimos con IA', 'Sube una foto de una cepa y mira cuántos racimos cuenta la inteligencia artificial.',
-        '<ul class="lista-simple"><li>Cajas continuas sobre los racimos que se ven en tu foto.</li><li>El número total de racimos detectados.</li><li>Cuánto ha tardado la IA en tu dispositivo.</li><li>Un recordatorio: los racimos tapados por las hojas no se pueden contar desde la foto.</li></ul>',
+        '<ul class="lista-simple"><li>Cajas continuas sobre los racimos que se ven en tu foto.</li><li>El número total de racimos detectados.</li><li>Cuánto ha tardado la IA en tu dispositivo.</li></ul>',
         '<ul class="lista-simple"><li>Una sola cepa por foto, vista de frente.</li><li>Con buena luz y sin contraluz.</li><li>Lo bastante cerca para que los racimos se vean, pero con la cepa entera en el encuadre.</li></ul><p class="ayuda">Son consejos orientativos.</p>', 'racimo')
     _lab_tarea('laboratorio-mildiu.html', 'mildiu', 'Detectar mildiu con IA', 'Detectar mildiu con IA', 'Sube una foto de una hoja o de una cepa y mira si la inteligencia artificial ve señales de mildiu.',
         '<ul class="lista-simple"><li>Las zonas sospechosas marcadas sobre tu foto.</li><li>Un aviso claro: «posible mildiu» o «no se ve mildiu».</li><li>Cuánto ha tardado la IA en tu dispositivo.</li><li>Un recordatorio: la IA ayuda a mirar, pero la decisión es de una persona.</li></ul>',
         '<ul class="lista-simple"><li>Enfoca la hoja con buena luz y sin sombras duras.</li><li>Incluye el haz (la cara de arriba), donde aparecen las manchas de aceite.</li><li>Evita fotos movidas o con la hoja mojada.</li></ul><p class="ayuda">Son consejos orientativos.</p>', 'hoja')
+    _lab_tarea('laboratorio-fases.html', 'fases', 'Reconocer la fase con IA', 'Reconocer la fase con IA', 'Sube una foto de una cepa y mira en qué etapa del ciclo la sitúa la inteligencia artificial.',
+        '<ul class="lista-simple"><li>La etapa que propone la IA, escrita sobre tu foto: brotes e inflorescencias, floración, formación de bayas o maduración.</li><li>Lo segura que está, y qué otras etapas ha considerado.</li><li>Cuánto ha tardado la IA en tu dispositivo.</li></ul>',
+        '<ul class="lista-simple"><li>La cepa de frente, con el tronco y los brotes en el encuadre.</li><li>Con buena luz y sin contraluz.</li><li>Lo bastante cerca para que se vean las flores o los racimos.</li></ul><p class="ayuda">Son consejos orientativos.</p>', 'fase')
 
 
 def guia_didactica():
