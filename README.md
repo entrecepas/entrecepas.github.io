@@ -46,7 +46,7 @@ No hay cookies, analítica ni servidor propio. Las fotos que se suben al Laborat
 
 ## Accesibilidad
 
-Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativos, resultados anunciados a lectores de pantalla, recorridos guiados en texto para quien no ve las imágenes, sin límites de tiempo y respeto a la preferencia de reducir movimiento. Comprobada con axe-core en las 19 páginas, a 1280 y 390 px de ancho. Detalles en `accesibilidad.html`.
+Diseñada para cumplir WCAG 2.1 AA: uso completo con teclado, textos alternativos, resultados anunciados a lectores de pantalla, recorridos guiados en texto para quien no ve las imágenes, sin límites de tiempo y respeto a la preferencia de reducir movimiento. Comprobada con axe-core en las 19 páginas, a 1280 y 390 px de ancho, y recorrida con el lector de pantalla NVDA (Edge, Windows). Detalles en `accesibilidad.html`.
 
 ## Licencias
 

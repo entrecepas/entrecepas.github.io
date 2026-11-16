@@ -52,7 +52,9 @@ REF = {
  'gut2019': ('Gutiérrez, S., Tardaguila, J., Fernández-Novales, J. y Diago, M. P. (2019). On-the-go hyperspectral imaging for the in-field estimation of grape berry soluble solids and anthocyanin concentration. <em>Australian Journal of Grape and Wine Research</em>, 25, 127–133.', '10.1111/ajgw.12376'),
 }
 def ref(k): t, d = REF[k]; return f'{t} {doi(d)}' if d else t
-def refs_ul(keys): return '<ul class="refs">' + ''.join(f'<li>{ref(k)}</li>' for k in keys) + '</ul>'
+TV_AUT = ('Íñiguez', 'Hernández, I', 'Gutiérrez, S', 'Tardaguila', 'Tardáguila', 'Diago', 'Fernández-Novales', 'Tejada-González', 'Palacios, F', 'Poblete-Echeverría', 'Barrio')
+def es_tv(k): return any(a in REF[k][0].split('(')[0] for a in TV_AUT)
+def refs_ul(keys): return '<ul class="refs">' + ''.join(f'<li>{ref(k)}</li>' for k in sorted(keys, key=lambda k: not es_tv(k))) + '</ul>'
 
 GLOSARIO = {
     'mildiu': 'Enfermedad de la vid causada por un organismo parecido a un hongo (Plasmopara viticola). Se ve como manchas amarillentas, «de aceite», en el haz de las hojas.',
@@ -158,7 +160,38 @@ def meta_social(archivo, full, desc):
 
 GUIA_DE = {'index.html': 'guia_viticultura_de_precision.pdf', 'racimos.html': 'guia_contar_racimos.pdf', 'mildiu.html': 'guia_detectar_mildiu.pdf', 'peso.html': 'guia_peso_del_racimo.pdf', 'enfermedades.html': 'guia_otras_enfermedades.pdf', 'variedades.html': 'guia_variedades.pdf', 'fases.html': 'guia_fases_de_la_vid.pdf', 'sed.html': 'guia_estres_hidrico.pdf', 'color.html': 'guia_colores_que_no_vemos.pdf'}
 
+def _mapa_citas():
+    m = {}
+    for k, (t, d) in REF.items():
+        if not d or not es_tv(k): continue
+        y = re.search(r'\((\d{4}[a-z]?)\)', t)
+        if not y: continue
+        m[(t.split(',')[0].strip(), y.group(1))] = 'https://doi.org/' + d
+    return m
+def enlaza_citas(html_txt):
+    """Enlaza al DOI las citas en el texto de los trabajos de Televitis («Hernández et al., 2024a»)."""
+    M = _mapa_citas(); apellidos = sorted({a for a, _ in M}, key=len, reverse=True)
+    rx = re.compile('(' + '|'.join(re.escape(a) for a in apellidos) + r') et al\.(,| \()( ?)(\d{4}[a-z]?)((?:, \d{4}[a-z]?)*)(\)?)')
+    def sub(mt):
+        a, sep, sp, y, resto, cierre = mt.groups()
+        u = M.get((a, y)); prim = f'{a} et al.{sep}{sp}{y}' + (cierre if sep == ' (' and not resto else '')
+        out = f'<a class="cita-tv" href="{u}">{prim}</a>' if u else prim
+        for y2 in re.findall(r'\d{4}[a-z]?', resto):
+            u2 = M.get((a, y2)); out += ', ' + (f'<a class="cita-tv" href="{u2}">{y2}</a>' if u2 else y2)
+        if cierre and not (sep == ' (' and not resto): out += cierre
+        return out
+    partes = re.split(r'(<[^>]+>)', html_txt); dentro = 0; salto = 0
+    for i, ptxt in enumerate(partes):
+        if ptxt.startswith('<'):
+            t = ptxt[1:].split()[0].rstrip('>').lower() if len(ptxt) > 2 else ''
+            if t in ('a', 'script', 'style', 'title', 'textarea'): dentro += 1
+            elif t in ('/a', '/script', '/style', '/title', '/textarea'): dentro = max(0, dentro - 1)
+        elif not dentro and ' et al.' in ptxt:
+            partes[i] = rx.sub(sub, ptxt)
+    return ''.join(partes)
+
 def pagina(archivo, titulo, descripcion, cuerpo, scripts=()):
+    cuerpo = enlaza_citas(cuerpo)
     if archivo in GUIA_DE and archivo != 'index.html':
         cuerpo += f'<section class="bloque guia-barra" aria-label="Para docentes"><div class="wrap"><p>¿Eres docente? <a href="guias/{GUIA_DE[archivo]}" download>Descarga la guía didáctica de este tema (PDF)</a> o <a href="guia-didactica.html">mira todas las guías</a>.</p></div></section>'
     full = f'{titulo} · {TITULO}' if archivo != 'index.html' else f'{TITULO} · {LEMA}'
@@ -656,7 +689,7 @@ def mildiu():
 <section class="bloque" aria-labelledby="antes">
   <div class="wrap capas">
     <h2 id="antes">Antes de jugar: el problema</h2>
-    <p class="lead">El {term('mildiu')} (<em>Plasmopara viticola</em>) es una de las enfermedades más destructivas de la vid (Gessler et al., 2011; Poblete-Echeverría et al., 2025b). Detectarlo a tiempo permite tratar justo cuando hace falta y evitar pérdidas.</p>
+    <p class="lead">El {term('mildiu')} (<em>Plasmopara viticola</em>) es una de las enfermedades más destructivas de la vid (Poblete-Echeverría et al., 2025b; Gessler et al., 2011). Detectarlo a tiempo permite tratar justo cuando hace falta y evitar pérdidas.</p>
     <details>
       <summary>Qué es el mildiu</summary>
       <div><div class="duo">{ff('mildiu_05_cepa_completa_con_manchas', 'Cepa con hojas verdes y varias hojas amarillentas con manchas, en un viñedo.', 'Una cepa con mildiu: las manchas aparecen repartidas entre las hojas.')}
@@ -666,13 +699,13 @@ def mildiu():
     <details>
       <summary>Qué es una mancha de aceite</summary>
       <div><div class="duo">{ff('mildiu_01_hoja_mancha_aceite_en_mano', 'Una mano sostiene una hoja de vid con zonas amarillentas y translúcidas.', 'Manchas de aceite en el haz de una hoja.')}
-      <div><p>Es el síntoma más reconocible en el haz de la hoja: una zona amarillenta y como translúcida, parecida a una gota de aceite sobre papel. Con el tiempo, el tejido se oscurece y se seca (Gessler et al., 2011; Hernández et al., 2024a).</p></div></div>
+      <div><p>Es el síntoma más reconocible en el haz de la hoja: una zona amarillenta y como translúcida, parecida a una gota de aceite sobre papel. Con el tiempo, el tejido se oscurece y se seca (Hernández et al., 2024a; Gessler et al., 2011).</p></div></div>
       {galeria([('mildiu_19_mancha_aceite_primer_plano', 'Primer plano de una hoja de vid verde con una mancha amarillenta redonda, rodeada de otras hojas con gotas de agua.', 'Una mancha de aceite en primer plano, en una hoja de la cepa.'), ('mildiu_03_hojas_manchas_aceite_amarillas', 'Hojas de vid con manchas amarillas, algunas con el centro pardo.', 'Varias manchas en la misma cepa.'), ('mildiu_15_hoja_necrosis_avanzada', 'Hoja de vid con grandes zonas amarillas y pardas, con el tejido seco.', 'Mildiu avanzado: el tejido se seca y se rompe.')])}</div>
     </details>
     <details>
       <summary>La pelusilla blanca: esporulación</summary>
       <div><div class="duo">{ff('mildiu_17_hoja_enves_esporulacion_en_mano', 'Una mano sostiene una hoja de vid dada la vuelta, con una película blanquecina en el envés.', 'El envés de una hoja con mildiu, con la película blanquecina.')}
-      <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Gessler et al., 2011; Hernández et al., 2024a).</p></div></div>
+      <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Hernández et al., 2024a; Gessler et al., 2011).</p></div></div>
       {ff('mildiu_20_hoja_haz_enves', 'Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).')}</div>
     </details>
     <details>
@@ -959,14 +992,14 @@ def ciencia():
   <ul class="personas">
     <li><h3>Rubén Iñiguez Mangado</h3><p class="rol">Investigador posdoctoral del ICVV · Autor de esta web</p><p>Doctor en Enología, Viticultura y Sostenibilidad por la Universidad de La Rioja (2025), con mención internacional. Desarrolló en el ICVV su <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis sobre cómo estimar la cosecha del viñedo con inteligencia artificial y visión por computador</a>, que aporta <a href="https://www.unirioja.es/una-tesis-desarrolla-nuevas-herramientas-de-inteligencia-artificial-para-prever-con-precision-la-cantidad-de-uva-que-producira-un-vinedo/">nuevas herramientas para prever la cantidad de uva de un viñedo</a>. Es primer autor de los estudios de recuento de racimos y de fases de la vid en que se basan los retos.</p></li>
     <li><h3>María Paz Diago</h3><p class="rol">Profesora Titular de Viticultura (Universidad de La Rioja) · Investigadora del ICVV</p><p>Doctora en Ciencias Agrarias y Alimentarias y Master of Science en Viticultura y Enología por la Universidad de California, Davis. En el ICVV investiga la viticultura de precisión y las tecnologías no invasivas, y es investigadora principal de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> y del proyecto <a class="enl-hg" href="https://hypergrape.unirioja.es/">HyperGrape</a>. Dirige el Departamento de Agricultura y Alimentación de la Universidad de La Rioja.</p></li>
-    <li><h3>Inés Hernández</h3><p class="rol">Doctora por la Universidad de La Rioja (2025)</p><p>Desarrolló en el ICVV su tesis, <a href="https://investigacion.unirioja.es/documentos/681cec665afe3d4f3517e8d6">«Artificial intelligence and non-invasive sensing technologies for early detection of downy mildew in grapevine»</a>, un método con IA y visión artificial para <a href="https://www.unirioja.es/un-nuevo-metodo-basado-en-la-ia-y-la-vision-artificial-permite-detectar-el-mildiu-en-el-vinedo/">detectar el mildiu en el viñedo</a>. Es primera autora de los artículos en que se basa el reto del mildiu y suma 16 artículos y 9 comunicaciones a congresos.</p></li>
+    <li><h3>Inés Hernández</h3><p class="rol">Doctora por la Universidad de La Rioja (2025)</p><p>Desarrolló en el ICVV su tesis, <a href="https://investigacion.unirioja.es/documentos/681cec665afe3d4f3517e8d6">«Artificial intelligence and non-invasive sensing technologies for early detection of downy mildew in grapevine»</a>, un método con IA y visión artificial para <a href="https://www.unirioja.es/un-nuevo-metodo-basado-en-la-ia-y-la-vision-artificial-permite-detectar-el-mildiu-en-el-vinedo/">detectar el mildiu en el viñedo</a>. Es primera autora de los artículos en que se basa el reto del mildiu (Hernández et al., 2021, 2024a, 2024b, 2025) y suma 16 artículos y 9 comunicaciones a congresos.</p></li>
     <li><h3>Javier Tardáguila</h3><p class="rol">Catedrático de Viticultura de Precisión (Universidad de La Rioja) · Fundador de Televitis</p><p>Doctor por la Universidad de Padua (Italia) e investigador del ICVV. Trabaja en viticultura de precisión, robótica y tecnologías emergentes. Ha liderado varios proyectos europeos, como NoPest, que buscó nuevas soluciones contra las enfermedades causadas por hongos. Mantiene una intensa transferencia de tecnología con bodegas y empresas.</p></li>
   </ul>
   <h3>El resto del equipo</h3>
   <ul class="personas personas-mini">
     <li><h4>Juan Fernández-Novales</h4><p class="rol">Investigador del ICVV</p><p>Con una larga trayectoria investigadora, es especialista en espectroscopía NIR e imagen hiperespectral en el sector agroalimentario. Analiza datos espectrales y desarrolla modelos para la viticultura de precisión. Es además profesor ayudante doctor del área de Ingeniería Agroforestal de la Universidad de La Rioja.</p></li>
     <li><h4>Ignacio Barrio</h4><p class="rol">Investigador del ICVV</p><p>Investigador predoctoral FPI, matemático e ingeniero informático. Aplica ciencia de datos para estimar la composición de la uva sin tocarla, en el proyecto HyperGrape, y es coautor de más de 20 artículos.</p></li>
-    <li><h4>Aitana Tejada</h4><p class="rol">Investigadora del ICVV</p><p>Investigadora predoctoral FPI y graduada en Enología. Prepara su tesis sobre el uso de sensores hiperespectrales para analizar la composición de la uva, y es primera autora del estudio en que se basa «Colores que no vemos» (Tejada-González et al., 2026).</p></li>
+    <li><h4>Aitana Tejada</h4><p class="rol">Investigadora del ICVV</p><p>Investigadora predoctoral FPI y graduada en Enología. Prepara su tesis sobre el uso de sensores hiperespectrales para analizar la composición de la uva, y es primera autora del <a href="https://oeno-one.eu/article/view/9877/">estudio en que se basa «Colores que no vemos»</a>, publicado en <em>OENO One</em> (2026).</p></li>
     <li><h4>Wenchao Sheng</h4><p class="rol">Investigadora del ICVV</p><p>Investigadora predoctoral y graduada en Enología. Prepara su tesis sobre la detección de residuos de pesticidas en la uva con sensores hiperespectrales.</p></li>
   </ul>
   <p>La investigación se hace también en colaboración con otras universidades: con el profesor titular Salvador Gutiérrez, del <a href="https://www.ugr.es/universidad/organizacion/entidades/departamento-ciencias-computacion-inteligencia-artificial">Departamento de Ciencias de la Computación e Inteligencia Artificial</a> de la Universidad de Granada, y con el profesor Carlos Poblete-Echeverría, de la <a href="https://www.su.ac.za/en/faculties/agrisciences">Facultad de AgriSciences de Stellenbosch University</a> (Sudáfrica). La lista completa de autoras, autores y colaboraciones está en <a href="creditos.html">Créditos</a>.</p>
@@ -1172,8 +1205,8 @@ def accesibilidad():
   </ul>
   <h2>Cómo se ha comprobado</h2>
   <p>Con la herramienta automática axe-core en todas las páginas, en pantalla de ordenador y de móvil, sin incidencias detectadas, y comprobando que no aparece desplazamiento horizontal de la página.</p>
-  <h2>Limitaciones conocidas</h2>
-  <p>Las pruebas automáticas no detectan todos los problemas, y todavía no se ha probado con lectores de pantalla reales. Si encuentras una barrera, cuéntanoslo.</p>
+  <h2>Pruebas con lector de pantalla y limitaciones</h2>
+  <p>La web se ha recorrido con el lector de pantalla NVDA en Microsoft Edge (Windows): lee los menús, los textos alternativos de las imágenes y los resultados de los juegos. Aun así, las pruebas no detectan todos los problemas. Si encuentras una barrera, cuéntanoslo.</p>
   <h2>Contacto</h2>
   <p>Rubén Iñiguez Mangado, <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>, Universidad de La Rioja e Instituto de Ciencias de la Vid y del Vino (ICVV): {CONTACTO}.</p>
 </div></section>'''

@@ -245,11 +245,10 @@
     var C = window.COMPARATIVAS, d = C.datos(tmed, media);
     var ul = $('f-tiempos'); limpia(ul);
     chip(ul, 'c-tu', 'Tú', (tmed < 10 ? C.num(tmed, 1) : String(Math.round(tmed))) + ' s', 'por cepa, de media');
-    chip(ul, 'c-ia', 'Una IA con GPU', '2,5 ms', 'por imagen: referencia publicada para un modelo YOLO como el de Televitis (Jocher et al., 2026)');
-    chip(ul, 'c-cpu', 'La IA de Televitis sin GPU', '≈ 2 s', 'por imagen, medido en el navegador de un ordenador de 2 núcleos');
+    chip(ul, 'c-ia', 'La IA', '2,5 ms', 'por imagen, en un ordenador potente (Jocher et al., 2026)');
     chip(ul, 'c-campo', 'Una persona en el campo', '≈ 4 min', 'por cepa: 15 min por cada 4 cepas (Jaramillo et al., 2021)');
     var v = $('f-vs-txt'); limpia(v);
-    var p0 = h('p', 'vs-intro', 'Mientras tú terminabas una cepa, una IA con GPU habría analizado unas ');
+    var p0 = h('p', 'vs-intro', 'Mientras tú terminabas una cepa, la IA habría analizado unas ');
     p0.appendChild(h('strong', 'rojo', C.miles(d.nIA))); p0.appendChild(document.createTextNode(' imágenes.')); v.appendChild(p0);
     v.appendChild(h('p', 'vs-intro', 'Para que te hagas una idea:'));
     var big = h('p', 'vs-big', 'Si la IA tardara ');

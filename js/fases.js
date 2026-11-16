@@ -80,7 +80,7 @@
     $('bloque-vs').hidden = est.guia;
     if (!est.guia) {
       var tm = est.tiempos.reduce(function (a, b) { return a + b; }, 0) / est.tiempos.length;
-      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por foto', ia: { s: 0.005, txt: '≈ 5 ms', nota: 'por foto (estimación propia)' }, cpu: { txt: '≈ 0,5 s', nota: 'por foto, medido en un ordenador de 2 núcleos' }, aviso: 'El estudio no publica el tiempo por imagen ni compara con personas: estas cifras son propias. Con la estimación para un ResNet-34 a 768 px en una GPU como la del estudio, y con la medida en un ordenador normal sin GPU. Eso sí: a la IA le pasa como a ti, confunde fases vecinas.' });
+      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por foto', ia: { s: 0.005, txt: '≈ 5 ms', nota: 'por foto (aproximado)' }, aviso: 'Eso sí: a la IA le pasa como a ti, confunde las fases vecinas.' });
     }
     if (est.guia) {
       $('f-aciertos').textContent = '9 etapas'; $('f-aciertos-txt').textContent = 'repasadas en el recorrido guiado.'; $('f-cerca').textContent = ''; $('f-mejor').textContent = '';

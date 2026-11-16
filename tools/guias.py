@@ -118,7 +118,7 @@ def doc(g, ref, titulo_web, url_base):
     li = lambda xs, tag='ul': f'<{tag}>' + ''.join(f'<li>{x}</li>' for x in xs) + f'</{tag}>'
     voc = '<dl>' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in g['vocab']) + '</dl>'
     pasos = ''.join(f'<li><strong>{k}.</strong> {v}</li>' for k, v in g['pasos'])
-    refs = '<ul class="refs">' + ''.join(f'<li>{ref(k)}</li>' for k in g['refs']) + '</ul>'
+    refs = '<ul class="refs">' + ''.join(f'<li>{ref(k)}</li>' for k in sorted(g['refs'], key=lambda k: not any(a in ref(k).split('(')[0] for a in ('Íñiguez', 'Hernández, I', 'Gutiérrez, S', 'Tardaguila', 'Tardáguila', 'Diago', 'Fernández-Novales', 'Tejada-González', 'Palacios, F', 'Poblete-Echeverría', 'Barrio')))) + '</ul>'
     return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Guía didáctica: {g['titulo']} · {titulo_web}</title><style>{CSS}</style></head><body>
 <header class="cab"><p class="meta">Guía didáctica · {titulo_web}</p><h1>{g['titulo']}</h1>
 <p class="meta"><strong>Nivel:</strong> {COMUN_NIVEL}</p><p class="meta"><strong>Materias:</strong> {g['materias']} · <strong>Duración orientativa:</strong> {g['min']} minutos</p></header>

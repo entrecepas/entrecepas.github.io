@@ -5,17 +5,16 @@
   function h(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; }
   function limpia(n) { while (n.firstChild) n.removeChild(n.firstChild); }
   function chip(ul, cls, et, val, nota) { var li = h('li', cls); li.appendChild(h('span', 'c-et', et)); li.appendChild(h('span', 'c-num', val)); if (nota) li.appendChild(h('span', 'c-nota', nota)); ul.appendChild(li); }
-  /* o: { tmed, unidad, ia: {s, txt, nota}, cpu: {txt, nota}, aviso } */
+  /* o: { tmed, unidad, ia: {s, txt, nota}, aviso } */
   window.EntreCepasVs = {
     fmt: function (sg) { var m = Math.floor(sg / 60), r = Math.floor(sg % 60); return m + ':' + (r < 10 ? '0' : '') + r; },
     pinta: function (o) {
       var C = window.COMPARATIVAS, d = C.datos(o.tmed, 0, o.ia.s);
       var ul = $('f-tiempos'); limpia(ul);
       chip(ul, 'c-tu', 'Tú', (o.tmed < 10 ? C.num(o.tmed, 1) : String(Math.round(o.tmed))) + ' s', o.unidad + ', de media');
-      chip(ul, 'c-ia', 'Una IA con GPU', o.ia.txt, o.ia.nota);
-      chip(ul, 'c-campo', 'La misma IA sin GPU', o.cpu.txt, o.cpu.nota);
+      chip(ul, 'c-ia', 'La IA', o.ia.txt, o.ia.nota);
       var v = $('f-vs-txt'); limpia(v);
-      var p0 = h('p', 'vs-intro', 'Mientras tú decidías una imagen o foto, la IA (con GPU) habría analizado unas ');
+      var p0 = h('p', 'vs-intro', 'Mientras tú decidías una ' + (o.unidad === 'por foto' ? 'foto' : 'imagen') + ', la IA habría analizado unas ');
       p0.appendChild(h('strong', 'rojo', C.miles(d.nIA))); p0.appendChild(document.createTextNode(' imágenes.')); v.appendChild(p0);
       v.appendChild(h('p', 'vs-intro', 'Para que te hagas una idea:'));
       var big = h('p', 'vs-big', 'Si la IA tardara ');
