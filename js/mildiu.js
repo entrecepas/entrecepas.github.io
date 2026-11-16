@@ -137,7 +137,7 @@
     $('bloque-vs').hidden = est.guia;
     if (!est.guia) {
       var tm = est.tiempos.reduce(function (a, b) { return a + b; }, 0) / est.tiempos.length;
-      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por imagen', ia: { s: 0.2, txt: '≈ 0,2 s', nota: 'por imagen (aproximado)' }, aviso: 'Ojo: rápido no es lo mismo que acertar. La IA ayuda a mirar todo el viñedo, pero la decisión final es siempre de una persona.' });
+      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por imagen', ia: { s: 0.2, txt: '≈ 0,2 s', nota: 'por imagen, en un ordenador potente (estimación propia). En un móvil tarda unos segundos, como verás en el Laboratorio' }, aviso: 'Ojo: rápido no es lo mismo que acertar. La IA ayuda a mirar todo el viñedo, pero la decisión final es siempre de una persona.' });
     }
     if (est.guia) {
       $('f-aciertos').textContent = '10 casos'; $('f-aciertos-txt').textContent = 'repasados en el recorrido guiado.'; $('f-mejor').textContent = '';

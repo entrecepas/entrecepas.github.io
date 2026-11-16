@@ -629,5 +629,6 @@ figure.con-fuente { position: relative; }
  .hero-vdp .lead{font-size:1.02rem;line-height:1.5}
  .hero-vdp .acciones{margin-block:.8rem .2rem}
 }
-@media (min-width:56rem){.lienzo{max-width:calc(38vh * var(--ratio, 1200 / 521));min-width:0;margin-inline:auto}.lienzo-m{max-width:min(100%,62vh);margin-inline:auto}}
+@media (min-width:56rem){.lienzo{max-width:calc(54vh * var(--ratio, 1200 / 521));min-width:0;margin-inline:auto}.lienzo-m{max-width:min(100%,62vh);margin-inline:auto}}
 @media (min-width:56rem){.escena-scroll{background:var(--crema-2)}}
+@media (min-width:56rem){#form-respuesta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.2rem}#form-respuesta label.grande{margin:0}#form-respuesta .stepper{margin:0}#form-respuesta .acciones{margin:0}#form-respuesta .ayuda{flex-basis:100%;order:5;margin:0}}

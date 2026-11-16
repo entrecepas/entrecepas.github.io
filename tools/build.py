@@ -152,7 +152,7 @@ def meta_social(archivo, full, desc):
     m = (f'<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="{TITULO}">'
          f'<meta property="og:title" content="{t}"><meta property="og:description" content="{d}">'
          f'<meta property="og:image" content="{u("img/og.jpg")}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
-         f'<meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Ilustración de un viñedo visto desde arriba con un mapa de zonas.">'
+         f'<meta property="og:image:alt" content="Entre cepas: Tú contra la IA en el viñedo. Foto de una cepa con hojas en la que la IA ha marcado dos racimos con cajas amarillas; otros quedan escondidos entre las hojas.">'
          f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{t}"><meta name="twitter:description" content="{d}"><meta name="twitter:image" content="{u("img/og.jpg")}">')
     if SITE_URL:
         m += f'<link rel="canonical" href="{u("" if archivo == "index.html" else archivo)}"><meta property="og:url" content="{u("" if archivo == "index.html" else archivo)}">'
@@ -706,7 +706,7 @@ def mildiu():
       <summary>La pelusilla blanca: esporulación</summary>
       <div><div class="duo">{ff('mildiu_17_hoja_enves_esporulacion_en_mano', 'Una mano sostiene una hoja de vid dada la vuelta, con una película blanquecina en el envés.', 'El envés de una hoja con mildiu, con la película blanquecina.')}
       <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Hernández et al., 2024a; Gessler et al., 2011).</p></div></div>
-      {ff('mildiu_20_hoja_haz_enves', 'Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).')}</div>
+      {ff('mildiu_20_hoja_haz_enves', 'Fotografía de dos hojas de vid enfermas colocadas una junto a otra: una muestra por el haz manchas amarillentas de aspecto aceitoso; la otra, vuelta del revés, deja ver bajo esas manchas una pelusilla blanca.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).')}</div>
     </details>
     <details>
       <summary>El mildiu también ataca a los racimos</summary>
@@ -794,7 +794,7 @@ def mildiu():
       <li><p><strong>La IA ayuda a mirar, la persona decide.</strong></p><p>Localizar los síntomas en todo el viñedo permite tratar solo donde hace falta, pero hay que validar los resultados en campo.</p></li>
     </ol>
     <div class="caja" style="margin-top:2rem"><h3>Qué no hemos hecho aquí</h3>
-      <p>En este reto no se ejecuta ningún modelo de IA: las imágenes y su etiqueta proceden del trabajo de las personas que las recogieron y etiquetaron, y los porcentajes de acierto de arriba son los que publican los artículos con sus propios datos de prueba, no los de estas imágenes.</p></div>
+      <p>La IA no se ejecuta en directo: sus respuestas se calcularon de antemano con el modelo de Televitis. La etiqueta de cada imagen procede del trabajo de las personas que las recogieron y etiquetaron, y los porcentajes de acierto de arriba son los que publican los artículos con sus propios datos de prueba, no los de estas imágenes.</p></div>
     <p style="margin-top:1.5rem"><a class="btn" href="juegos.html#proximos">Ver los próximos retos</a></p>
   </div>
 </section>
@@ -1056,7 +1056,7 @@ def creditos():
   <h2>Licencias</h2>
   <p>Los textos, el diseño y el resto de contenidos de esta web se publican bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>; el código, bajo licencia MIT. Los artículos científicos citados mantienen sus propias licencias; consulta cada uno en su enlace.</p>
   <h2>Probada con personas reales</h2>
-  <p>Antes de la entrega, unas 20 personas probaron la web y dieron su opinión: 6 viticultores, 6 jóvenes sin relación con el sector, 6 investigadores del ámbito de la viticultura (entre ellos, del grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>) y 2 investigadores de otras áreas, como la química. Sus comentarios se incorporaron a esta versión.</p>
+  <p>Antes de la entrega, 20 personas (11 mujeres y 9 hombres) probaron la web y dieron su opinión: 6 viticultoras y viticultores, 6 jóvenes sin relación con el sector, 6 personas que investigan en viticultura (entre ellas, del grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>) y 2 de otras áreas, como la química. Sus comentarios cambiaron la versión final: por ejemplo, pidieron que la foto no se desplazara al responder en los juegos, y así se hizo.</p>
   <h2>Cómo se hizo</h2>
   <p>Los pictogramas de las comparativas de los retos y las figuras «Elaboración propia» se han hecho para esta web (CC BY 4.0).</p>
   <p>La idea, la selección de datos y la revisión científica son de {AUTOR}, que asume la autoría y la responsabilidad final del contenido. Para redactar textos y desarrollar el código se usaron herramientas de inteligencia artificial generativa (Claude, de Anthropic) como apoyo. Ninguna cifra, referencia o resultado ha sido inventado: salen de los artículos y datos citados. La accesibilidad se ha comprobado con herramientas automáticas y pruebas manuales; los detalles están en la <a href="accesibilidad.html">declaración de accesibilidad</a>.</p>
