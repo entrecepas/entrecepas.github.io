@@ -4,7 +4,7 @@
 
 Web de divulgación científica sobre viticultura de precisión e inteligencia artificial, basada en la investigación del grupo Televitis (Universidad de La Rioja – ICVV). Autor: Rubén Iñiguez Mangado.
 
-Tiene tres retos para jugar (contar racimos, detectar mildiu y reconocer la fase de la vid), seis retos próximos con su base científica, un Laboratorio que analiza fotos con modelos de IA y guías didácticas descargables para docentes.
+Tiene tres retos para jugar (contar racimos, detectar mildiu y reconocer la fase de la vid), cinco retos próximos con su base científica, un Laboratorio que analiza fotos con modelos de IA y guías didácticas descargables para docentes.
 
 ## Cómo abrirla
 

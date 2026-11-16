@@ -34,7 +34,10 @@
     if (!sesiones[nombre]) sesiones[nombre] = cargaOrt().then(function (o) { return o.InferenceSession.create('models/' + nombre + '.onnx', { executionProviders: ['wasm'] }); });
     return sesiones[nombre];
   }
-  function existe(u) { return fetch(u, { method: 'HEAD' }).then(function (r) { return r.ok; }, function () { return false; }); }
+  function existe(u) {
+    var get = function () { return fetch(u, { headers: { Range: 'bytes=0-0' } }).then(function (r) { return r.ok; }, function () { return false; }); };
+    return fetch(u, { method: 'HEAD' }).then(function (r) { return r.ok ? true : get(); }, get);
+  }
   function pausa() { return new Promise(function (r) { setTimeout(r, 0); }); }
 
   var ejemplo = false;

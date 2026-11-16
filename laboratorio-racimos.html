@@ -27,9 +27,11 @@
   <form id="sube-form" data-tarea="racimos" novalidate>
     <div class="resultado-paso" id="sube-nota-modelo" hidden>
       <p>Esta es la versión de demostración en línea. Los modelos de IA de Televitis siguen en fase de pruebas y se publicarán aquí cuando estén listos, para que cualquiera pueda analizar sus propias fotos. Mientras tanto, puedes ver el resultado real de los modelos sobre las fotos de ejemplo.</p>
-      <p><label for="sube-modelo"><strong>¿Tienes tu propio modelo?</strong> Cárgalo en formato ONNX y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
+      <details class="dev"><summary>Para desarrolladores: cargar un modelo propio</summary><div>
+      <p><label for="sube-modelo">Si tienes tu propio modelo en formato ONNX, cárgalo y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
       <p class="ayuda" id="sube-modelo-estado" role="status" aria-live="polite"></p>
       <details><summary>Qué modelo sirve</summary><div><p>Un detector tipo YOLO (Ultralytics) exportado a ONNX, con entrada de 640 × 640 píxeles en RGB y valores de 0 a 1. Se aceptan las dos salidas habituales: [1, 4 + clases, N] o [1, N, 6] con la supresión de duplicados ya incluida.</p></div></details>
+      </div></details>
     </div>
     <p class="ejemplos" id="sube-ejemplos"><strong>¿No tienes una foto a mano?</strong> Prueba con una del archivo de Televitis:<br><button type="button" class="btn secundario" data-ejemplo="img/racimos/B_33_deshojada.jpg">Cepa sin hojas</button> <button type="button" class="btn secundario" data-ejemplo="img/racimos/C_37_con_hojas.jpg">Cepa con hojas</button> <button type="button" class="btn secundario" data-ejemplo="img/racimos/F_09_deshojada.jpg">Otra cepa sin hojas</button></p>
     <p><label for="sube-foto"><strong>1. Elige una foto</strong></label><br><input type="file" id="sube-foto" accept="image/*"></p>

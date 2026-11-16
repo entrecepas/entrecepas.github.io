@@ -27,9 +27,11 @@
   <form id="sube-form" data-tarea="mildiu" novalidate>
     <div class="resultado-paso" id="sube-nota-modelo" hidden>
       <p>Esta es la versión de demostración en línea. Los modelos de IA de Televitis siguen en fase de pruebas y se publicarán aquí cuando estén listos, para que cualquiera pueda analizar sus propias fotos. Mientras tanto, puedes ver el resultado real de los modelos sobre las fotos de ejemplo.</p>
-      <p><label for="sube-modelo"><strong>¿Tienes tu propio modelo?</strong> Cárgalo en formato ONNX y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
+      <details class="dev"><summary>Para desarrolladores: cargar un modelo propio</summary><div>
+      <p><label for="sube-modelo">Si tienes tu propio modelo en formato ONNX, cárgalo y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
       <p class="ayuda" id="sube-modelo-estado" role="status" aria-live="polite"></p>
       <details><summary>Qué modelo sirve</summary><div><p>Un modelo de segmentación exportado a ONNX, con entrada de 224 × 224 píxeles en RGB normalizada como ImageNet. La salida puede ser un canal de probabilidad de mildiu o dos canales (fondo y mildiu). La foto se analiza por trozos y se marcan las zonas con probabilidad mayor de 0,95.</p></div></details>
+      </div></details>
     </div>
     <p class="ejemplos" id="sube-ejemplos"><strong>¿No tienes una foto a mano?</strong> Prueba con una del archivo de Televitis:<br><button type="button" class="btn secundario" data-ejemplo="img/mildiu/rm_02.jpg">Mildiu avanzado</button> <button type="button" class="btn secundario" data-ejemplo="img/mildiu/rm_10.jpg">Mildiu inicial</button> <button type="button" class="btn secundario" data-ejemplo="img/mildiu/rm_19.jpg">Hojas sanas</button></p>
     <p><label for="sube-foto"><strong>1. Elige una foto</strong></label><br><input type="file" id="sube-foto" accept="image/*"></p>

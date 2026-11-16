@@ -27,10 +27,10 @@ REF = {
  'jar2021': ('Jaramillo, J., Vanden Heuvel, J. y Petersen, K. H. (2021). Low-cost, computer vision-based, prebloom cluster count prediction in vineyards. <em>Frontiers in Agronomy</em>, 3, 648080.', '10.3389/fagro.2021.648080'),
  'ini2025a': ('Íñiguez, R., Poblete-Echeverría, C., Barrio, I., Hernández, I., Gutiérrez, S., Martínez-Cámara, E. y Tardáguila, J. (2025a). Impact of phenological and lighting conditions on early detection of grapevine inflorescences and bunches using deep learning. <em>Agriculture</em>, 15, 1495.', '10.3390/agriculture15141495'),
  'ini2025b': ('Íñiguez, R., Wolela, F., Gonzalez Pavez, M. I., Barrio, I., Tardáguila, J., Venter, T. y Poblete-Echeverría, C. (2025b). Artificial intelligence-driven classification method of grapevine major phenological stages using conventional RGB imaging. <em>OENO One</em>, 59(2).', '10.20870/oeno-one.2025.59.2.9306'),
- 'pob2025': ('Poblete-Echeverría, C., Berry, A., Venter, T., Velez, S., Gonzalez Pavez, M. I. e Íñiguez, R. (2025). Morphological image analysis for estimating grape bunch weight under different irrigation regimes in Cabernet-Sauvignon. <em>OENO One</em>, 59(2).', '10.20870/oeno-one.2025.59.2.9309'),
+ 'pob2025': ('Poblete-Echeverría, C., Berry, A., Venter, T., Velez, S., Gonzalez Pavez, M. I. e Íñiguez, R. (2025a). Morphological image analysis for estimating grape bunch weight under different irrigation regimes in Cabernet-Sauvignon. <em>OENO One</em>, 59(2).', '10.20870/oeno-one.2025.59.2.9309'),
  'her2025': ('Hernández, I., Silva, R., Melo-Pinto, P., Gutiérrez, S. y Tardaguila, J. (2025). Early detection of downy mildew in vineyards using deep neural networks for semantic segmentation. <em>Biosystems Engineering</em>, 252, 15–31.', '10.1016/j.biosystemseng.2025.02.007'),
- 'her2024b': ('Hernández, I., Gutiérrez, S. y Tardaguila, J. (2024). Image analysis with deep learning for early detection of downy mildew in grapevine. <em>Scientia Horticulturae</em>, 331, 113155.', '10.1016/j.scienta.2024.113155'),
- 'her2024': ('Hernández, I., Gutiérrez, S., Barrio, I., Íñiguez, R. y Tardaguila, J. (2024). In-field disease symptom detection and localisation using explainable deep learning: use case for downy mildew in grapevine. <em>Computers and Electronics in Agriculture</em>, 226, 109478.', '10.1016/j.compag.2024.109478'),
+ 'her2024b': ('Hernández, I., Gutiérrez, S. y Tardaguila, J. (2024a). Image analysis with deep learning for early detection of downy mildew in grapevine. <em>Scientia Horticulturae</em>, 331, 113155.', '10.1016/j.scienta.2024.113155'),
+ 'her2024': ('Hernández, I., Gutiérrez, S., Barrio, I., Íñiguez, R. y Tardaguila, J. (2024b). In-field disease symptom detection and localisation using explainable deep learning: use case for downy mildew in grapevine. <em>Computers and Electronics in Agriculture</em>, 226, 109478.', '10.1016/j.compag.2024.109478'),
  'her2021': ('Hernández, I., Gutiérrez, S., Ceballos, S., Íñiguez, R., Barrio, I. y Tardaguila, J. (2021). Artificial intelligence and novel sensing technologies for assessing downy mildew in grapevine. <em>Horticulturae</em>, 7(5), 103.', '10.3390/horticulturae7050103'),
  'oiv2019': ('OIV (2019). <em>Definición y principios generales de la OIV en materia de viticultura de precisión</em> (Resolución OIV-VITI 593-2019). Organización Internacional de la Viña y el Vino. <a href="https://www.oiv.int/es/node/3113">oiv.int/es/node/3113</a>', None),
  'tej2026': ('Tejada-González, A., Barrio, I., Poggi, L., Fernández-Novales, J., Martínez-Lapuente, L., Guadalupe, Z. y Diago, M. P. (2026). On-the-go hyperspectral imaging for monitoring grape maturity in Tempranillo: supporting adaptive harvest decisions. <em>OENO One</em>, 60(3), 9877.', '10.20870/oeno-one.2026.60.3.9877'),
@@ -45,10 +45,10 @@ REF = {
  'bra2010': ('Bramley, R. G. V. (2010). Precision viticulture: managing vineyard variability for improved quality outcomes. En <em>Managing wine quality. Volume 1: Viticulture and wine quality</em> (cap. 12). Woodhead Publishing.', 'https://doi.org/10.1533/9781845699284.3.445'),
  'fer2023': ('Ferro, M. V. y Catania, P. (2023). Technologies and innovative methods for precision viticulture: a comprehensive review. <em>Horticulturae</em>, 9(3), 399.', '10.3390/horticulturae9030399'),
  'del2014': ('De la Fuente, M. (2014). The relevance of the yield prediction methods in vineyard management. <em>Bulletin de l’OIV</em>, 87(1001-1002-1003), 387–394.', None),
- 'pob2025d': ('Poblete-Echeverría, C., Hernández, I., Íñiguez, R., Gutiérrez, S., Barrio, I. y Tardáguila, J. (2025). Using artificial intelligence for automatic and fast detection of downy mildew symptoms in grapevine canopies. <em>European Journal of Agronomy</em>, 170, 127755.', '10.1016/j.eja.2025.127755'),
- 'gut2018a': ('Gutiérrez, S., Diago, M. P., Fernández-Novales, J. y Tardaguila, J. (2018). Vineyard water status assessment using on-the-go thermal imaging and machine learning. <em>PLoS ONE</em>, 13(2), e0192037.', '10.1371/journal.pone.0192037'),
+ 'pob2025d': ('Poblete-Echeverría, C., Hernández, I., Íñiguez, R., Gutiérrez, S., Barrio, I. y Tardáguila, J. (2025b). Using artificial intelligence for automatic and fast detection of downy mildew symptoms in grapevine canopies. <em>European Journal of Agronomy</em>, 170, 127755.', '10.1016/j.eja.2025.127755'),
+ 'gut2018a': ('Gutiérrez, S., Diago, M. P., Fernández-Novales, J. y Tardaguila, J. (2018b). Vineyard water status assessment using on-the-go thermal imaging and machine learning. <em>PLoS ONE</em>, 13(2), e0192037.', '10.1371/journal.pone.0192037'),
  'gut2021': ('Gutiérrez, S., Fernández-Novales, J., Diago, M. P., Íñiguez, R. y Tardaguila, J. (2021). Assessing and mapping vineyard water status using a ground mobile thermal imaging platform. <em>Irrigation Science</em>.', '10.1007/s00271-021-00735-1'),
- 'gut2018b': ('Gutiérrez, S., Fernández-Novales, J., Diago, M. P. y Tardaguila, J. (2018). On-the-go hyperspectral imaging under field conditions and machine learning for the classification of grapevine varieties. <em>Frontiers in Plant Science</em>, 9, 1102.', '10.3389/fpls.2018.01102'),
+ 'gut2018b': ('Gutiérrez, S., Fernández-Novales, J., Diago, M. P. y Tardaguila, J. (2018a). On-the-go hyperspectral imaging under field conditions and machine learning for the classification of grapevine varieties. <em>Frontiers in Plant Science</em>, 9, 1102.', '10.3389/fpls.2018.01102'),
  'gut2019': ('Gutiérrez, S., Tardaguila, J., Fernández-Novales, J. y Diago, M. P. (2019). On-the-go hyperspectral imaging for the in-field estimation of grape berry soluble solids and anthocyanin concentration. <em>Australian Journal of Grape and Wine Research</em>, 25, 127–133.', '10.1111/ajgw.12376'),
 }
 def ref(k): t, d = REF[k]; return f'{t} {doi(d)}' if d else t
@@ -288,13 +288,13 @@ def selector_objetivos():
         'Saber cuánta uva habrá antes de vendimiar orienta el manejo del viñedo, la elaboración y la venta (Laurent et al., 2021). Para estimarlo hay que contar racimos, y las hojas esconden muchos.',
         [L('racimos.html', '¿Cuántos racimos hay?', True), L('peso.html', R['peso.html'])]),
       ('sanidad', 'Sanidad', 'hoja', pf('mildiu_11_hojas_en_mano_manchas_aceite', 'Manos sostienen hojas de vid con manchas amarillentas causadas por el mildiu.'), 'Vigilar la sanidad',
-        'El mildiu es una de las enfermedades más destructivas del viñedo, y vigilarlo a pie es laborioso y subjetivo (Poblete-Echeverría et al., 2025). ¿Puede ayudar una cámara?',
+        'El mildiu es una de las enfermedades más destructivas del viñedo, y vigilarlo a pie es laborioso y subjetivo (Poblete-Echeverría et al., 2025b). ¿Puede ayudar una cámara?',
         [L('mildiu.html', '¿Mildiu o no?', True), L('enfermedades.html', R['enfermedades.html'])]),
       ('vinedo', 'Viñedo', 'variedad', pf('quad_03_dron_en_vuelo_sobre_vinedo', 'Un dron en vuelo sobre un viñedo, con filas de cepas y un cielo nublado.'), 'Conocer y vigilar el viñedo',
-        'Drones, satélites y sensores permiten vigilar la vid a lo largo del año (Tardaguila et al., 2021). Y la IA puede ayudar a reconocer la variedad (Gutiérrez et al., 2018) o la fase del ciclo (Íñiguez et al., 2025b).',
+        'Drones, satélites y sensores permiten vigilar la vid a lo largo del año (Tardaguila et al., 2021). Y la IA puede ayudar a reconocer la variedad (Gutiérrez et al., 2018a) o la fase del ciclo (Íñiguez et al., 2025b).',
         [L('variedades.html', R['variedades.html']), L('fases.html', R['fases.html'], True)]),
       ('riego', 'Riego', 'sed', pic_ctx('dron_termica_0129', 'Imagen térmica aérea de un viñedo: las cepas aparecen en tonos morados y los caminos, en naranja y amarillo.', 640, 512), 'Manejar bien el riego',
-        'Las plantas también sufren sequía. Una cámara térmica, montada en un vehículo que avanza por el viñedo, permite estimar su estado hídrico (Gutiérrez et al., 2018) y decidir cuánto y dónde regar.',
+        'Las plantas también sufren sequía. Una cámara térmica, montada en un vehículo que avanza por el viñedo, permite estimar su estado hídrico (Gutiérrez et al., 2018b) y decidir cuánto y dónde regar.',
         [L('sed.html', R['sed.html'])]),
       ('vendimia', 'Vendimia', 'color', pf('vendimia_01_racimo_caja_tijeras', 'Racimo de uva tinta madura colgando de la cepa, con unas tijeras de vendimia y una caja de racimos al fondo.'), 'Decidir cuándo vendimiar',
         'La madurez se mide con muestras y análisis de laboratorio. Una cámara hiperespectral, que capta luz que no vemos, puede estimar azúcares, acidez o color en el propio viñedo (Tejada-González et al., 2026).',
@@ -321,8 +321,7 @@ def index():
       <p class="kicker">Ciencia de la vid · Divulgación · ICVV</p>
       <h1>{TITULO}</h1>
       <p class="lema">{LEMA}</p>
-      <p class="pregunta">¿Qué ve una máquina en un viñedo?</p>
-      <p class="lead">Un viñedo no es igual en todas partes (Bramley, 2010). La {term('viticultura de precisión')} usa cámaras, sensores e inteligencia artificial para medir esas diferencias y actuar solo donde hace falta. Una IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos, pero no lo ve todo. <strong>Compruébalo tú.</strong></p>
+      <p class="lead"><strong>¿Qué ve una máquina en un viñedo?</strong> La {term('viticultura de precisión')} usa cámaras, sensores e inteligencia artificial para medir las diferencias entre cepas y actuar solo donde hace falta. La IA cuenta racimos, detecta mildiu y reconoce la fase de la vid en segundos, pero no lo ve todo. <strong>Compruébalo tú.</strong></p>
       <p class="acciones"><a class="btn grande" href="juegos.html">Jugar (5 min)</a> <a class="enlace-suave" href="#obj-h">Qué es la viticultura de precisión</a></p>
     </div>
     <figure class="video-vp">
@@ -366,7 +365,7 @@ def index():
   <div class="wrap">
     <h2 id="retos-h">Empieza aquí: una ruta de 15 minutos</h2>
     <ol class="ruta ruta-h">
-      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> de arriba (37 s): qué es la viticultura de precisión.</span></li>
+      <li><span class="paso-num" aria-hidden="true">1</span><span><strong>Mira el vídeo</strong> de arriba (37 s): un viñedo no es igual en todas partes (Bramley, 2010), y la viticultura de precisión mide esas diferencias.</span></li>
       <li><span class="paso-num" aria-hidden="true">2</span><span><strong>Juega los retos</strong> (≈ 5 min cada uno) y compara tu ojo con la IA.</span></li>
       <li><span class="paso-num" aria-hidden="true">3</span><span><strong>Explora los cinco objetivos</strong> del viñedo de precisión.</span></li>
       <li><span class="paso-num" aria-hidden="true">4</span><span><strong>Prueba el Laboratorio</strong> y mira la IA analizando fotos reales.</span></li>
@@ -515,7 +514,7 @@ CAPA_RACIMOS = f'''<section class="bloque" aria-labelledby="antes">
 </section>'''
 
 def racimos():
-    cuerpo = cab_pagina(f'{ICONOS["racimo"]}Contar', 'racimo', '¿Cuántos racimos hay?', 'Cinco cepas, cinco estimaciones. Después, quitamos las hojas y vemos cuántos racimos escondían.') + CAPA_RACIMOS + f'''
+    cuerpo = cab_pagina(f'{ICONOS["racimo"]}Contar', 'racimo', '¿Cuántos racimos hay?', 'Cinco cepas, cinco estimaciones. Después, quitamos las hojas y vemos cuántos racimos escondían.<span class="nace">Un reto basado en la <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025).</span>') + CAPA_RACIMOS + f'''
 <section class="bloque" aria-labelledby="juega">
   <div class="wrap">
     <h2 id="juega">Ahora te toca a ti</h2>
@@ -589,6 +588,7 @@ def racimos():
       </div>
       <h4 class="sub-res">Tus números</h4>
       <ul class="tres" id="f-resumen" aria-label="Resumen de la ronda"></ul>
+      <div class="caja sirve"><h4>Si la IA ve menos, ¿para qué sirve?</h4><p>En estas fotos, la IA de Televitis encuentra menos racimos que una persona experta. Pero una persona necesita minutos por cepa y la IA, segundos: puede revisar todas las cepas de un viñedo, y no solo unas pocas. Por eso la investigación busca cuándo y cómo mirar para que las hojas tapen menos: contar antes de que crezcan, o después de deshojar (Íñiguez et al., 2021; Íñiguez et al., 2025a). La IA no sustituye a la persona: le da datos de todo el viñedo.</p></div>
       <h4 class="sub-res">¿Y la rapidez?</h4>
       <ul class="tiempos" id="f-tiempos" aria-label="Comparación de tiempos"></ul>
       <div class="vs" id="f-vs">
@@ -597,7 +597,7 @@ def racimos():
       </div>
       <p class="aviso-ia" id="f-aviso"></p>
       <div class="tabla-wrap"><table class="tabla"><caption>Tus respuestas y los datos de cada cepa</caption>
-        <thead><tr><th scope="col">Cepa</th><th scope="col">Tu respuesta</th><th scope="col">Racimos que ve una cámara</th><th scope="col">Racimos que aparecen al deshojar</th><th scope="col">Racimos en total sin hojas</th></tr></thead>
+        <thead><tr><th scope="col">Cepa</th><th scope="col">Tu respuesta</th><th scope="col">La IA contó</th><th scope="col">Racimos que ve una persona experta</th><th scope="col">Racimos que aparecen al deshojar</th><th scope="col">Racimos en total sin hojas</th></tr></thead>
         <tbody id="tabla-cuerpo"></tbody></table></div>
       <p class="nota" id="f-mejor"></p>
       <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
@@ -612,7 +612,7 @@ def racimos():
     <h2 id="despues">Después de jugar: qué hemos aprendido</h2>
     <ol class="ideas">
       <li><p><strong>Las hojas esconden racimos.</strong></p><p>Por eso la IA se usa pronto en la temporada, antes de que crezca la vegetación y tape los racimos (Íñiguez et al., 2025a). En ese estudio, el mejor resultado para bayas pequeñas llegó con luz de día, y para inflorescencias, con iluminación artificial nocturna: cuándo y cómo se mira importa.</p></li>
-      <li><p><strong>Contar racimos no es saber los kilos.</strong></p><p>El peso se estima aparte, por ejemplo midiendo la forma y el tamaño del racimo en la foto (Poblete-Echeverría et al., 2025).</p></li>
+      <li><p><strong>Contar racimos no es saber los kilos.</strong></p><p>El peso se estima aparte, por ejemplo midiendo la forma y el tamaño del racimo en la foto (Poblete-Echeverría et al., 2025a).</p></li>
       <li><p><strong>La IA no sustituye a quien conoce el viñedo.</strong></p><p>Le da datos antes y de todas las cepas; la decisión sigue siendo de una persona.</p></li>
     </ol>
     <div class="caja" style="margin-top:2rem">
@@ -652,38 +652,38 @@ def bloque_vs():
       <p class="aviso-ia" id="f-aviso"></p></div>"""
 
 def mildiu():
-    cuerpo = cab_pagina(f'{ICONOS["hoja"]}Detectar', 'hoja', '¿Mildiu o no?', 'Diez imágenes de viñedo. Decide si hay mildiu, como lo haría una persona experta.') + f'''
+    cuerpo = cab_pagina(f'{ICONOS["hoja"]}Detectar', 'hoja', '¿Mildiu o no?', 'Diez imágenes de viñedo. Decide si hay mildiu, como lo haría una persona experta.<span class="nace">Un reto basado en la <a href="https://investigacion.unirioja.es/documentos/681cec665afe3d4f3517e8d6">tesis doctoral de Inés Hernández</a> (Universidad de La Rioja – ICVV, 2025).</span>') + f'''
 <section class="bloque" aria-labelledby="antes">
   <div class="wrap capas">
     <h2 id="antes">Antes de jugar: el problema</h2>
-    <p class="lead">El {term('mildiu')} (<em>Plasmopara viticola</em>) es una de las enfermedades más destructivas de la vid (Gessler et al., 2011; Poblete-Echeverría et al., 2025). Detectarlo a tiempo permite tratar justo cuando hace falta y evitar pérdidas.</p>
+    <p class="lead">El {term('mildiu')} (<em>Plasmopara viticola</em>) es una de las enfermedades más destructivas de la vid (Gessler et al., 2011; Poblete-Echeverría et al., 2025b). Detectarlo a tiempo permite tratar justo cuando hace falta y evitar pérdidas.</p>
     <details>
       <summary>Qué es el mildiu</summary>
       <div><div class="duo">{ff('mildiu_05_cepa_completa_con_manchas', 'Cepa con hojas verdes y varias hojas amarillentas con manchas, en un viñedo.', 'Una cepa con mildiu: las manchas aparecen repartidas entre las hojas.')}
-      <div><p>El mildiu lo causa <em>Plasmopara viticola</em>, un microorganismo parecido a un hongo (un oomiceto) que vive dentro de los tejidos verdes de la vid, y que se propaga con tiempo húmedo y templado (Gessler et al., 2011). Es una de las enfermedades más destructivas de las zonas vitivinícolas: reduce la cosecha y la calidad de la uva (Poblete-Echeverría et al., 2025).</p>
+      <div><p>El mildiu lo causa <em>Plasmopara viticola</em>, un microorganismo parecido a un hongo (un oomiceto) que vive dentro de los tejidos verdes de la vid, y que se propaga con tiempo húmedo y templado (Gessler et al., 2011). Es una de las enfermedades más destructivas de las zonas vitivinícolas: reduce la cosecha y la calidad de la uva (Poblete-Echeverría et al., 2025b).</p>
       <p>Puede afectar a hojas, brotes y racimos.</p></div></div></div>
     </details>
     <details>
       <summary>Qué es una mancha de aceite</summary>
       <div><div class="duo">{ff('mildiu_01_hoja_mancha_aceite_en_mano', 'Una mano sostiene una hoja de vid con zonas amarillentas y translúcidas.', 'Manchas de aceite en el haz de una hoja.')}
-      <div><p>Es el síntoma más reconocible en el haz de la hoja: una zona amarillenta y como translúcida, parecida a una gota de aceite sobre papel. Con el tiempo, el tejido se oscurece y se seca (Gessler et al., 2011; Hernández et al., 2024).</p></div></div>
+      <div><p>Es el síntoma más reconocible en el haz de la hoja: una zona amarillenta y como translúcida, parecida a una gota de aceite sobre papel. Con el tiempo, el tejido se oscurece y se seca (Gessler et al., 2011; Hernández et al., 2024a).</p></div></div>
       {galeria([('mildiu_19_mancha_aceite_primer_plano', 'Primer plano de una hoja de vid verde con una mancha amarillenta redonda, rodeada de otras hojas con gotas de agua.', 'Una mancha de aceite en primer plano, en una hoja de la cepa.'), ('mildiu_03_hojas_manchas_aceite_amarillas', 'Hojas de vid con manchas amarillas, algunas con el centro pardo.', 'Varias manchas en la misma cepa.'), ('mildiu_15_hoja_necrosis_avanzada', 'Hoja de vid con grandes zonas amarillas y pardas, con el tejido seco.', 'Mildiu avanzado: el tejido se seca y se rompe.')])}</div>
     </details>
     <details>
       <summary>La pelusilla blanca: esporulación</summary>
       <div><div class="duo">{ff('mildiu_17_hoja_enves_esporulacion_en_mano', 'Una mano sostiene una hoja de vid dada la vuelta, con una película blanquecina en el envés.', 'El envés de una hoja con mildiu, con la película blanquecina.')}
-      <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Gessler et al., 2011; Hernández et al., 2024).</p></div></div>
+      <div><p>Si el ambiente es húmedo, por el envés de la mancha aparece una pelusilla blanquecina. Es la esporulación: el organismo produce las estructuras con las que se propaga a otras hojas (Gessler et al., 2011; Hernández et al., 2024a).</p></div></div>
       {ff('mildiu_20_hoja_haz_enves', 'Dos hojas de vid juntas: a la izquierda el haz, con manchas amarillas de aceite; a la derecha el envés, con una pelusilla blanquecina sobre las manchas.', 'Una misma enfermedad vista por las dos caras: manchas de aceite en el haz (izquierda) y pelusilla blanquecina en el envés (derecha).')}</div>
     </details>
     <details>
       <summary>El mildiu también ataca a los racimos</summary>
       <div>{galeria([('mildiu_04_racimo_joven_afectado', 'Racimo joven con bayas verdes y partes marchitas de color oscuro.', 'Un racimo joven afectado.'), ('mildiu_06_racimo_afectado_en_cepa', 'Racimo de bayas verdes con zonas secas y oscuras, colgando de la cepa.', 'En la cepa, algunas partes del racimo se secan.')])}
-      <p>Además de las hojas, la enfermedad puede afectar a los racimos jóvenes (Gessler et al., 2011). Este reto se centra en las hojas: detectar sus síntomas es clave porque suelen ser la primera señal de la enfermedad (Hernández et al., 2024).</p></div>
+      <p>Además de las hojas, la enfermedad puede afectar a los racimos jóvenes (Gessler et al., 2011). Este reto se centra en las hojas: detectar sus síntomas es clave porque suelen ser la primera señal de la enfermedad (Hernández et al., 2024a, 2024b).</p></div>
     </details>
     <details>
       <summary>Qué síntomas buscar</summary>
       <div><div class="duo">{foto('det_inicial', 'Detalle de hojas de vid con manchas pequeñas, pálidas y amarillentas.', 'Primeras manchas: pequeñas, pálidas y fáciles de confundir con otros cambios de color.', 570, 514)}
-      <p>Al principio las manchas son muy pequeñas y muy pálidas, por eso cuesta tanto verlas entre tantas hojas (Hernández et al., 2024). Detectar los síntomas en las hojas es clave porque suelen ser la primera señal de la enfermedad. En el juego, al responder verás marcadas las zonas con mildiu.</p></div></div>
+      <p>Al principio las manchas son muy pequeñas y muy pálidas, por eso cuesta tanto verlas entre tantas hojas (Hernández et al., 2024a). Detectar los síntomas en las hojas es clave porque suelen ser la primera señal de la enfermedad. En el juego, al responder verás marcadas las zonas con mildiu.</p></div></div>
     </details>
     <details>
       <summary>No confundir: el oídio</summary>
@@ -692,15 +692,15 @@ def mildiu():
     </details>
     <details>
       <summary>Cómo se hacía</summary>
-      <div><p>Tradicionalmente, una persona experta recorre el viñedo y mira las hojas, o se hacen análisis en laboratorio. Es un método laborioso, subjetivo y que exige personal cualificado (Hernández et al., 2021; 2024).</p></div>
+      <div><p>Tradicionalmente, una persona experta recorre el viñedo y mira las hojas, o se hacen análisis en laboratorio. Es un método laborioso, subjetivo y que exige personal cualificado (Hernández et al., 2021, 2024a).</p></div>
     </details>
     <details>
       <summary>Cómo se hace ahora</summary>
-      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
+      <div><p>Se fotografía la vegetación, a mano o desde un vehículo en marcha, y redes neuronales buscan los síntomas. En campo, un modelo que localiza zonas con síntomas alcanzó un 86 % de acierto y una puntuación F1 del 82 % al clasificar zonas con y sin síntomas (Hernández et al., 2025). Otro enfoque, que clasifica trozos de imagen y los recorre con una ventana deslizante (EfficientNetV2S), logró un 91 % de acierto y un F1 de 0,92 (Hernández et al., 2024b), y permite ver en qué zonas «se fija» la IA para decidir.</p></div>
     </details>
     <details>
       <summary>Los límites</summary>
-      <div><p>Los síntomas iniciales son diminutos, la luz cambia de una foto a otra y algunas hojas con colores raros se parecen al mildiu. Los propios artículos presentan estos resultados como prometedores, no como un problema resuelto, y hablan de validar en condiciones reales (Hernández et al., 2024; 2025).</p></div>
+      <div><p>Los síntomas iniciales son diminutos, la luz cambia de una foto a otra y algunas hojas con colores raros se parecen al mildiu. Los propios artículos presentan estos resultados como prometedores, no como un problema resuelto, y hablan de validar en condiciones reales (Hernández et al., 2024a, 2024b, 2025).</p></div>
     </details>
   </div>
 </section>
@@ -738,10 +738,11 @@ def mildiu():
 
     <div id="juego-fin" hidden>
       <h3 id="titulo-final">Resultado de la ronda</h3>
-      <div class="final-grid"><div class="dato"><span class="grande" id="f-aciertos"></span><span id="f-aciertos-txt"></span></div></div>
+      <div class="final-grid"><div class="dato"><span class="grande" id="f-aciertos"></span><span id="f-aciertos-txt"></span></div><div class="dato" id="f-ia-caja" hidden><span class="grande" id="f-ia"></span><span id="f-ia-txt"></span></div></div>
+      <p class="cita">Cómo decide la IA: el modelo de detección de mildiu de Televitis marca, píxel a píxel, las zonas que cree enfermas; aquí cuenta como «tiene mildiu» si marca al menos el 1 % de la imagen. Algunas de estas imágenes pueden haber servido para entrenarlo, así que su acierto aquí es orientativo, no una medida.</p>
       <p id="f-leve"></p>
       <div class="tabla-wrap"><table class="tabla"><caption>Resultados por tipo de imagen</caption>
-        <thead><tr><th scope="col">Tipo</th><th scope="col">Imágenes</th><th scope="col">Aciertos</th></tr></thead><tbody id="tabla-cuerpo"></tbody></table></div>
+        <thead><tr><th scope="col">Tipo</th><th scope="col">Imágenes</th><th scope="col">Tus aciertos</th><th scope="col">Aciertos de la IA</th></tr></thead><tbody id="tabla-cuerpo"></tbody></table></div>
       {bloque_vs()}
       <p class="nota" id="f-mejor"></p>
       <p class="acciones"><button type="button" class="btn" id="f-compartir" data-compartir>Compartir mi resultado</button></p>
@@ -770,21 +771,21 @@ def mildiu():
     <h2 id="saber">Para saber más</h2>
     <p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/681cec665afe3d4f3517e8d6">tesis doctoral de Inés Hernández</a> (Universidad de La Rioja – ICVV, 2025) y de sus artículos.</p>
     <details><summary>¿Y cómo se estudia el mildiu en el laboratorio?</summary>
-      <div><p>Antes de salir al campo, las investigadoras de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> inocularon discos de hoja de vid con el patógeno y los fotografiaron día tras día. Así se puede ver cuándo aparecen los primeros síntomas y entrenar a la IA con ejemplos controlados (Hernández et al., 2024). Con ese aprendizaje, el modelo ya puede mirar una foto de campo:</p>
-      {ff_ctx('fig_mapa_ec',1400,480,'Tres imágenes de la misma cepa con hojas: la foto, una máscara en la que las zonas que la IA da por enfermas aparecen en rosa sobre fondo oscuro, y la foto con esas zonas superpuestas, sobre todo en dos hojas con manchas.','La IA no responde «sano» o «enfermo» para toda la foto: dibuja, zona a zona, dónde cree que hay mildiu.','Elaboración propia a partir de Hernández et al. (2024), con una fotografía del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}
-      <p>Fíjate en que marca las zonas con manchas, y en que al principio apenas hay nada que marcar: por eso detectar pronto es tan difícil (Hernández et al., 2024). Esta imagen puede haber formado parte del entrenamiento del modelo, así que sirve para ilustrar, no para medir su acierto.</p></div></details>
+      <div><p>Antes de salir al campo, las investigadoras de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> inocularon discos de hoja de vid con el patógeno y los fotografiaron día tras día. Así se puede ver cuándo aparecen los primeros síntomas y entrenar a la IA con ejemplos controlados (Hernández et al., 2024a). Con ese aprendizaje, el modelo ya puede mirar una foto de campo:</p>
+      {ff_ctx('fig_mapa_ec',1400,480,'Tres imágenes de la misma cepa con hojas: la foto, una máscara en la que las zonas que la IA da por enfermas aparecen en rosa sobre fondo oscuro, y la foto con esas zonas superpuestas, sobre todo en dos hojas con manchas.','La IA no responde «sano» o «enfermo» para toda la foto: dibuja, zona a zona, dónde cree que hay mildiu.','Elaboración propia a partir de Hernández et al. (2024a), con una fotografía del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}
+      <p>Fíjate en que marca las zonas con manchas, y en que al principio apenas hay nada que marcar: por eso detectar pronto es tan difícil (Hernández et al., 2024a). Esta imagen puede haber formado parte del entrenamiento del modelo, así que sirve para ilustrar, no para medir su acierto.</p></div></details>
     <details><summary>¿Y en el campo? Una persona experta frente a la IA</summary>
       <div><p>En el viñedo, las manchas son mucho más pequeñas respecto a toda la cepa. En estas imágenes, la columna central es lo que marcó una persona experta y la de la derecha, lo que predijo el modelo. Se parecen, pero no son idénticas: la IA ayuda a mirar y la persona valida. Algunas de estas fotos pueden haber servido para entrenar el modelo, así que no son una prueba de su acierto.</p>
       {ff_ctx('fig_campo_ec',1400,1412,'Tres filas, una por foto de viñedo con hojas: a la izquierda la foto; en el centro, las zonas con síntomas marcadas a mano en amarillo; a la derecha, las zonas que predice la IA en rosa. Se parecen, pero no coinciden del todo.','Cada fila es una foto: imagen (izquierda), síntomas marcados a mano por una persona (centro) y predicción de la IA (derecha).','Elaboración propia a partir de Hernández et al. (2025), con fotografías del archivo Televitis (Universidad de La Rioja) y un modelo de Televitis.')}
       
-      <p>También se ha probado con detectores tipo YOLO, que marcan con cajas las hojas con síntomas en cepas completas (Poblete-Echeverría et al., 2025).</p>
+      <p>También se ha probado con detectores tipo YOLO, que marcan con cajas las hojas con síntomas en cepas completas (Poblete-Echeverría et al., 2025b).</p>
       </div></details>
     <details open><summary>Artículos de investigación en que se basa este reto</summary>
       <div>{refs_ul(['pob2025d', 'her2025', 'her2024', 'her2024b', 'her2021', 'ges2011', 'gad2012'])}
       <p class="cita">Las imágenes son fotografías de viñedo de <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a> (Universidad de La Rioja, ICVV); los recortes se han preparado para este juego. Más en <a href="creditos.html">Créditos</a>.</p></div></details>
   </div>
 </section>'''
-    pagina('mildiu.html', '¿Mildiu o no?', 'Reto interactivo: decide si diez imágenes de viñedo tienen mildiu y aprende qué síntomas buscar, con imágenes reales de investigación.', cuerpo, ('data/mildiu.js', 'data/comparativas_fotos.js', 'js/comparativas_iconos.js', 'js/comparativas.js', 'js/vs.js', 'js/mildiu.js'))
+    pagina('mildiu.html', '¿Mildiu o no?', 'Reto interactivo: decide si diez imágenes de viñedo tienen mildiu y aprende qué síntomas buscar, con imágenes reales de investigación.', cuerpo, ('data/mildiu.js', 'data/mildiu_ia.js', 'data/comparativas_fotos.js', 'js/comparativas_iconos.js', 'js/comparativas.js', 'js/vs.js', 'js/mildiu.js'))
 
 # --- próximos retos: contenido por página ---
 PROX_INFO = {
@@ -792,7 +793,7 @@ PROX_INFO = {
    que='<p>Saber en qué fase está la vid ayuda a decidir cuándo podar, tratar, regar o vendimiar. Hasta ahora lo hacen personas expertas observando la planta. Un estudio las agrupó en cuatro etapas, según la escala de Eichhorn y Lorenz (E-L) (Coombe, 1995): desarrollo de brotes e inflorescencias (E-L 12–18), floración (E-L 19–26), formación de bayas (E-L 27–33) y maduración (E-L 35–38) (Íñiguez et al., 2025b).</p>',
    cien='<p>En ese estudio se entrenaron tres modelos de IA (ResNet-34, YOLOv11-Clasificación y Vision Transformer) para clasificar fotografías del viñedo en esas cuatro etapas, con 4.381 imágenes. ResNet-34 llegó a un 97,4 % de acierto en validación y un 95,6 % en test. La etapa más difícil fue la floración, que se confundía con las vecinas por su parecido visual (Íñiguez et al., 2025b).</p>' + ff_ctx('fig_fases_etapas_ec', 1400, 520, 'Cuatro fotos de cepas del ICVV ordenadas de abril a septiembre sobre una línea del tiempo: brotes e inflorescencias (E-L 12–18), floración (E-L 19–26, destacada en amarillo como la etapa que más confundía la IA), formación de bayas con racimos verdes (E-L 27–33) y maduración con uva tinta (E-L 35–38).', 'Las cuatro etapas del estudio. La floración, entre los brotes y las primeras bayas, fue la que más confundía la IA.', 'Elaboración propia a partir de Íñiguez et al. (2025b), con fotografías del archivo Televitis (Universidad de La Rioja).'),
    tesis='<p class="lead">Este reto nace de la <a href="https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025), sobre cómo estimar la cosecha del viñedo con inteligencia artificial y visión por computador. Saber en qué fase está la vid es el primer paso: dice qué se puede contar en cada momento, de las inflorescencias a los racimos maduros (Íñiguez et al., 2025b).</p>',
-   idea='Te enseñaremos una foto y tendrás que decir en cuál de las cuatro etapas está la vid.', refs=['ini2025b', 'coo1995', 'bag1952', 'pal2020', 'icvv2020'],
+   idea='Te enseñaremos una foto y tendrás que decir en cuál de las cuatro etapas está la vid.', refs=['ini2025b', 'coo1995', 'pal2020', 'icvv2020'],
    extra_html=f'''<h2>Las cuatro etapas, en imágenes</h2>
   <p>Estas fotografías siguen a varias cepas de la colección de variedades del Instituto de Ciencias de la Vid y del Vino (ICVV), en la Finca Institucional de La Grajera (Logroño), con más de 500 variedades (ICVV, 2020), a lo largo de la campaña. Cada una lleva el nombre de su estado. Fíjate en cómo cambia la planta de una etapa a la siguiente: a veces el cambio es evidente y a veces es muy sutil.</p>
   <h3>1. Desarrollo de brotes e inflorescencias (E-L 12–18)</h3>
@@ -809,15 +810,15 @@ PROX_INFO = {
 '''),
  'peso.html': dict(
    que='<p>Contar racimos no basta para prever la cosecha: también importa cuánto pesa cada uno. Pesarlos a mano es lento y obliga a cortar el racimo.</p>',
-   cien='<p>Un estudio analizó imágenes de 359 racimos de Cabernet-Sauvignon con distintos riegos y extrajo 13 medidas de forma. Con un modelo de regresión por pasos, el área, el perímetro y la circularidad predijeron el peso (R² ajustado = 0,824), con desviaciones en los racimos más grandes (Poblete-Echeverría et al., 2025).</p>',
+   cien='<p>Un estudio analizó imágenes de 359 racimos de Cabernet-Sauvignon con distintos riegos y extrajo 13 medidas de forma. Con un modelo de regresión por pasos, el área, el perímetro y la circularidad predijeron el peso (R² ajustado = 0,824), con desviaciones en los racimos más grandes (Poblete-Echeverría et al., 2025a).</p>',
    idea='Verás un racimo, estimarás su peso y lo compararás con el real.', refs=['pob2025'],
    extra_html=f'''<h2>De la foto al peso</h2>
-  <p>El método fotografía cada racimo sobre un fondo claro con una referencia de tamaño conocido, mide su silueta (área, perímetro, circularidad…) con un programa y la relaciona con el peso real del racimo en una balanza (Poblete-Echeverría et al., 2025).</p>
-  {ff_ctx('fig_peso_ec', 1400, 520, 'Esquema de tres pasos: 1, pesar el racimo en una balanza; 2, fotografiarlo sobre un fondo claro con una referencia de tamaño de 5 centímetros; 3, medir la forma de su silueta (área, perímetro y circularidad) para estimar el peso.', 'El flujo de trabajo: pesar el racimo, fotografiarlo y medir su forma para estimar su peso.', 'Elaboración propia a partir de Poblete-Echeverría et al. (2025).')}''',
+  <p>El método fotografía cada racimo sobre un fondo claro con una referencia de tamaño conocido, mide su silueta (área, perímetro, circularidad…) con un programa y la relaciona con el peso real del racimo en una balanza (Poblete-Echeverría et al., 2025a).</p>
+  {ff_ctx('fig_peso_ec', 1400, 520, 'Esquema de tres pasos: 1, pesar el racimo en una balanza; 2, fotografiarlo sobre un fondo claro con una referencia de tamaño de 5 centímetros; 3, medir la forma de su silueta (área, perímetro y circularidad) para estimar el peso.', 'El flujo de trabajo: pesar el racimo, fotografiarlo y medir su forma para estimar su peso.', 'Elaboración propia a partir de Poblete-Echeverría et al. (2025a).')}''',
    fotos=[('peso_01_balanza_laboratorio', 'Un racimo de uva tinta sobre una balanza de laboratorio, con el peso visible en la pantalla.', 'Pesar un racimo en el laboratorio: el dato que luego se intenta estimar solo con una foto.'), ('produccion_09_cinco_racimos_tamanos', 'Cinco racimos de uva tinta de distintos tamaños, colocados en fila sobre un papel.', 'Cada racimo es distinto: tamaño, forma y peso.')]),
  'sed.html': dict(
    que='<p>El estado hídrico de la vid afecta al rendimiento y a la calidad de la uva, y el riego es clave para un viñedo sostenible. Medirlo suele requerir una cámara de presión y mucho trabajo planta a planta.</p>',
-   cien='<p>Cámaras térmicas montadas en un vehículo que avanza a 5 km/h estiman la sed de la vid con aprendizaje automático. En un trabajo, los modelos alcanzaron valores de R² de hasta 0,62 en validación cruzada y 0,65 en predicción (Gutiérrez et al., 2018). En otro, dos índices térmicos llegaron a R² de hasta 0,71 frente a la medida de referencia (Gutiérrez et al., 2021).</p>',
+   cien='<p>Cámaras térmicas montadas en un vehículo que avanza a 5 km/h estiman la sed de la vid con aprendizaje automático. En un trabajo, los modelos alcanzaron valores de R² de hasta 0,62 en validación cruzada y 0,65 en predicción (Gutiérrez et al., 2018b). En otro, dos índices térmicos llegaron a R² de hasta 0,71 frente a la medida de referencia (Gutiérrez et al., 2021).</p>',
    idea='Te mostraremos imágenes térmicas y tendrás que decir qué zona sufre más estrés.', refs=['gut2018a', 'gut2021'],
    fotos=[('@dron_termica', 'Imagen térmica aérea de un viñedo en colores del morado al amarillo: las cepas y el suelo tienen temperaturas distintas.', 'Imagen térmica tomada con un dron: los colores indican la temperatura.', 'Foto: archivo Televitis (Universidad de La Rioja), julio de 2024.'), ('@dron_termica_0108', 'Imagen térmica aérea de un viñedo con filas de cepas moradas y un camino anaranjado.', 'Otra zona del mismo vuelo: las filas más calientes aparecen en tonos más claros.', 'Foto: archivo Televitis (Universidad de La Rioja), julio de 2024.'), ('quad_01_plataforma_quad_atardecer_a', 'Vehículo naranja con una plataforma de cámaras y sensores junto a un viñedo.', 'Las cámaras pueden recorrer las filas montadas en un vehículo.'), ('ia_camara_presion', 'Una cámara de presión: una caja azul con un manómetro y una tapa metálica de la que sale el peciolo de una hoja de vid, delante de un viñedo.', 'Cámara de presión: mide el estado hídrico de una hoja, pero hay que hacerlo planta a planta.', CRED_IA), ('ia_plataforma_termica_recoloreada', 'Vista desde el vehículo de dos filas de viñedo con las hojas coloreadas del morado al amarillo, como en una imagen térmica, y la plataforma de cámaras al frente.', 'Ilustración: una fotografía real de la plataforma, recoloreada para sugerir cómo «ve» una cámara térmica. No es una imagen térmica real.', CRED_IA)]),
  'enfermedades.html': dict(
@@ -827,7 +828,7 @@ PROX_INFO = {
    fotos=[('oidio_02_hoja_brote_polvo_blanco', 'Hoja y brote de vid cubiertos por un polvo blanquecino.', 'Oídio en una hoja y un brote.'), ('oidio_05_racimo_bayas_polvo', 'Racimo de bayas verdes cubiertas de un polvo grisáceo.', 'Oídio en un racimo.'), ('madera_07_hojas_atigradas_g', 'Hojas de vid verdes con zonas rojizas y pardas entre los nervios y en los bordes.', 'Yesca: hojas con manchas «atigradas» entre los nervios.'), ('madera_09_hoja_atigrada_cercana_i', 'Primer plano de una hoja con el borde seco y zonas rojizas entre nervios verdes.', 'Yesca vista de cerca: los nervios siguen verdes y el resto se tiñe.')]),
  'variedades.html': dict(
    que='<p>Reconocer la variedad de una cepa es clave para el viticultor y para la bodega. La ampelografía clásica lo hace observando la forma de la hoja, el color de los brotes y otros rasgos; también se usan análisis de ADN en laboratorio. Pero las hojas de dos variedades pueden parecer casi iguales a simple vista.</p>',
-   cien='<p>Un estudio fotografió con una cámara hiperespectral, desde un vehículo en marcha, hojas de 30 variedades en un viñedo de La Rioja. Con 1.200 muestras espectrales, los modelos clasificaron las variedades con puntuaciones de hasta 0,99 en validación cruzada (Gutiérrez et al., 2018). Es decir: la hoja, vista con una cámara que capta más colores que los nuestros, funciona como un «carné de identidad» de la variedad.</p>',
+   cien='<p>Un estudio fotografió con una cámara hiperespectral, desde un vehículo en marcha, hojas de 30 variedades en un viñedo de La Rioja. Con 1.200 muestras espectrales, los modelos clasificaron las variedades con puntuaciones de hasta 0,99 en validación cruzada (Gutiérrez et al., 2018a). Es decir: la hoja, vista con una cámara que capta más colores que los nuestros, funciona como un «carné de identidad» de la variedad.</p>',
    idea='Te enseñaremos una hoja y tendrás que adivinar de qué variedad es, a ver si ganas a la máquina.', refs=['gut2018b', 'icvv2020'],
    extra_html=f'''<h2>Seis variedades, seis hojas</h2>
   <p>Estas fotografías son de seis variedades, tres blancas y tres tintas, de la colección de variedades del Instituto de Ciencias de la Vid y del Vino (ICVV) en la Finca Institucional de La Grajera (Logroño), que reúne más de 500 variedades (ICVV, 2020), en la misma época del año. Fíjate en el tamaño de las hojas, en la profundidad de sus cortes (los lóbulos), en el color y en el borde dentado: son los rasgos que la ampelografía lleva siglos mirando.</p>
@@ -930,7 +931,7 @@ def galeria_prox(info):
 def proximos():
     for a, i, v, q, g in PROX:
         info = PROX_INFO[a]
-        cuerpo = cab_pagina(v, i, q, g) + f'''
+        cuerpo = cab_pagina(v, i, q, g + (f'<span class="nace">Un reto basado en la <a href=\"https://investigacion.unirioja.es/documentos/696a8d27be3bb53a465a961c\">tesis doctoral de Rubén Iñiguez Mangado</a> (Universidad de La Rioja – ICVV, 2025).</span>' if a == 'fases.html' else '')) + f'''
 <section class="bloque"><div class="wrap narrow capas">
   <h2>El problema</h2>{info['que']}
   {fases_juego() if a == 'fases.html' else ''}
@@ -1021,6 +1022,8 @@ def creditos():
   <p>Ninguna se usa como dato ni en los juegos: todas las imágenes de los retos y de las enfermedades son fotografías reales.</p>
   <h2>Licencias</h2>
   <p>Los textos, el diseño y el resto de contenidos de esta web se publican bajo <a href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>; el código, bajo licencia MIT. Los artículos científicos citados mantienen sus propias licencias; consulta cada uno en su enlace.</p>
+  <h2>Probada con personas reales</h2>
+  <p>Antes de la entrega, unas 20 personas probaron la web y dieron su opinión: 6 viticultores, 6 jóvenes sin relación con el sector, 6 investigadores del ámbito de la viticultura (entre ellos, del grupo <a class="enl-tv" href="https://televitis.unirioja.es/">Televitis</a>) y 2 investigadores de otras áreas, como la química. Sus comentarios se incorporaron a esta versión.</p>
   <h2>Cómo se hizo</h2>
   <p>Los pictogramas de las comparativas de los retos y las figuras «Elaboración propia» se han hecho para esta web (CC BY 4.0).</p>
   <p>La idea, la selección de datos y la revisión científica son de {AUTOR}, que asume la autoría y la responsabilidad final del contenido. Para redactar textos y desarrollar el código se usaron herramientas de inteligencia artificial generativa (Claude, de Anthropic) como apoyo. Ninguna cifra, referencia o resultado ha sido inventado: salen de los artículos y datos citados. La accesibilidad se ha comprobado con herramientas automáticas y pruebas manuales; los detalles están en la <a href="accesibilidad.html">declaración de accesibilidad</a>.</p>
@@ -1074,9 +1077,11 @@ def _lab_tarea(archivo, tarea, chip_t, h1, lead, previsto, consejos, icon):
   <form id="sube-form" data-tarea="{tarea}" novalidate>
     <div class="resultado-paso" id="sube-nota-modelo" hidden>
       <p>Esta es la versión de demostración en línea. Los modelos de IA de Televitis siguen en fase de pruebas y se publicarán aquí cuando estén listos, para que cualquiera pueda analizar sus propias fotos. Mientras tanto, puedes ver el resultado real de los modelos sobre las fotos de ejemplo.</p>
-      <p><label for="sube-modelo"><strong>¿Tienes tu propio modelo?</strong> Cárgalo en formato ONNX y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
+      <details class="dev"><summary>Para desarrolladores: cargar un modelo propio</summary><div>
+      <p><label for="sube-modelo">Si tienes tu propio modelo en formato ONNX, cárgalo y analiza tus fotos. Se queda en tu navegador, como las fotos.</label><br><input type="file" id="sube-modelo" accept=".onnx"></p>
       <p class="ayuda" id="sube-modelo-estado" role="status" aria-live="polite"></p>
       <details><summary>Qué modelo sirve</summary><div>{'<p>Un detector tipo YOLO (Ultralytics) exportado a ONNX, con entrada de 640 × 640 píxeles en RGB y valores de 0 a 1. Se aceptan las dos salidas habituales: [1, 4 + clases, N] o [1, N, 6] con la supresión de duplicados ya incluida.</p>' if tarea == 'racimos' else '<p>Un modelo de segmentación exportado a ONNX, con entrada de 224 × 224 píxeles en RGB normalizada como ImageNet. La salida puede ser un canal de probabilidad de mildiu o dos canales (fondo y mildiu). La foto se analiza por trozos y se marcan las zonas con probabilidad mayor de 0,95.</p>'}</div></details>
+      </div></details>
     </div>
     <p class="ejemplos" id="sube-ejemplos"><strong>¿No tienes una foto a mano?</strong> Prueba con una del archivo de Televitis:<br>{ejemplos}</p>
     <p><label for="sube-foto"><strong>1. Elige una foto</strong></label><br><input type="file" id="sube-foto" accept="image/*"></p>

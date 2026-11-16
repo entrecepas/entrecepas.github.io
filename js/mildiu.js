@@ -96,6 +96,8 @@
     el.fbTxt.textContent = t.que + ': ' + t.desc;
     el.fbPista.textContent = t.pista;
     if (it.pred) { el.fbIA.hidden = false; el.fbIA.textContent = 'La IA dijo: ' + it.pred + ' (confianza ' + Math.round(it.conf * 100) + ' %).'; }
+    var IA = window.MILDIU_IA && window.MILDIU_IA[it.id];
+    if (IA && !est.guia) { el.fbIA.hidden = false; el.fbIA.textContent = 'La IA de Televitis dijo: ' + (IA.mildiu ? '«tiene mildiu»' : '«no tiene mildiu»') + ' (marcó el ' + String(IA.pct).replace('.', ',') + ' % de la imagen). ' + ((IA.mildiu === (it.et === 'mildiu')) ? 'Acertó.' : 'Se equivocó.'); }
     if (!est.guia && it.les && it.les.length) pintaManchas(it);
     el.sig.hidden = false; el.sig.textContent = est.i === RONDA - 1 ? 'Ver el resultado' : 'Siguiente imagen';
     anuncia(el.fbTit.textContent + ' ' + el.fbTxt.textContent);
@@ -118,17 +120,19 @@
 
   function final() {
     el.play.hidden = true; el.fin.hidden = false;
-    var aciertos = 0, porCat = {}, i;
+    var aciertos = 0, porCat = {}, i, aciertosIA = 0, hayIA = false;
     for (i = 0; i < RONDA; i++) {
       var it = est.ronda[i], ok = est.resp[i] === it.et;
-      var c = porCat[it.cat] = porCat[it.cat] || { n: 0, ok: 0 }; c.n++; if (ok) { c.ok++; aciertos++; }
+      var c = porCat[it.cat] = porCat[it.cat] || { n: 0, ok: 0, ia: 0 }; c.n++; if (ok) { c.ok++; aciertos++; }
+      var IAi = window.MILDIU_IA && window.MILDIU_IA[it.id]; if (IAi) { hayIA = true; if (IAi.mildiu === (it.et === 'mildiu')) { c.ia++; aciertosIA++; } }
     }
     var body = $('tabla-cuerpo'); limpia(body);
     ['avanzado', 'leve', 'sano', 'parecido'].forEach(function (k) {
       if (!porCat[k]) return;
       var tr = document.createElement('tr'), th = document.createElement('th'); th.scope = 'row'; th.textContent = NOMBRE[k]; tr.appendChild(th);
       var a = document.createElement('td'); a.textContent = porCat[k].n; tr.appendChild(a);
-      var b = document.createElement('td'); b.textContent = est.guia ? '—' : porCat[k].ok; tr.appendChild(b); body.appendChild(tr);
+      var b = document.createElement('td'); b.textContent = est.guia ? '—' : porCat[k].ok; tr.appendChild(b);
+      var b2 = document.createElement('td'); b2.textContent = hayIA ? porCat[k].ia : '—'; tr.appendChild(b2); body.appendChild(tr);
     });
     $('bloque-vs').hidden = est.guia;
     if (!est.guia) {
@@ -138,7 +142,8 @@
     if (est.guia) {
       $('f-aciertos').textContent = '10 casos'; $('f-aciertos-txt').textContent = 'repasados en el recorrido guiado.'; $('f-mejor').textContent = '';
     } else {
-      $('f-aciertos').textContent = aciertos + ' de ' + RONDA; $('f-aciertos-txt').textContent = 'imágenes bien clasificadas.';
+      $('f-aciertos').textContent = aciertos + ' de ' + RONDA; $('f-aciertos-txt').textContent = 'acertaste tú.';
+      if (hayIA) { $('f-ia').textContent = aciertosIA + ' de ' + RONDA; $('f-ia-txt').textContent = 'acertó la IA de Televitis con las mismas imágenes.'; $('f-ia-caja').hidden = false; }
       var mejor = null; try { mejor = parseInt(localStorage.getItem(KEY), 10); } catch (e) { mejor = null; }
       if (isNaN(mejor)) mejor = null;
       var nuevo = mejor === null || aciertos > mejor;
