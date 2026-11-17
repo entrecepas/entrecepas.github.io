@@ -80,7 +80,7 @@
     $('bloque-vs').hidden = est.guia;
     if (!est.guia) {
       var tm = est.tiempos.reduce(function (a, b) { return a + b; }, 0) / est.tiempos.length;
-      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por foto', ia: { s: 0.005, txt: '≈ 5 ms', nota: 'por foto, en un ordenador potente (estimación propia)' }, aviso: 'Eso sí: a la IA le pasa como a ti, confunde las fases vecinas.' });
+      window.EntreCepasVs.pinta({ tmed: tm, unidad: 'por foto', ia: { s: 0.005, txt: '≈ 5 ms', nota: 'por foto, en un ordenador potente (estimación propia). En un móvil tarda más' }, aviso: 'Eso sí: a la IA le pasa como a ti, confunde las fases vecinas.' });
     }
     if (est.guia) {
       $('f-aciertos').textContent = '9 etapas'; $('f-aciertos-txt').textContent = 'repasadas en el recorrido guiado.'; $('f-cerca').textContent = ''; $('f-mejor').textContent = '';

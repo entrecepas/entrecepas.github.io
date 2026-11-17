@@ -12,7 +12,7 @@
   var tog = document.createElement('button'); tog.type = 'button'; tog.className = 'btn secundario'; tog.id = 'sube-toggle'; tog.hidden = true;
   tog.setAttribute('aria-pressed', 'true'); tog.textContent = 'Ocultar las marcas de la IA';
   if (res) res.appendChild(tog);
-  function guardaMarcado() { try { marcado = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height); verMarcas = true; tog.hidden = !origen; tog.setAttribute('aria-pressed', 'true'); tog.textContent = 'Ocultar las marcas de la IA'; } catch (e) { tog.hidden = true; } }
+  function guardaMarcado() { if (tarea === 'fases') { tog.hidden = true; return; } try { marcado = cv.getContext('2d').getImageData(0, 0, cv.width, cv.height); verMarcas = true; tog.hidden = !origen; tog.setAttribute('aria-pressed', 'true'); tog.textContent = 'Ocultar las marcas de la IA'; } catch (e) { tog.hidden = true; } }
   tog.addEventListener('click', function () {
     var c = cv.getContext('2d'); verMarcas = !verMarcas;
     if (verMarcas && marcado) c.putImageData(marcado, 0, 0); else if (origen) c.drawImage(origen, 0, 0, cv.width, cv.height);
@@ -114,7 +114,7 @@
     }).then(function () {
       c.putImageData(out, 0, 0);
       var pct = marcados / (W * H) * 100, ms = Math.round(performance.now() - t0);
-      txt.textContent = (pct < 0.5 ? 'No se ven señales claras de mildiu en esta foto. ' : 'La IA marca en rosa las zonas que podrían tener mildiu: ' + pct.toFixed(1).replace('.', ',') + ' % de la imagen. ') +
+      txt.textContent = (pct < 1 ? 'No se ven señales claras de mildiu en esta foto. ' : 'La IA marca en rosa las zonas que podrían tener mildiu: ' + pct.toFixed(1).replace('.', ',') + ' % de la imagen. ') +
         'Ha tardado ' + (ms / 1000).toFixed(1).replace('.', ',') + ' s en tu dispositivo. Es una ayuda para mirar, no un diagnóstico: la decisión es de una persona.';
       cv.setAttribute('aria-label', 'Tu foto con las zonas sospechosas de mildiu marcadas en rosa');
     });

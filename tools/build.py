@@ -38,11 +38,11 @@ REF = {
  'del2021': ('Del Frari, G., Oliveira, H. y Boavida Ferreira, R. (2021). White rot fungi (Hymenochaetales) and esca of grapevine: insights from recent microbiome studies. <em>Journal of Fungi</em>, 7(9), 770.', '10.3390/jof7090770'),
  'mug1999': ('Mugnai, L., Graniti, A. y Surico, G. (1999). Esca (black measles) and brown wood-streaking: two old and elusive diseases of grapevines. <em>Plant Disease</em>, 83(5), 404–418.', '10.1094/PDIS.1999.83.5.404'),
  'ots1979': ('Otsu, N. (1979). A threshold selection method from gray-level histograms. <em>IEEE Transactions on Systems, Man, and Cybernetics</em>, 9(1), 62–66.', '10.1109/TSMC.1979.4310076'),
- 'ges2011': ('Gessler, C., Pertot, I. y Perazzolli, M. (2011). <em>Plasmopara viticola</em>: a review of knowledge on downy mildew of grapevine and effective disease management. <em>Phytopathologia Mediterranea</em>, 50(1), 3–44.', 'https://doi.org/10.14601/Phytopathol_Mediterr-9360'),
+ 'ges2011': ('Gessler, C., Pertot, I. y Perazzolli, M. (2011). <em>Plasmopara viticola</em>: a review of knowledge on downy mildew of grapevine and effective disease management. <em>Phytopathologia Mediterranea</em>, 50(1), 3–44.', '10.14601/Phytopathol_Mediterr-9360'),
  'gad2012': ('Gadoury, D. M., Cadle-Davidson, L., Wilcox, W. F., Dry, I. B., Seem, R. C. y Milgroom, M. G. (2012). Grapevine powdery mildew (<em>Erysiphe necator</em>): a fascinating system for the study of the biology, ecology and epidemiology of an obligate biotroph. <em>Molecular Plant Pathology</em>, 13(1), 1–16.', '10.1111/j.1364-3703.2011.00728.x'),
  'lau2021': ('Laurent, C., Oger, B., Taylor, J. A., Scholasch, T., Metay, A. y Tisseyre, B. (2021). A review of the issues, methods and perspectives for yield estimation, prediction and forecasting in viticulture. <em>European Journal of Agronomy</em>, 130, 126339.', '10.1016/j.eja.2021.126339'),
  'tar2021': ('Tardaguila, J., Stoll, M., Gutiérrez, S., Proffitt, T. y Diago, M. P. (2021). Smart applications and digital technologies in viticulture: a review. <em>Smart Agricultural Technology</em>, 1, 100005.', '10.1016/j.atech.2021.100005'),
- 'bra2010': ('Bramley, R. G. V. (2010). Precision viticulture: managing vineyard variability for improved quality outcomes. En <em>Managing wine quality. Volume 1: Viticulture and wine quality</em> (cap. 12). Woodhead Publishing.', 'https://doi.org/10.1533/9781845699284.3.445'),
+ 'bra2010': ('Bramley, R. G. V. (2010). Precision viticulture: managing vineyard variability for improved quality outcomes. En <em>Managing wine quality. Volume 1: Viticulture and wine quality</em> (cap. 12). Woodhead Publishing.', '10.1533/9781845699284.3.445'),
  'fer2023': ('Ferro, M. V. y Catania, P. (2023). Technologies and innovative methods for precision viticulture: a comprehensive review. <em>Horticulturae</em>, 9(3), 399.', '10.3390/horticulturae9030399'),
  'del2014': ('De la Fuente, M. (2014). The relevance of the yield prediction methods in vineyard management. <em>Bulletin de l’OIV</em>, 87(1001-1002-1003), 387–394.', None),
  'pob2025d': ('Poblete-Echeverría, C., Hernández, I., Íñiguez, R., Gutiérrez, S., Barrio, I. y Tardáguila, J. (2025b). Using artificial intelligence for automatic and fast detection of downy mildew symptoms in grapevine canopies. <em>European Journal of Agronomy</em>, 170, 127755.', '10.1016/j.eja.2025.127755'),
@@ -118,7 +118,7 @@ def cabecera(actual):
         elif h == 'LAB':
             activo = actual in LAB_PAGS
             cur = lambda a: ' aria-current="page"' if a == actual else ''
-            sub = ''.join(f'<li><a href="{a}"{cur(a)}>{t}</a></li>' for a, t in [('laboratorio.html', 'Cómo funciona'), ('laboratorio-racimos.html', 'Contar racimos con IA'), ('laboratorio-mildiu.html', 'Detectar mildiu con IA'), ('laboratorio-fases.html', 'Reconocer la fase con IA')])
+            sub = ''.join(f'<li><a href="{a}"{cur(a)}>{t}</a></li>' for a, t in [('laboratorio.html', 'Cómo funciona'), ('laboratorio-racimos.html', 'Contar racimos con IA'), ('laboratorio-mildiu.html', 'Detectar mildiu con IA'), ('laboratorio-fases.html', 'Reconocer la fase (próximamente)')])
             li += (f'<li><button type="button" class="sub-toggle" id="lab-toggle" aria-expanded="false" aria-controls="lab-menu"{" data-activo=\"1\"" if activo else ""}>{n}'
                    '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>'
                    f'<ul class="sub" id="lab-menu" hidden>{sub}</ul></li>')
@@ -1078,7 +1078,7 @@ def _paso_img(n, alt):
 def laboratorio():
     pasos = [
         ('1', 'Haz una foto en el campo', 'Con el móvil, a una cepa o a una hoja.', 'Una persona con una gorra hace una foto con el móvil a una cepa de vid en un viñedo.', 'viñedo'),
-        ('2', 'Súbela a la plataforma', 'Eliges qué quieres analizar: racimos o mildiu.', 'Una mano sube la foto desde el móvil a una pantalla con el logotipo de la web.', 'subir'),
+        ('2', 'Súbela a la plataforma', 'Eliges qué quieres analizar: racimos, mildiu o la fase de la vid.', 'Una mano sube la foto desde el móvil a una pantalla con el logotipo de la web.', 'subir'),
         ('3', 'La web la analiza', 'Un modelo de inteligencia artificial la examina en unos segundos, en tu propio dispositivo.', 'Una imagen de cepa con cuadrículas y destellos, como si una lupa digital la examinara.', 'analizar'),
         ('4', 'Recibe el resultado', 'Cajas sobre la foto, un número y una explicación en lenguaje claro.', 'Una foto de cepa con recuadros sobre los racimos y un número grande con el recuento.', 'resultado'),
     ]
@@ -1096,7 +1096,7 @@ def laboratorio():
   <div class="eleccion">
     <a class="prox-card" href="laboratorio-racimos.html">{icono('racimo')}<h3>Contar racimos</h3><p>La IA marca los racimos de una foto de cepa y te dice cuántos son, en segundos.</p><span class="mas">Probar</span></a>
     <a class="prox-card" href="laboratorio-mildiu.html">{icono('hoja')}<h3>Detectar mildiu</h3><p>La IA señala las zonas de una hoja o de una cepa que podrían tener mildiu. La decisión final siempre es de una persona.</p><span class="mas">Probar</span></a>
-    <a class="prox-card" href="laboratorio-fases.html">{icono('fase')}<h3>Reconocer la fase</h3><p>La IA mira la foto de una cepa y propone en qué etapa del ciclo está: brotes, floración, bayas o maduración.</p><span class="mas">Probar</span></a>
+    <a class="prox-card" href="laboratorio-fases.html">{icono('fase')}<h3>Reconocer la fase</h3><p>Próximamente, la IA propondrá en qué etapa del ciclo está la cepa. Hoy puedes ver cómo clasifica las fotos una persona experta.</p><span class="mas">Ver</span></a>
   </div>
   <p class="ayuda">Tus fotos se quedan en tu navegador y no se envían a ningún sitio. El análisis se hace en tu propio dispositivo. Es un prototipo de investigación: puede equivocarse, sobre todo con fotos de móvil.</p>
 </div></section>'''
@@ -1146,8 +1146,8 @@ def lab_tareas():
     _lab_tarea('laboratorio-mildiu.html', 'mildiu', 'Detectar mildiu con IA', 'Detectar mildiu con IA', 'Sube una foto de una hoja o de una cepa y mira si la inteligencia artificial ve señales de mildiu.',
         '<ul class="lista-simple"><li>Las zonas sospechosas marcadas sobre tu foto.</li><li>Un aviso claro: «posible mildiu» o «no se ve mildiu».</li><li>Cuánto ha tardado la IA en tu dispositivo.</li><li>Un recordatorio: la IA ayuda a mirar, pero la decisión es de una persona.</li></ul>',
         '<ul class="lista-simple"><li>Enfoca la hoja con buena luz y sin sombras duras.</li><li>Incluye el haz (la cara de arriba), donde aparecen las manchas de aceite.</li><li>Evita fotos movidas o con la hoja mojada.</li></ul><p class="ayuda">Son consejos orientativos.</p>', 'hoja')
-    _lab_tarea('laboratorio-fases.html', 'fases', 'Reconocer la fase con IA', 'Reconocer la fase con IA', 'Sube una foto de una cepa y mira en qué etapa del ciclo la sitúa la inteligencia artificial.',
-        '<ul class="lista-simple"><li>La etapa que propone la IA, escrita sobre tu foto: brotes e inflorescencias, floración, formación de bayas o maduración.</li><li>Lo segura que está, y qué otras etapas ha considerado.</li><li>Cuánto ha tardado la IA en tu dispositivo.</li></ul>',
+    _lab_tarea('laboratorio-fases.html', 'fases', 'Reconocer la fase (próximamente)', 'Reconocer la fase de la vid', 'Próximamente, la inteligencia artificial de Televitis te dirá en qué etapa del ciclo está tu cepa. Mientras tanto, mira cómo clasifica las fotos una persona experta.',
+        '<ul class="lista-simple"><li>Cuando el modelo esté disponible: la etapa que propone la IA, escrita sobre tu foto (brotes e inflorescencias, floración, formación de bayas o maduración).</li><li>Lo segura que está, y qué otras etapas ha considerado.</li><li>Hoy, con las fotos de ejemplo: la etapa que les asigna una persona experta.</li></ul>',
         '<ul class="lista-simple"><li>La cepa de frente, con el tronco y los brotes en el encuadre.</li><li>Con buena luz y sin contraluz.</li><li>Lo bastante cerca para que se vean las flores o los racimos.</li></ul><p class="ayuda">Son consejos orientativos.</p>', 'fase')
 
 
